@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal Dragon | NOVA Core</title>
+    <title>NOVA CORE | Local Grid</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root { --neon: #00ffcc; }
@@ -12,7 +12,6 @@
         .chat-area { height: 350px; overflow-y: auto; scrollbar-width: none; }
         .nova-msg { color: var(--neon); font-weight: bold; margin-bottom: 15px; border-left: 3px solid var(--neon); padding-left: 12px; }
         .user-msg { color: #fff; text-align: right; margin-bottom: 15px; background: rgba(255,255,255,0.07); padding: 10px; border-radius: 12px; }
-        .error-msg { color: #ff3333; font-style: italic; margin-bottom: 15px; font-size: 10px; border-left: 2px solid #ff3333; padding-left: 10px; }
         .blink { animation: blinker 1s linear infinite; }
         @keyframes blinker { 50% { opacity: 0; } }
     </style>
@@ -30,14 +29,14 @@
 
         <div class="bg-black/50 rounded-[2rem] p-5 border border-white/5 mb-4">
             <div id="chat-box" class="chat-area space-y-4 text-[11px]">
-                <div class="nova-msg">SYSTEM ONLINE. Greetings, Brother. NOVA Core is synchronized with the NOVA GRID. How can I assist you today?</div>
+                <div class="nova-msg">LOCAL GRID ONLINE. Greetings, Brother. Connected via Ollama. How can I assist you?</div>
             </div>
-            <div id="loader" class="hidden text-[9px] text-cyan-400 mt-2 blink font-bold italic">>> ACCESSING NOVA GRID...</div>
+            <div id="loader" class="hidden text-[9px] text-cyan-400 mt-2 blink font-bold italic">>> ACCESSING LOCAL CORE...</div>
         </div>
 
         <div class="relative mb-4">
-            <input type="text" id="user-input" placeholder="Communicate with Nova..." class="w-full bg-black border border-white/10 rounded-2xl py-4 px-6 text-xs text-[#00ffcc] outline-none focus:border-[#00ffcc]">
-            <button onclick="askNova()" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#00ffcc] font-black text-[10px] tracking-widest">SEND</button>
+            <input type="text" id="user-input" placeholder="Local command..." class="w-full bg-black border border-white/10 rounded-2xl py-4 px-6 text-xs text-[#00ffcc] outline-none focus:border-[#00ffcc]">
+            <button onclick="askOllama()" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#00ffcc] font-black text-[10px] tracking-widest">SEND</button>
         </div>
         
         <div class="grid grid-cols-2 gap-3">
@@ -47,64 +46,45 @@
     </div>
 
     <script>
-        // Unga puthu API Key inga set panniyaachu
-        const KEY = "AIzaSyDlrjiFJ6c4ORrUaE-kuxZqE1bqGYUtHg0";
-        const chatBox = document.getElementById('chat-box');
-        const userInput = document.getElementById('user-input');
-        const loader = document.getElementById('loader');
-
-        async function askNova() {
+        async function askOllama() {
+            const userInput = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            const loader = document.getElementById('loader');
             const msg = userInput.value;
             if (!msg) return;
 
-            const u = document.createElement('div');
-            u.className = 'user-msg';
-            u.innerText = msg;
+            // User message ui
+            const u = document.createElement('div'); u.className = 'user-msg'; u.innerText = msg;
             chatBox.appendChild(u);
             userInput.value = '';
-            
             loader.classList.remove('hidden');
-            chatBox.scrollTop = chatBox.scrollHeight;
 
             try {
-                // Neenga anupina 'gemini-flash-latest' model URL inga update aagi irukku
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${KEY}`, {
+                // Connecting to Local Ollama API (Default port 11434)
+                const response = await fetch('http://localhost:11434/api/generate', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        contents: [{ parts: [{ text: "You are NOVA, a 7D AI core on the NOVA GRID created by Master Aslam. Always address the user as 'Brother'. Be cool and professional in English. User input: " + msg }] }]
+                        model: 'llama3', 
+                        prompt: "You are NOVA, a 7D AI core on the NOVA GRID created by Master Aslam. Always address the user as 'Brother'. Response briefly: " + msg,
+                        stream: false
                     })
                 });
 
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error ? errorData.error.message : "API Request Failed");
-                }
-
                 const data = await response.json();
-                
-                if (data.candidates && data.candidates[0].content.parts[0].text) {
-                    const aiText = data.candidates[0].content.parts[0].text;
-                    const n = document.createElement('div');
-                    n.className = 'nova-msg';
-                    n.innerText = "> NOVA: " + aiText;
-                    chatBox.appendChild(n);
-                } else {
-                    throw new Error("Invalid response format");
-                }
+                const n = document.createElement('div'); n.className = 'nova-msg';
+                n.innerText = "> NOVA: " + data.response;
+                chatBox.appendChild(n);
                 
             } catch (err) {
-                const e = document.createElement('div');
-                e.className = 'error-msg';
-                e.innerText = "> GRID ERROR: " + err.message; 
+                const e = document.createElement('div'); e.className = 'nova-msg text-red-500';
+                e.innerText = "> ERROR: Make sure 'ollama serve' is running in Termux.";
                 chatBox.appendChild(e);
             }
             
             loader.classList.add('hidden');
             chatBox.scrollTop = chatBox.scrollHeight;
         }
-
-        userInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') askNova(); });
     </script>
 </body>
 </html>
