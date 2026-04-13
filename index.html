@@ -1,9 +1,41 @@
 <!DOCTYPE html>
-<html>
-<head><title>dragon_portfolio</title><link rel="stylesheet" href="style.css"></head>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASLAM | Universal Dragon</title>
+    <style>
+        body { background: #050505; color: #00ffcc; font-family: sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .dashboard { width: 100%; max-width: 500px; border: 2px solid #00ffcc; border-radius: 20px; padding: 20px; background: rgba(0, 255, 204, 0.05); }
+        h1 { text-align: center; color: #fff; text-shadow: 0 0 10px #00ffcc; }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; }
+        .skill { background: #00ffcc; color: #000; padding: 5px 12px; border-radius: 15px; font-size: 0.8em; font-weight: bold; }
+        .nova-terminal { background: #000; border: 1px solid #333; height: 100px; border-radius: 10px; padding: 10px; font-family: monospace; font-size: 0.9em; margin-bottom: 20px; color: #00ff44; overflow: hidden; }
+        .btn-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        button { background: transparent; border: 1px solid #00ffcc; color: #00ffcc; padding: 15px; border-radius: 12px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #00ffcc; color: #000; }
+    </style>
+</head>
 <body>
-    <h1>🐉 dragon_portfolio</h1>
-    <p>Created by NOVA3 for Commander ASLAM</p>
-    <script src="app.js"></script>
+    <div class="dashboard">
+        <h1>ASLAM</h1>
+        <div class="skills-grid">
+            <span class="skill">Robotics</span>
+            <span class="skill">Raspberry Pi 5</span>
+            <span class="skill">Python</span>
+            <span class="skill">C++ / Java</span>
+            <span class="skill">AGI / SI</span>
+        </div>
+        <div class="nova-terminal" id="term">
+            <div>> NOVA Core: Online</div>
+            <div>> Commander: ASLAM</div>
+        </div>
+        <div class="btn-container">
+            <button onclick="alert('Launching NOVA Brain...')">MY NOVA AI</button>
+            <button onclick="alert('Accessing Hardware...')">HARDWARE</button>
+            <button onclick="location.href='https://github.com/UniverseDragon14'">GITHUB</button>
+            <button onclick="location.href='https://linkedin.com/in/aam-aslam-51777017b'">PROFILE</button>
+        </div>
+    </div>
 </body>
 </html>
