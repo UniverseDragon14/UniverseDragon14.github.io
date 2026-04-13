@@ -7,110 +7,85 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root { --neon: #00ffcc; }
-        body { background: #010103; color: white; font-family: 'Courier New', monospace; }
+        body { background: #010103; color: white; font-family: 'Courier New', monospace; overflow-x: hidden; }
         .glass { background: rgba(0, 255, 204, 0.03); border: 1px solid rgba(0, 255, 204, 0.1); backdrop-filter: blur(15px); }
-        .terminal-box { background: rgba(0,0,0,0.8); height: 180px; overflow-y: auto; font-size: 10px; border: 1px solid #111; }
-        .chat-area { height: 250px; overflow-y: auto; }
-        .input-glow:focus { border-color: var(--neon); box-shadow: 0 0 10px rgba(0, 255, 204, 0.2); }
+        .chat-area { height: 350px; overflow-y: auto; scrollbar-width: none; }
+        .user-bubble { background: rgba(255,255,255,0.05); border-radius: 15px 15px 0 15px; margin-left: 20%; padding: 10px; border: 1px solid rgba(255,255,255,0.1); }
+        .nova-bubble { background: rgba(0,255,204,0.05); border-radius: 15px 15px 15px 0; margin-right: 20%; padding: 10px; border: 1px solid rgba(0,255,204,0.2); border-left: 3px solid var(--neon); }
+        .typing-indicator { font-size: 10px; color: var(--neon); animation: blink 1s infinite; display: none; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
     </style>
 </head>
 <body class="flex flex-col items-center p-4 min-h-screen">
 
-    <div class="w-full max-w-md glass rounded-[2.5rem] p-6 shadow-2xl border-white/5">
+    <div class="w-full max-w-md glass rounded-[2.5rem] p-6 shadow-2xl">
         <div class="flex items-center gap-4 mb-6">
-            <div class="relative">
-                <img src="https://github.com/UniverseDragon14.png" class="w-16 h-16 rounded-full border-2 border-[#00ffcc] shadow-[0_0_15px_#00ffcc]">
-                <div class="absolute bottom-1 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-black animate-pulse"></div>
-            </div>
+            <img src="https://github.com/UniverseDragon14.png" class="w-14 h-14 rounded-full border-2 border-[#00ffcc] shadow-[0_0_10px_#00ffcc]">
             <div>
-                <h1 class="text-2xl font-black tracking-tighter text-[#00ffcc]">ASLAM</h1>
-                <p class="text-[10px] text-gray-500 uppercase font-bold">Universal Dragon Founder</p>
+                <h1 class="text-xl font-black text-[#00ffcc]">ASLAM</h1>
+                <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">NOVA 7D CORE SYSTEM</p>
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="bg-black/40 p-3 rounded-2xl border border-white/5">
-                <div class="flex justify-between text-[9px] mb-1"><span>CPU_RPi5</span><span id="cpu-val">--%</span></div>
-                <div class="w-full bg-gray-900 h-1.5 rounded-full"><div id="cpu-bar" class="bg-[#00ffcc] h-full rounded-full transition-all" style="width: 0%"></div></div>
+        <div class="bg-black/40 rounded-3xl p-4 border border-white/5 mb-4">
+            <div id="chat-box" class="chat-area space-y-4 mb-4 text-[11px] pr-1">
+                <div class="nova-bubble">வணக்கம் மாஸ்டர் அஸ்லாம். 7வது பரிமாணத்தின் NOVA மையம் ஆன்லைனில் உள்ளது. நான் உங்களுக்கு எப்படி உதவட்டும்?</div>
             </div>
-            <div class="bg-black/40 p-3 rounded-2xl border border-white/5">
-                <div class="flex justify-between text-[9px] mb-1"><span>CORE_TEMP</span><span id="temp-val">--°C</span></div>
-                <div class="w-full bg-gray-900 h-1.5 rounded-full"><div id="temp-bar" class="bg-orange-500 h-full rounded-full transition-all" style="width: 0%"></div></div>
-            </div>
-        </div>
-
-        <div class="bg-black/60 rounded-2xl p-4 border border-white/10 mb-4">
-            <div class="text-[10px] font-bold text-[#00ffcc] mb-2 italic">NOVA NEURAL INTERFACE</div>
-            <div id="chat-box" class="chat-area space-y-3 mb-4 text-[11px] pr-2">
-                <div class="text-gray-400 italic">Welcome Master Aslam. System online. How can I assist you today?</div>
-            </div>
+            <div id="typing" class="typing-indicator px-2 mb-2 font-bold uppercase tracking-tighter">Nova is analyzing...</div>
             <div class="relative">
-                <input type="text" id="chat-input" placeholder="Nova-விடம் கேட்கவும்..." class="w-full bg-black border border-white/10 rounded-xl py-3 px-4 text-xs input-glow outline-none">
+                <input type="text" id="user-input" placeholder="Enter command or ask Nova..." class="w-full bg-black border border-white/10 rounded-2xl py-4 px-5 text-xs outline-none focus:border-[#00ffcc]/50 transition-all">
+                <button onclick="askGemini()" class="absolute right-3 top-1/2 -translate-y-1/2 text-[#00ffcc] font-bold">SEND</button>
             </div>
         </div>
 
-        <div class="terminal-box rounded-xl p-3 mb-4 font-mono">
-            <div id="term-logs" class="text-green-500 opacity-80">
-                > [SYSTEM] Initializing Dragon Shell...<br>
-                > [READY] Waiting for Master's Input...
-            </div>
-        </div>
-
-        <div class="grid grid-cols-2 gap-3">
-            <button onclick="runCommand('hardware --status')" class="py-3 bg-[#00ffcc] text-black font-black text-[10px] rounded-xl uppercase tracking-widest">Hardware Ctrl</button>
-            <button onclick="runCommand('clear')" class="py-3 border border-white/10 text-gray-400 font-bold text-[10px] rounded-xl uppercase tracking-widest italic">Clear Logs</button>
-        </div>
+        <button onclick="window.location.href='intent://#Intent;scheme=termux;package=com.termux;end'" class="w-full py-3 bg-[#00ffcc] text-black font-black text-[11px] rounded-xl uppercase tracking-widest shadow-[0_0_15px_#00ffcc]">Launch Termux Shell</button>
     </div>
 
     <script>
-        // AI Chat Logic
+        const API_KEY = "PASTE_YOUR_GEMINI_API_KEY_HERE"; // UNGA API KEY-AH INGA PODUNGA
         const chatBox = document.getElementById('chat-box');
-        const chatInput = document.getElementById('chat-input');
-        const termLogs = document.getElementById('term-logs');
+        const userInput = document.getElementById('user-input');
+        const typing = document.getElementById('typing');
 
-        function addChat(msg, isUser=false) {
+        function addMessage(msg, isUser = false) {
             const d = document.createElement('div');
-            d.className = isUser ? 'text-right text-white font-bold' : 'text-[#00ffcc]';
-            d.innerHTML = isUser ? msg : '> NOVA: ' + msg;
+            d.className = isUser ? 'user-bubble' : 'nova-bubble';
+            d.innerText = msg;
             chatBox.appendChild(d);
             chatBox.scrollTop = chatBox.scrollHeight;
         }
 
-        chatInput.addEventListener('keypress', (e) => {
-            if(e.key === 'Enter' && chatInput.value) {
-                const val = chatInput.value;
-                addChat(val, true);
-                chatInput.value = '';
-                
-                // Real-time Response Logic
-                setTimeout(() => {
-                    if(val.toLowerCase().includes('hello')) addChat("Greetings, Master Aslam. Grid sync secured.");
-                    else addChat("Command processed. Integrating with 7th Dimension Core.");
-                    logTerminal("AI_EXECUTION_SUCCESS: " + val);
-                }, 800);
+        async function askGemini() {
+            const text = userInput.value;
+            if (!text || API_KEY === "AIzaSyCLKuRWmQirlF5gI4OuUI9S8u01TNm8VWo") {
+                if(API_KEY.includes("PASTE")) alert("Bro, API Key-ah update pannunga!");
+                return;
             }
-        });
 
-        // Terminal Logic
-        function logTerminal(txt) {
-            termLogs.innerHTML += '<br>> ' + txt;
-            termLogs.parentElement.scrollTop = termLogs.parentElement.scrollHeight;
+            addMessage(text, true);
+            userInput.value = '';
+            typing.style.display = 'block';
+
+            try {
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: "You are NOVA, a 7D AI core created by Master Aslam for the Universal Dragon project. Speak professionally but loyally. User query: " + text }] }]
+                    })
+                });
+
+                const data = await res.json();
+                const responseText = data.candidates[0].content.parts[0].text;
+                addMessage(responseText, false);
+            } catch (error) {
+                addMessage("Error: Connection to Grid lost.", false);
+            } finally {
+                typing.style.display = 'none';
+            }
         }
 
-        function runCommand(cmd) {
-            logTerminal("RUNNING: " + cmd);
-            if(cmd === 'clear') termLogs.innerHTML = '> Logs Cleared.';
-        }
-
-        // Hardware Simulation (Next step: Real Pi Data via API)
-        setInterval(() => {
-            const cpu = Math.floor(Math.random() * 20) + 15;
-            const temp = Math.floor(Math.random() * 10) + 45;
-            document.getElementById('cpu-val').innerText = cpu + '%';
-            document.getElementById('cpu-bar').style.width = cpu + '%';
-            document.getElementById('temp-val').innerText = temp + '°C';
-            document.getElementById('temp-bar').style.width = (temp/80*100) + '%';
-        }, 3000);
+        userInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') askGemini(); });
     </script>
 </body>
 </html>
