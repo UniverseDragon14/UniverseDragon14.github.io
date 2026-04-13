@@ -984,12 +984,34 @@
     const chatInput = document.getElementById("chatInput");
     const chatLog = document.getElementById("chatLog");
 
+    function speakNova(text) {
+      if (!("speechSynthesis" in window)) return;
+      if (!text || text.includes("thinking")) return;
+
+      speechSynthesis.cancel();
+
+      const voice = new SpeechSynthesisUtterance(text);
+      voice.rate = 0.9;
+      voice.pitch = 1.05;
+      voice.volume = 1;
+
+      const voices = speechSynthesis.getVoices();
+      const preferred = voices.find(v =>
+        v.lang.includes("en") || v.lang.includes("hi") || v.lang.includes("ta")
+      );
+      if (preferred) voice.voice = preferred;
+
+      speechSynthesis.speak(voice);
+    }
+
     function addBubble(text, type) {
       const div = document.createElement("div");
       div.className = "bubble " + type;
       div.textContent = text;
       chatLog.appendChild(div);
       chatLog.scrollTop = chatLog.scrollHeight;
+
+      if (type === "bot") speakNova(text);
     }
 
     chatForm.addEventListener("submit", async (e) => {
