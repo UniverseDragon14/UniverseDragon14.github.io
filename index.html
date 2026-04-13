@@ -1,1 +1,1047 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
+  <meta
+    name="description"
+    content="Universal Dragon — Aslam's public AI, robotics, and NOVA Core website."
+  />
+  <meta
+    name="keywords"
+    content="Universal Dragon, NOVA, Aslam, Raspberry Pi, AI, Robotics, Ollama"
+  />
+  <meta name="author" content="Aslam" />
+  <meta property="og:title" content="Universal Dragon | Aslam" />
+  <meta
+    property="og:description"
+    content="Public website for Universal Dragon, NOVA Core, AI systems, and robotics."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://universedragon14.github.io/" />
+  <title>Universal Dragon | Aslam</title>
+
+  <style>
+    :root {
+      --bg: #030505;
+      --panel: rgba(8, 18, 18, 0.78);
+      --panel-2: rgba(0, 255, 204, 0.06);
+      --line: rgba(0, 255, 204, 0.22);
+      --cyan: #00ffd0;
+      --cyan-soft: rgba(0, 255, 208, 0.18);
+      --purple: #d84cff;
+      --text: #d9fff7;
+      --muted: #89a7a1;
+      --danger: #ff4d73;
+      --ok: #57ff84;
+      --shadow: 0 0 24px rgba(0, 255, 204, 0.18);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Courier New", monospace;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(0, 255, 208, 0.08), transparent 26%),
+        radial-gradient(circle at 85% 10%, rgba(216, 76, 255, 0.07), transparent 18%),
+        radial-gradient(circle at 15% 20%, rgba(0, 255, 208, 0.05), transparent 18%),
+        linear-gradient(180deg, #020404 0%, #000000 100%);
+    }
+
+    .grid {
+      position: fixed;
+      left: -10%;
+      right: -10%;
+      bottom: -10%;
+      height: 70vh;
+      z-index: -2;
+      transform: perspective(900px) rotateX(76deg);
+      transform-origin: bottom;
+      background-image:
+        linear-gradient(rgba(0, 255, 208, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 208, 0.08) 1px, transparent 1px);
+      background-size: 52px 52px;
+      animation: gridMove 18s linear infinite;
+      opacity: 0.75;
+      mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1));
+      -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1));
+    }
+
+    @keyframes gridMove {
+      from {
+        background-position: 0 0, 0 0;
+      }
+      to {
+        background-position: 0 52px, 52px 0;
+      }
+    }
+
+    .scanline {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.02) 0%,
+        rgba(255,255,255,0.00) 8%,
+        rgba(255,255,255,0.02) 16%
+      );
+      background-size: 100% 7px;
+      opacity: 0.08;
+    }
+
+    .container {
+      width: min(100% - 24px, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.55);
+      border-bottom: 1px solid rgba(0, 255, 208, 0.12);
+    }
+
+    .topbar-inner {
+      width: min(100% - 24px, var(--max));
+      margin: 0 auto;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(0, 255, 208, 0.08);
+      border: 1px solid rgba(0, 255, 208, 0.25);
+      box-shadow: var(--shadow);
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-title {
+      color: var(--cyan);
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 14px rgba(0, 255, 208, 0.25);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      transition: 0.2s ease;
+      font-size: 0.9rem;
+    }
+
+    .nav a:hover {
+      color: var(--cyan);
+      border-color: rgba(0, 255, 208, 0.25);
+      background: rgba(0, 255, 208, 0.05);
+    }
+
+    .hero {
+      padding: 72px 0 42px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(8, 18, 18, 0.86), rgba(2, 6, 6, 0.78));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% 0 -10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,255,208,0.45), transparent);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .profile-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-ring {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      box-shadow:
+        0 0 34px rgba(0, 255, 208, 0.25),
+        0 0 56px rgba(216, 76, 255, 0.12);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #071010;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(0, 255, 208, 0.08);
+      border: 1px solid rgba(0, 255, 208, 0.18);
+      color: var(--cyan);
+      font-size: 0.86rem;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 4.1rem);
+      line-height: 1.05;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: transparent;
+      background: linear-gradient(90deg, var(--cyan), #8effee 42%, var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow: 0 0 24px rgba(0, 255, 208, 0.12);
+    }
+
+    .hero .subtitle {
+      color: #b8d6cf;
+      font-size: 1.06rem;
+      margin-bottom: 18px;
+    }
+
+    .hero .desc {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 255, 208, 0.22);
+      background: rgba(0, 255, 208, 0.08);
+      color: var(--cyan);
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0, 255, 208, 0.12);
+      background: rgba(0, 255, 208, 0.12);
+    }
+
+    .btn.primary {
+      background: linear-gradient(90deg, rgba(0,255,208,0.18), rgba(0,255,208,0.08));
+      color: #ecfffb;
+    }
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #c8e7df;
+      font-size: 0.9rem;
+    }
+
+    .pill.live {
+      border-color: rgba(87,255,132,0.26);
+      color: #dfffe7;
+      background: rgba(87,255,132,0.08);
+    }
+
+    .section {
+      padding: 34px 0 22px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .section-head .icon {
+      font-size: 1.6rem;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.45rem, 3vw, 2.35rem);
+      letter-spacing: 5px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      text-shadow: 0 0 16px rgba(0, 255, 208, 0.18);
+    }
+
+    .section-line {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, rgba(0,255,208,0.4), transparent);
+    }
+
+    .terminal {
+      background: rgba(3, 8, 8, 0.86);
+      border: 1px solid rgba(0, 255, 208, 0.22);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .terminal-top {
+      background: rgba(0,255,208,0.08);
+      border-bottom: 1px solid rgba(0,255,208,0.12);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .lights {
+      display: flex;
+      gap: 8px;
+      margin-right: 8px;
+    }
+
+    .light {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .red { background: #ff5f56; }
+    .yellow { background: #ffbd2f; }
+    .green { background: #28c840; }
+
+    .terminal-body {
+      padding: 20px;
+      font-size: 0.97rem;
+      color: #d8fff7;
+    }
+
+    .cmd {
+      color: var(--purple);
+      margin: 8px 0 4px;
+      word-break: break-word;
+    }
+
+    .out {
+      color: #c7f7ed;
+      margin-bottom: 10px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(8, 16, 16, 0.82), rgba(3, 8, 8, 0.82));
+      border: 1px solid rgba(0,255,208,0.16);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transition: 0.22s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,255,208,0.35);
+    }
+
+    .card .emoji {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: var(--cyan);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .chip {
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,255,208,0.22);
+      background: rgba(0,255,208,0.07);
+      color: #dffdf7;
+      transition: 0.2s ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-2px) scale(1.02);
+      background: rgba(0,255,208,0.11);
+    }
+
+    .chat-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(8, 16, 16, 0.82), rgba(3, 8, 8, 0.82));
+      border: 1px solid rgba(0,255,208,0.16);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h3 {
+      color: var(--cyan);
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--muted);
+    }
+
+    .panel ul {
+      padding-left: 18px;
+      margin-top: 10px;
+    }
+
+    .chat-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .chat-log {
+      min-height: 260px;
+      max-height: 420px;
+      overflow: auto;
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.34);
+      border: 1px solid rgba(0,255,208,0.12);
+    }
+
+    .bubble {
+      padding: 12px 14px;
+      border-radius: 16px;
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .bubble.user {
+      background: rgba(0,255,208,0.10);
+      border: 1px solid rgba(0,255,208,0.18);
+      color: #edfffb;
+    }
+
+    .bubble.bot {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #d4e9e3;
+    }
+
+    .bubble.error {
+      background: rgba(255,77,115,0.09);
+      border: 1px solid rgba(255,77,115,0.22);
+      color: #ffdbe4;
+    }
+
+    .chat-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+
+    .chat-input {
+      min-height: 52px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,255,208,0.18);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 14px 16px;
+      outline: none;
+    }
+
+    .chat-input::placeholder {
+      color: #73918b;
+    }
+
+    .muted-note {
+      color: #7da199;
+      font-size: 0.88rem;
+      margin-top: 8px;
+    }
+
+    .connect-box {
+      background: rgba(0,255,208,0.06);
+      border: 1px solid rgba(0,255,208,0.14);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .connect-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    .connect-links a {
+      min-width: 150px;
+    }
+
+    footer {
+      padding: 36px 0 54px;
+      color: #76918b;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer .power {
+      margin-top: 8px;
+      color: var(--cyan);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: 0.6s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .chat-wrap,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .hero-card {
+        padding: 22px;
+      }
+
+      .hero h1 {
+        letter-spacing: 4px;
+      }
+
+      .section-head h2 {
+        letter-spacing: 3px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        padding: 10px 0;
+      }
+
+      .brand {
+        justify-content: center;
+      }
+
+      .nav {
+        justify-content: center;
+      }
+
+      .hero-grid {
+        gap: 20px;
+      }
+
+      .profile-ring {
+        width: 160px;
+        height: 160px;
+      }
+
+      .hero h1 {
+        font-size: 2.1rem;
+        letter-spacing: 3px;
+        text-align: center;
+      }
+
+      .hero .subtitle,
+      .hero .desc,
+      .status-row,
+      .hero-actions {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .chat-form {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .connect-links a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="grid"></div>
+  <div class="scanline"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-text">
+          <div class="brand-title">Universal Dragon</div>
+          <div class="brand-sub">NOVA Core • AI • Robotics • Systems</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#terminal">NOVA</a>
+        <a href="#projects">Projects</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#live">Live</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div class="hero-card fade-up">
+        <div class="hero-grid">
+          <div class="profile-wrap">
+            <div class="profile-ring">
+              <img
+                class="profile-img"
+                src="https://github.com/UniverseDragon14.png"
+                alt="Aslam"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div class="eyebrow">🟢 Public Site Online</div>
+            <h1>Aslam</h1>
+            <div class="subtitle">Founder of Universal Dragon • Builder of NOVA Core</div>
+            <p class="desc">
+              Universal Dragon is a long-term real-world system project focused on
+              AI, automation, robotics, Raspberry Pi, and practical system design.
+              NOVA is the stable brain layer at the center of that build.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#live">⚡ Open NOVA Panel</a>
+              <a class="btn" href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">💻 GitHub</a>
+              <a class="btn" href="#projects">🚀 View Projects</a>
+            </div>
+
+            <div class="status-row">
+              <div class="pill live">● SYSTEM ONLINE</div>
+              <div class="pill">NOVA Core Active Concept</div>
+              <div class="pill">GitHub Pages Public Site</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-up" id="terminal">
+      <div class="section-head">
+        <div class="icon">🖥️</div>
+        <h2>NOVA Terminal</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="terminal">
+        <div class="terminal-top">
+          <div class="lights">
+            <span class="light red"></span>
+            <span class="light yellow"></span>
+            <span class="light green"></span>
+          </div>
+          NOVA Core Console
+        </div>
+
+        <div class="terminal-body">
+          <div class="cmd">&gt; whoami</div>
+          <div class="out">Aslam — Universal Dragon founder and builder</div>
+
+          <div class="cmd">&gt; cat mission.txt</div>
+          <div class="out">
+            Building a practical AI + robotics ecosystem with NOVA as the stable brain,
+            focused on real systems, useful automation, and disciplined engineering.
+          </div>
+
+          <div class="cmd">&gt; ls modules/</div>
+          <div class="out">
+            core/ memory/ voice/ control/ vision/ console/ patches/ rollback/
+          </div>
+
+          <div class="cmd">&gt; status</div>
+          <div class="out">
+            Public website online. Live Ollama backend can be connected later.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-up" id="projects">
+      <div class="section-head">
+        <div class="icon">🚀</div>
+        <h2>Projects</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="emoji">🧠</div>
+          <h3>NOVA Core</h3>
+          <p>
+            Stable brain layer for Universal Dragon. Designed around modular growth:
+            console, memory, voice, control, vision, history, approval, and rollback.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="emoji">🤖</div>
+          <h3>Universal Dragon</h3>
+          <p>
+            Long-term AI + hardware ecosystem combining software, robotics,
+            automation, system architecture, and practical field-ready workflows.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="emoji">🍓</div>
+          <h3>Raspberry Pi Systems</h3>
+          <p>
+            Real Raspberry Pi based builds for local intelligence, automation,
+            robotics, dashboard control, voice integration, and lightweight edge AI.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="emoji">⚙️</div>
+          <h3>NOVA2 Lab</h3>
+          <p>
+            Experimental lab branch used for testing new modules, ideas, UI flows,
+            voice behavior, and future system capabilities before stable promotion.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section fade-up" id="expertise">
+      <div class="section-head">
+        <div class="icon">⚙️</div>
+        <h2>Expertise</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="chips">
+        <div class="chip">Python</div>
+        <div class="chip">Artificial Intelligence</div>
+        <div class="chip">Robotics</div>
+        <div class="chip">Raspberry Pi</div>
+        <div class="chip">Linux</div>
+        <div class="chip">Machine Learning</div>
+        <div class="chip">IoT</div>
+        <div class="chip">System Architecture</div>
+        <div class="chip">Automation</div>
+        <div class="chip">Voice Systems</div>
+      </div>
+    </section>
+
+    <section class="section fade-up" id="live">
+      <div class="section-head">
+        <div class="icon">📡</div>
+        <h2>Live NOVA Access</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="chat-wrap">
+        <div class="panel">
+          <h3>NOVA Public Panel</h3>
+          <p>
+            This website can show a public NOVA chat panel. For that, you need a
+            separate backend running Ollama or another model API.
+          </p>
+
+          <ul>
+            <li>GitHub Pages = frontend only</li>
+            <li>Ollama must run on Raspberry Pi, PC, VPS, or secure server</li>
+            <li>Then this page can call your backend using fetch()</li>
+            <li>Do not expose raw Ollama directly to the public internet</li>
+          </ul>
+
+          <p class="muted-note">
+            In the code below, set <strong>NOVA_API_URL</strong> if your backend exists.
+          </p>
+        </div>
+
+        <div class="panel chat-box">
+          <h3>Try NOVA</h3>
+
+          <div class="chat-log" id="chatLog">
+            <div class="bubble bot">
+              NOVA Panel ready.
+              Backend not connected yet.
+            </div>
+          </div>
+
+          <form class="chat-form" id="chatForm">
+            <input
+              id="chatInput"
+              class="chat-input"
+              type="text"
+              placeholder="Ask NOVA something..."
+              autocomplete="off"
+            />
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+
+          <div class="muted-note">
+            Without backend, this panel will show setup message only.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-up" id="connect">
+      <div class="section-head">
+        <div class="icon">📡</div>
+        <h2>Connect</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="connect-box">
+        <p>Universal Dragon public links</p>
+
+        <div class="connect-links">
+          <a class="btn" href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="mailto:universedragon14@gmail.com">Email</a>
+          <a class="btn" href="https://universedragon14.github.io/" target="_blank" rel="noopener">Website</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 Universal Dragon • Created by Aslam</div>
+    <div class="power">Powered by NOVA Core</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+
+    // Public site only. Add your backend URL here later.
+    const NOVA_API_URL = "";
+
+    const chatForm = document.getElementById("chatForm");
+    const chatInput = document.getElementById("chatInput");
+    const chatLog = document.getElementById("chatLog");
+
+    function addBubble(text, type) {
+      const div = document.createElement("div");
+      div.className = "bubble " + type;
+      div.textContent = text;
+      chatLog.appendChild(div);
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    chatForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const message = chatInput.value.trim();
+      if (!message) return;
+
+      addBubble(message, "user");
+      chatInput.value = "";
+
+      if (!NOVA_API_URL) {
+        addBubble(
+          "Backend not connected. Set NOVA_API_URL inside index.html to connect your public NOVA server.",
+          "error"
+        );
+        return;
+      }
+
+      addBubble("NOVA is thinking...", "bot");
+
+      try {
+        const res = await fetch(NOVA_API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            message: message,
+            mode: "nova"
+          })
+        });
+
+        const data = await res.json();
+        chatLog.removeChild(chatLog.lastElementChild);
+
+        const reply =
+          data.reply ||
+          data.response ||
+          data.message ||
+          "No valid reply received from backend.";
+
+        addBubble(reply, "bot");
+      } catch (err) {
+        chatLog.removeChild(chatLog.lastElementChild);
+        addBubble("Connection failed. Check backend URL, CORS, and server status.", "error");
+        console.error(err);
+      }
+    });
+
+    console.log("%cUNIVERSAL DRAGON", "color:#00ffd0;font-size:24px;font-weight:bold;");
+    console.log("%cCreated by Aslam", "color:#d84cff;font-size:14px;");
+  </script>
+</body>
+</html>
