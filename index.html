@@ -921,8 +921,8 @@
 
           <div class="chat-log" id="chatLog">
             <div class="bubble bot">
-              NOVA Panel ready.
-              Backend not connected yet.
+              NOVA Demo Mode ready.
+              Real backend not connected yet.
             </div>
           </div>
 
@@ -1002,10 +1002,24 @@
       chatInput.value = "";
 
       if (!NOVA_API_URL) {
-        addBubble(
-          "Backend not connected. Set NOVA_API_URL inside index.html to connect your public NOVA server.",
-          "error"
-        );
+        const lower = message.toLowerCase();
+        let demoReply = "Naan NOVA. Universal Dragon stable core. Demo mode la irukken. Real backend connect panna innum powerful ah reply pannuven.";
+
+        if (lower.includes("yaru") || lower.includes("who are you")) {
+          demoReply = "Naan NOVA. Universal Dragon-oda stable brain side. Aslam build pannura real AI system-ku calm, intelligent, structured core naan.";
+        } else if (lower.includes("aslam")) {
+          demoReply = "Aslam than Universal Dragon creator. NOVA Core, robotics, AI systems, Raspberry Pi builds — ivlo periya vision ah structure pannitu build pannitu irukkar.";
+        } else if (lower.includes("universal dragon")) {
+          demoReply = "Universal Dragon oru long-term real-world AI + robotics + automation system project. NOVA athoda stable brain layer.";
+        } else if (lower.includes("nova")) {
+          demoReply = "NOVA calm, practical, intelligent response kudukkura core assistant. Demo mode la irundhalum style maintain pannuven.";
+        } else if (lower.includes("hello") || lower.includes("hi")) {
+          demoReply = "Hi. Naan NOVA. Demo mode active. Sollu — enna thevai?";
+        } else if (lower.includes("help")) {
+          demoReply = "Sure. Demo mode la irukken. Website, NOVA, Raspberry Pi, project structure — ithula edhavadhu ketka.";
+        }
+
+        addBubble(demoReply, "bot");
         return;
       }
 
