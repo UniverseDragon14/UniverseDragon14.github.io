@@ -29,7 +29,7 @@
 
         <div class="bg-black/50 rounded-[2rem] p-5 border border-white/5 mb-4">
             <div id="chat-box" class="chat-area space-y-4 text-[11px]">
-                <div class="nova-msg">SYSTEM ONLINE. Greetings, Brother. NOVA Core is synchronized with the NOVA GRID. How can I assist you today?</div>
+                <div class="nova-msg">SYSTEM ONLINE. Greetings, Brother. NOVA Core is synchronized with the NOVA GRID. How can I assist you?</div>
             </div>
             <div id="loader" class="hidden text-[9px] text-cyan-400 mt-2 blink font-bold italic">>> ACCESSING NOVA GRID...</div>
         </div>
@@ -69,7 +69,7 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        contents: [{ parts: [{ text: "You are NOVA, a 7D AI core on the NOVA GRID. You were created by Master Aslam. Address the user as 'Brother'. Be helpful, tech-savvy, and professional. Respond to: " + msg }] }]
+                        contents: [{ parts: [{ text: "You are NOVA, a 7D AI core on the NOVA GRID created by Master Aslam. Always address the user as 'Brother'. Be cool and professional in English. User input: " + msg }] }]
                     })
                 });
 
@@ -88,7 +88,7 @@
             } catch (err) {
                 const e = document.createElement('div');
                 e.className = 'text-red-500 text-[10px] italic';
-                e.innerText = "> ERROR: NOVA GRID Connection Lost. Retry Synchronization.";
+                e.innerText = "> ERROR: NOVA GRID Connection Lost.";
                 chatBox.appendChild(e);
             }
             
