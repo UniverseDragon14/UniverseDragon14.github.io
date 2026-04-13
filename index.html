@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal Dragon OS | Master Aslam</title>
+    <title>Universal Dragon | NOVA Core</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root { --neon: #00ffcc; }
@@ -22,28 +22,30 @@
         <div class="flex items-center gap-5 mb-6 border-b border-white/10 pb-6">
             <img src="https://github.com/UniverseDragon14.png" class="w-16 h-16 rounded-full border-2 border-[#00ffcc]">
             <div>
-                <h1 class="text-2xl font-black text-[#00ffcc] italic uppercase">Aslam</h1>
-                <p class="text-[9px] text-gray-500 font-bold tracking-widest">NOVA 7D CORE SYSTEM</p>
+                <h1 class="text-2xl font-black text-[#00ffcc] italic uppercase">NOVA CORE</h1>
+                <p class="text-[9px] text-gray-500 font-bold tracking-widest uppercase">Creator: Master Aslam</p>
             </div>
         </div>
 
         <div class="bg-black/50 rounded-[2rem] p-5 border border-white/5 mb-4">
             <div id="chat-box" class="chat-area space-y-4 text-[11px]">
-                <div class="nova-msg">வணக்கம் மாஸ்டர் அஸ்லாம். NOVA மையம் ஆன்லைனில் உள்ளது. நான் உங்களுக்கு எப்படி உதவட்டும்?</div>
+                <div class="nova-msg">SYSTEM ONLINE. Greetings, Brother. NOVA Core is synchronized with the NOVA GRID. How can I assist you today?</div>
             </div>
-            <div id="loader" class="hidden text-[9px] text-cyan-400 mt-2 blink font-bold italic">>> SYNCING WITH ARES GRID...</div>
+            <div id="loader" class="hidden text-[9px] text-cyan-400 mt-2 blink font-bold italic">>> ACCESSING NOVA GRID...</div>
         </div>
 
         <div class="relative mb-4">
-            <input type="text" id="user-input" placeholder="Enter command..." class="w-full bg-black border border-white/10 rounded-2xl py-4 px-6 text-xs text-[#00ffcc] outline-none focus:border-[#00ffcc]">
-            <button onclick="askNova()" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#00ffcc] font-black text-[10px]">SEND</button>
+            <input type="text" id="user-input" placeholder="Communicate with Nova..." class="w-full bg-black border border-white/10 rounded-2xl py-4 px-6 text-xs text-[#00ffcc] outline-none focus:border-[#00ffcc]">
+            <button onclick="askNova()" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#00ffcc] font-black text-[10px] tracking-widest">SEND</button>
         </div>
         
-        <button onclick="window.location.href='intent://#Intent;scheme=termux;package=com.termux;end'" class="w-full py-4 bg-[#00ffcc] text-black font-black text-[10px] rounded-xl uppercase tracking-widest shadow-lg">Launch Termux Shell</button>
+        <div class="grid grid-cols-2 gap-3">
+            <button onclick="window.location.href='intent://#Intent;scheme=termux;package=com.termux;end'" class="py-3 bg-[#00ffcc] text-black font-black text-[10px] rounded-xl uppercase shadow-lg">Termux</button>
+            <button onclick="location.reload()" class="py-3 border border-white/10 text-gray-500 font-bold text-[10px] rounded-xl uppercase">Sync Grid</button>
+        </div>
     </div>
 
     <script>
-        // Unga screenshot-la iruntha API Key
         const KEY = "AIzaSyCLKuRWmQirlF5gI4OuUI9S8u01TNm8VWo";
         const chatBox = document.getElementById('chat-box');
         const userInput = document.getElementById('user-input');
@@ -67,13 +69,12 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        contents: [{ parts: [{ text: "You are NOVA, a 7D AI core created by Master Aslam. Speak loyally in a mix of Tamil and English. Answer this: " + msg }] }]
+                        contents: [{ parts: [{ text: "You are NOVA, a 7D AI core on the NOVA GRID. You were created by Master Aslam. Address the user as 'Brother'. Be helpful, tech-savvy, and professional. Respond to: " + msg }] }]
                     })
                 });
 
                 const data = await response.json();
                 
-                // Real AI Answer inga thaan varum
                 if (data.candidates && data.candidates[0].content.parts[0].text) {
                     const aiText = data.candidates[0].content.parts[0].text;
                     const n = document.createElement('div');
@@ -81,13 +82,13 @@
                     n.innerText = "> NOVA: " + aiText;
                     chatBox.appendChild(n);
                 } else {
-                    throw new Error("Invalid Response");
+                    throw new Error("API Error");
                 }
                 
             } catch (err) {
                 const e = document.createElement('div');
                 e.className = 'text-red-500 text-[10px] italic';
-                e.innerText = "> Error: Connection to Grid lost. Check Internet or API Key.";
+                e.innerText = "> ERROR: NOVA GRID Connection Lost. Retry Synchronization.";
                 chatBox.appendChild(e);
             }
             
