@@ -9,32 +9,29 @@
         .dashboard { width: 95%; max-width: 500px; border: 2px solid #00ffcc; border-radius: 20px; padding: 20px; background: rgba(0, 255, 204, 0.05); box-shadow: 0 0 20px rgba(0, 255, 204, 0.3); margin-top: 20px; }
         
         .header-section { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid rgba(0,255,204,0.2); padding-bottom: 15px; }
-        .profile-pic { width: 80px; height: 80px; border-radius: 50%; border: 3px solid #00ffcc; box-shadow: 0 0 10px #00ffcc; background-size: cover; background-position: center; }
+        .profile-pic { width: 70px; height: 70px; border-radius: 50%; border: 2px solid #00ffcc; box-shadow: 0 0 10px #00ffcc; }
         .title-area { flex: 1; }
-        h1 { margin: 0; color: #fff; text-shadow: 0 0 10px #00ffcc; font-size: 1.8em; }
-        .subtitle { margin: 0; font-size: 0.8em; color: #888; }
+        h1 { margin: 0; color: #fff; text-shadow: 0 0 10px #00ffcc; font-size: 1.6em; letter-spacing: 2px; }
+        .subtitle { margin: 0; font-size: 0.75em; color: #888; }
 
         .skills-grid { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 20px; }
         .skill { background: #00ffcc; color: #000; padding: 4px 10px; border-radius: 12px; font-size: 0.7em; font-weight: bold; }
         
-        .nova-terminal { background: #000; border: 1px solid #333; height: 120px; border-radius: 10px; padding: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; overflow-y: auto; margin-bottom: 20px; color: #00ff44; }
+        .nova-terminal { background: #000; border: 1px solid #333; height: 100px; border-radius: 10px; padding: 10px; font-family: monospace; font-size: 0.85em; overflow: hidden; margin-bottom: 20px; color: #00ff44; }
         
         .btn-container { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         button { background: transparent; border: 1px solid #00ffcc; color: #00ffcc; padding: 12px; border-radius: 10px; cursor: pointer; font-size: 0.8em; font-weight: bold; transition: 0.3s; }
         button:hover { background: #00ffcc; color: #000; box-shadow: 0 0 15px #00ffcc; }
-        
-        .status-dot { height: 8px; width: 8px; background-color: #00ff44; border-radius: 50%; display: inline-block; margin-right: 5px; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <div class="dashboard">
         <div class="header-section">
-            <img src="https://github.com/UniverseDragon14.png" alt="Aslam Profile" class="profile-pic">
+            <img src="https://github.com/UniverseDragon14.png" alt="Aslam" class="profile-pic">
             <div class="title-area">
                 <h1>ASLAM</h1>
-                <p class="subtitle">Universal Dragon Founder & AI Developer</p>
+                <p class="subtitle">Universal Dragon Founder</p>
             </div>
         </div>
 
@@ -46,40 +43,19 @@
             <span class="skill">AGI / SI</span>
         </div>
 
-        <div class="nova-terminal" id="terminal">
-            <div><span class="status-dot"></span> NOVA Core Online...</div>
-            <div style="color: #888;">> Waiting for command...</div>
+        <div class="nova-terminal">
+            <div>> NOVA Core: Online</div>
+            <div>> Commander: ASLAM</div>
+            <div style="color:#888">> ID: Universe Dragon 14</div>
         </div>
 
         <div class="btn-container">
-            <button onclick="openTermux()">LAUNCH NOVA AI</button>
-            <button onclick="runCommand('Accessing Pi 5 Hardware...')">HARDWARE CTRL</button>
-            <button onclick="location.href='https://github.com/UniverseDragon14'">GITHUB PROJECT</button>
-            <button onclick="location.href='https://linkedin.com/in/aam-aslam-51777017b'">MY PROFILE</button>
+            <button onclick="window.location.href='intent://#Intent;scheme=termux;package=com.termux;end'">LAUNCH NOVA AI</button>
+            <button onclick="alert('Connecting to Hardware...')">HARDWARE</button>
+            <button onclick="location.href='https://github.com/UniverseDragon14'">GITHUB</button>
+            <button onclick="location.href='https://linkedin.com/in/aam-aslam-51777017b'">PROFILE</button>
         </div>
     </div>
-
-    <script>
-        function runCommand(msg) {
-            const term = document.getElementById('terminal');
-            const newLog = document.createElement('div');
-            newLog.innerHTML = `> ${msg}`;
-            term.appendChild(newLog);
-            term.scrollTop = term.scrollHeight;
-        }
-
-        // இந்த பங்க்ஷன் போனில் Termux-ஐ ஓப்பன் செய்ய முயற்சிக்கும்
-        function openTermux() {
-            runCommand('Launching Termux Interrface...');
-            // போனில் Termux URL scheme-ஐ பயன்படுத்த முயற்சிப்போம்
-            window.location.href = "intent://#Intent;scheme=termux;package=com.termux;end";
-            
-            // ஒருவேளை அது வேலை செய்யவில்லை என்றால், ஒரு மெசேஜ் காட்டுவோம்
-            setTimeout(() => {
-                runCommand('If Termux didnt open, please launch it manually.');
-            }, 2000);
-        }
-    </script>
 
 </body>
 </html>
