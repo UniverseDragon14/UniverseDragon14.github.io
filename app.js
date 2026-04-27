@@ -1,1 +1,1 @@
-console.log('🚀 dragon_portfolio initialized by NOVA3');
+YOUR_FULL_APP_JS_CODE_HERE
