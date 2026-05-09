@@ -976,6 +976,7 @@
           <button type="button" class="nova-tool-btn" id="novaCopyBtn" onclick="novaCopyLast()">📋 Copy</button>
           <button type="button" class="nova-tool-btn" id="novaSpeakBtn" onclick="novaSpeakLast()">🔊 Speak</button>
           <button type="button" class="nova-tool-btn" id="novaMicBtn" onclick="novaMicForce(event)">🎙️ Mic</button>
+          <button type="button" class="nova-tool-btn" id="novaVoiceLangBtn" onclick="novaToggleVoiceLang(event)">🌐 Voice: தமிழ்</button>
         </div>
 
 
@@ -1122,7 +1123,37 @@
     console.log("%cCreated by Aslam", "color:#d84cff;font-size:14px;");
   </script>
 
+
 <script id="nova-mic-force-v1">
+window.NOVA_VOICE_LANG = localStorage.getItem("NOVA_VOICE_LANG") || "ta";
+
+window.novaVoiceLangLabel = function(){
+  const m = window.NOVA_VOICE_LANG || "ta";
+  if(m === "ta") return "🌐 Voice: தமிழ்";
+  if(m === "en") return "🌐 Voice: English";
+  if(m === "auto") return "🌐 Voice: Auto";
+  return "🌐 Voice: தமிழ்";
+};
+
+window.novaRefreshVoiceLangBtn = function(){
+  const b = document.getElementById("novaVoiceLangBtn");
+  if(b) b.textContent = window.novaVoiceLangLabel();
+};
+
+window.novaToggleVoiceLang = function(e){
+  if(e){ e.preventDefault(); e.stopPropagation(); }
+
+  const cur = window.NOVA_VOICE_LANG || "ta";
+  const next = cur === "ta" ? "en" : (cur === "en" ? "auto" : "ta");
+  window.NOVA_VOICE_LANG = next;
+  localStorage.setItem("NOVA_VOICE_LANG", next);
+  window.novaRefreshVoiceLangBtn();
+
+  if(typeof addBubble === "function"){
+    addBubble("Voice mode: " + window.novaVoiceLangLabel().replace("🌐 Voice: ","") + " ✅", "bot");
+  }
+};
+
 window.novaMicForce = async function(e){
   if(e){ e.preventDefault(); e.stopPropagation(); }
 
@@ -1147,21 +1178,21 @@ window.novaMicForce = async function(e){
     }
   }
 
-  show("Mic button work aaguthu bro 🎙️ permission check pannuren...", "bot");
+  show("Mic work aaguthu bro 🎙️ Mode: " + window.novaVoiceLangLabel().replace("🌐 Voice: ",""), "bot");
 
   if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-    show("Mic API browser-la illa bro. iPhone Safari/Chrome limitation irukkalam.", "error");
+    show("Mic API browser-la illa bro.", "error");
     return;
   }
 
   if(!window.MediaRecorder){
-    show("MediaRecorder support illa bro. iPhone browser limitation. Next backend upload mic method venum.", "error");
+    show("MediaRecorder support illa bro.", "error");
     return;
   }
 
   try{
     const stream = await navigator.mediaDevices.getUserMedia({audio:true});
-    show("Mic ON ✅ 5 seconds pesunga bro...", "bot");
+    show("Mic ON ✅ 5 seconds pesunga...", "bot");
 
     let mime = "";
     if(MediaRecorder.isTypeSupported("audio/webm")) mime = "audio/webm";
@@ -1177,7 +1208,7 @@ window.novaMicForce = async function(e){
 
     rec.onstop = async () => {
       stream.getTracks().forEach(t => t.stop());
-      show("Voice backend-ku anuppuren... 🧠", "bot");
+      show("Voice text-a maathuren... 🧠", "bot");
 
       const blob = new Blob(chunks, {type: mime || "audio/webm"});
       const reader = new FileReader();
@@ -1188,14 +1219,18 @@ window.novaMicForce = async function(e){
           const r = await fetch(url, {
             method:"POST",
             headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({audio:reader.result, mime:(mime || blob.type || "audio/webm")})
+            body:JSON.stringify({
+              audio:reader.result,
+              mime:(mime || blob.type || "audio/webm"),
+              voice_lang: window.NOVA_VOICE_LANG || "ta"
+            })
           });
 
           const data = await r.json();
           const text = (data.text || "").trim();
 
           if(!text){
-            show("Voice puriyala bro. Konjam clear-a sollanum 😅", "error");
+            show("Voice puriyala bro. Konjam clear-a sollunga 😅", "error");
             return;
           }
 
@@ -1223,7 +1258,10 @@ window.novaMicForce = async function(e){
     show("Mic permission/error: " + err.message, "error");
   }
 };
+
+window.addEventListener("load", window.novaRefreshVoiceLangBtn);
 </script>
+
 
 </body>
 </html>
