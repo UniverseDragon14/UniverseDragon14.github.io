@@ -975,7 +975,7 @@
           <button type="button" class="nova-tool-btn" id="novaResetBtn" onclick="novaResetChat()">🧹 Reset</button>
           <button type="button" class="nova-tool-btn" id="novaCopyBtn" onclick="novaCopyLast()">📋 Copy</button>
           <button type="button" class="nova-tool-btn" id="novaSpeakBtn" onclick="novaSpeakLast()">🔊 Speak</button>
-          <button type="button" class="nova-tool-btn" id="novaMicBtn" onclick="novaStartMic()">🎙️ Mic</button>
+          <button type="button" class="nova-tool-btn" id="novaMicBtn" onclick="novaMicForce(event)">🎙️ Mic</button>
         </div>
 
 
@@ -1121,5 +1121,109 @@
     console.log("%cUNIVERSAL DRAGON", "color:#00ffd0;font-size:24px;font-weight:bold;");
     console.log("%cCreated by Aslam", "color:#d84cff;font-size:14px;");
   </script>
+
+<script id="nova-mic-force-v1">
+window.novaMicForce = async function(e){
+  if(e){ e.preventDefault(); e.stopPropagation(); }
+
+  function show(msg, type="bot"){
+    try{
+      if(typeof addBubble === "function"){
+        addBubble(msg, type);
+        return;
+      }
+      const log = document.getElementById("chatLog");
+      if(log){
+        const d = document.createElement("div");
+        d.className = "bubble " + type;
+        d.textContent = msg;
+        log.appendChild(d);
+        log.scrollTop = log.scrollHeight;
+        return;
+      }
+      alert(msg);
+    }catch(err){
+      alert(msg);
+    }
+  }
+
+  show("Mic button work aaguthu bro 🎙️ permission check pannuren...", "bot");
+
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    show("Mic API browser-la illa bro. iPhone Safari/Chrome limitation irukkalam.", "error");
+    return;
+  }
+
+  if(!window.MediaRecorder){
+    show("MediaRecorder support illa bro. iPhone browser limitation. Next backend upload mic method venum.", "error");
+    return;
+  }
+
+  try{
+    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+    show("Mic ON ✅ 5 seconds pesunga bro...", "bot");
+
+    let mime = "";
+    if(MediaRecorder.isTypeSupported("audio/webm")) mime = "audio/webm";
+    else if(MediaRecorder.isTypeSupported("audio/mp4")) mime = "audio/mp4";
+    else if(MediaRecorder.isTypeSupported("audio/ogg")) mime = "audio/ogg";
+
+    const chunks = [];
+    const rec = mime ? new MediaRecorder(stream, {mimeType:mime}) : new MediaRecorder(stream);
+
+    rec.ondataavailable = ev => {
+      if(ev.data && ev.data.size > 0) chunks.push(ev.data);
+    };
+
+    rec.onstop = async () => {
+      stream.getTracks().forEach(t => t.stop());
+      show("Voice backend-ku anuppuren... 🧠", "bot");
+
+      const blob = new Blob(chunks, {type: mime || "audio/webm"});
+      const reader = new FileReader();
+
+      reader.onloadend = async () => {
+        try{
+          const url = NOVA_API_URL.replace(/\/api\/chat$/, "/api/transcribe");
+          const r = await fetch(url, {
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({audio:reader.result, mime:(mime || blob.type || "audio/webm")})
+          });
+
+          const data = await r.json();
+          const text = (data.text || "").trim();
+
+          if(!text){
+            show("Voice puriyala bro. Konjam clear-a sollanum 😅", "error");
+            return;
+          }
+
+          show("Heard: " + text, "bot");
+          const input = document.getElementById("chatInput");
+          const form = document.getElementById("chatForm");
+          input.value = text;
+          setTimeout(() => form.requestSubmit(), 300);
+        }catch(err){
+          show("Transcribe error: " + err.message, "error");
+        }
+      };
+
+      reader.readAsDataURL(blob);
+    };
+
+    rec.onerror = () => show("Recorder error bro.", "error");
+
+    rec.start();
+    setTimeout(() => {
+      if(rec.state === "recording") rec.stop();
+    }, 5000);
+
+  }catch(err){
+    show("Mic permission/error: " + err.message, "error");
+  }
+};
+</script>
+
 </body>
 </html>
