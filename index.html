@@ -715,7 +715,32 @@
         width: 100%;
       }
     }
-  </style>
+  
+  .nova-tools{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:10px;
+    margin:14px 0;
+  }
+  .nova-tool-btn{
+    border:1px solid rgba(0,255,208,.35);
+    background:rgba(0,255,208,.08);
+    color:#dff;
+    padding:12px 8px;
+    border-radius:16px;
+    font-family:inherit;
+    font-size:13px;
+    cursor:pointer;
+    box-shadow:0 0 18px rgba(0,255,208,.12);
+  }
+  .nova-tool-btn:active{
+    transform:scale(.97);
+  }
+  @media(max-width:520px){
+    .nova-tools{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+</style>
 </head>
 <body>
   <div class="bg"></div>
@@ -937,6 +962,13 @@
             />
             <button class="btn primary" type="submit">Send</button>
           </form>
+        <div id="novaTools" class="nova-tools">
+          <button type="button" class="nova-tool-btn" onclick="novaResetChat()">🧹 Reset</button>
+          <button type="button" class="nova-tool-btn" onclick="novaCopyLast()">📋 Copy</button>
+          <button type="button" class="nova-tool-btn" onclick="novaSpeakLast()">🔊 Speak</button>
+          <button type="button" class="nova-tool-btn" onclick="novaStartMic()">🎙️ Mic</button>
+        </div>
+
 
           <div class="muted-note">
             Live NOVA backend active on Aslam's local Pi network.
@@ -1012,7 +1044,7 @@
       chatLog.appendChild(div);
       chatLog.scrollTop = chatLog.scrollHeight;
 
-      if (type === "bot") speakNova(text);
+      if (type === "bot") { window.NOVA_LAST_REPLY = text; speakNova(text); }
     }
 
     chatForm.addEventListener("submit", async (e) => {
