@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOVA AI Image Lab | Universal Dragon</title>
+  <style>
+    :root{
+      --bg:#030807;
+      --panel:rgba(0,18,14,.84);
+      --line:rgba(0,255,208,.32);
+      --cyan:#00ffd0;
+      --fire:#ff8a1f;
+      --text:#eafff9;
+      --muted:#8bbdb3;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(0,255,208,.12), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(255,120,20,.14), transparent 32%),
+        linear-gradient(180deg,#020504,#06110e 55%,#020504);
+      color:var(--text);
+      font-family:"Courier New",monospace;
+      letter-spacing:.08em;
+      padding:16px;
+    }
+    .wrap{max-width:980px;margin:auto}
+    .panel{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:var(--panel);
+      padding:16px;
+      box-shadow:0 0 24px rgba(0,255,208,.12);
+      margin-bottom:16px;
+    }
+    h1{
+      margin:0;
+      color:var(--cyan);
+      text-shadow:0 0 14px rgba(0,255,208,.5);
+      font-size:24px;
+    }
+    .sub{color:var(--muted);line-height:1.6;margin-top:8px;font-size:13px}
+    label{display:block;color:var(--cyan);margin:14px 0 8px;font-size:13px}
+    textarea, select, input[type=file]{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:rgba(0,0,0,.36);
+      color:var(--text);
+      font-family:inherit;
+      letter-spacing:.06em;
+      outline:none;
+    }
+    textarea{min-height:140px;resize:vertical;line-height:1.6}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btn{
+      border:1px solid var(--line);
+      background:rgba(0,255,208,.08);
+      color:var(--text);
+      border-radius:18px;
+      padding:14px;
+      font-family:inherit;
+      letter-spacing:.08em;
+      cursor:pointer;
+      text-align:center;
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+    }
+    .btn.fire{border-color:rgba(255,138,31,.55);box-shadow:0 0 16px rgba(255,138,31,.16)}
+    .btn:active{transform:scale(.98)}
+    .status{
+      white-space:pre-wrap;
+      color:#9fffe9;
+      background:rgba(0,0,0,.38);
+      border:1px solid rgba(0,255,208,.2);
+      border-radius:18px;
+      padding:12px;
+      line-height:1.6;
+      min-height:52px;
+    }
+    .previewBox{
+      width:100%;
+      min-height:280px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px dashed rgba(0,255,208,.32);
+      border-radius:22px;
+      background:rgba(0,0,0,.38);
+      overflow:hidden;
+      padding:12px;
+    }
+    img{max-width:100%;border-radius:16px;box-shadow:0 0 24px rgba(0,0,0,.5)}
+    @media(max-width:650px){
+      body{padding:12px}
+      h1{font-size:20px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <h1>✨ NOVA AI IMAGE LAB</h1>
+      <div class="sub">
+        Text → image · image edit · background change placeholder<br>
+        API key browser-la illa. Backend through nova.universaldragon.com.
+      </div>
+    </div>
+
+    <div class="panel">
+      <label>Mode</label>
+      <select id="mode">
+        <option value="text-to-image">Text → Create Image</option>
+        <option value="image-edit">Upload Image → Edit by Prompt</option>
+        <option value="background-change">Change Background</option>
+        <option value="poster">Make Poster / Cinematic</option>
+      </select>
+
+      <label>Prompt</label>
+      <textarea id="prompt" placeholder="Example: Universal Dragon robot in neon cyber city, cinematic, fire cyan glow..."></textarea>
+
+      <label>Upload image optional</label>
+      <input id="imageInput" type="file" accept="image/*" />
+
+      <div class="status" id="status">NOVA AI Image Lab ready. Prompt podu bro 😄</div>
+    </div>
+
+    <div class="panel">
+      <div class="grid">
+        <button class="btn fire" onclick="generateImage()">✨ Generate / Edit</button>
+        <button class="btn" onclick="clearLab()">🧹 Clear</button>
+        <button class="btn" onclick="copyPrompt()">📋 Copy Prompt</button>
+        <button class="btn" onclick="downloadOutput()">⬇️ Download</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="previewBox">
+        <img id="outputImg" alt="NOVA output will appear here" style="display:none;" />
+        <div id="emptyText" style="color:#8bbdb3;text-align:center;line-height:1.7;">
+          Output image inga varum.<br>
+          First test placeholder. Next real AI provider connect pannuvom.
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <a class="btn" href="index.html">← Back to NOVA</a>
+      <a class="btn" style="margin-top:12px;" href="image-editor.html">🖼️ Normal Image Editor</a>
+    </div>
+  </div>
+
+  <script>
+    const NOVA_IMAGE_API_URL = "https://nova.universaldragon.com/api/image_ai";
+
+    const modeEl = document.getElementById("mode");
+    const promptEl = document.getElementById("prompt");
+    const imageInput = document.getElementById("imageInput");
+    const statusEl = document.getElementById("status");
+    const outputImg = document.getElementById("outputImg");
+    const emptyText = document.getElementById("emptyText");
+
+    let uploadedImage = "";
+    let outputUrl = "";
+
+    function status(msg){ statusEl.textContent = msg; }
+
+    imageInput.addEventListener("change", () => {
+      const file = imageInput.files && imageInput.files[0];
+      if(!file) return;
+      if(!file.type.startsWith("image/")){
+        status("Image file illa bro.");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        uploadedImage = reader.result;
+        status("Image loaded ✅ Prompt kuduthu edit pannalam.");
+      };
+      reader.readAsDataURL(file);
+    });
+
+    async function generateImage(){
+      const prompt = promptEl.value.trim();
+      const mode = modeEl.value;
+
+      if(!prompt){
+        status("Prompt empty bro. Image enna venum-nu sollu 😄");
+        return;
+      }
+
+      status("NOVA Image Lab thinking... 🧠✨");
+
+      try{
+        const r = await fetch(NOVA_IMAGE_API_URL, {
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({
+            mode,
+            prompt,
+            image: uploadedImage
+          })
+        });
+
+        const data = await r.json();
+
+        if(!data.ok){
+          status(data.reply || data.error || "Image backend error.");
+          return;
+        }
+
+        outputUrl = data.image_url || "";
+        if(outputUrl){
+          outputImg.src = outputUrl;
+          outputImg.style.display = "block";
+          emptyText.style.display = "none";
+        }
+
+        status(data.reply || "Output ready ✅");
+      }catch(e){
+        status("Connection error bro: " + e.message);
+      }
+    }
+
+    function clearLab(){
+      promptEl.value = "";
+      uploadedImage = "";
+      outputUrl = "";
+      imageInput.value = "";
+      outputImg.style.display = "none";
+      emptyText.style.display = "block";
+      status("Cleared ✅");
+    }
+
+    async function copyPrompt(){
+      try{
+        await navigator.clipboard.writeText(promptEl.value || "");
+        status("Prompt copied 📋");
+      }catch(e){
+        status("Copy support illa bro.");
+      }
+    }
+
+    function downloadOutput(){
+      if(!outputUrl){
+        status("Download panna output image illa bro.");
+        return;
+      }
+      const a = document.createElement("a");
+      a.href = outputUrl;
+      a.download = "nova-ai-image.png";
+      a.click();
+      status("Download started ✅");
+    }
+  </script>
+</body>
+</html>
