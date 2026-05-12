@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""Universal Dragon Microsoft Job Hunter Bot
-Safe mode: finds relevant jobs and creates apply-ready materials.
-It does not auto-apply. The user must review and submit manually.
+"""Universal Dragon Microsoft Job Hunter Bot.
+
+Safe mode:
+- Finds Microsoft / big-tech style jobs.
+- Uses Groq GPT OSS 120B only when GROQ_API_KEY is available.
+- Creates apply-ready text.
+- Does not submit applications automatically.
 """
 from __future__ import annotations
 
@@ -11,6 +15,7 @@ from urllib.parse import urlencode, quote_plus
 from urllib.request import Request, urlopen
 import html
 import json
+import os
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,10 +23,23 @@ OUT_HTML = ROOT / "microsoft-jobs.html"
 OUT_JSON = ROOT / "microsoft-jobs.json"
 OUT_COVER = ROOT / "microsoft-cover-letter.txt"
 
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "").strip()
+
 PROFILE_URL = "https://universaldragon.com/career.html"
 GITHUB_URL = "https://github.com/UniverseDragon14"
 UDOS_URL = "https://udos.universaldragon.com/#modules"
 LINKEDIN_URL = "https://www.linkedin.com/in/aam-aslam-51777017b"
+
+ASLAM_PROFILE = """
+Aslam is based in Abu Dhabi, UAE. He has office support and practical installation experience.
+He is building Universal Dragon / EVE / NOVA / UDOS using GitHub, websites, Raspberry Pi,
+Linux command line, 3D printing, electronics, camera modules, motor drivers, robotics prototypes,
+AI assistant systems, safe automation, and 3D world experiments.
+Best target roles: Data Center Technician, IT Support Technician, Technical Support Specialist,
+Hardware Support Technician, Field Support Technician, Cloud/Infrastructure Operations.
+Current realistic level: junior/assistant/technician/support roles, not senior software roles.
+""".strip()
 
 TARGETS = [
     ("Data Center Technician", "United Arab Emirates"),
@@ -56,6 +74,7 @@ STATIC_FALLBACKS = [
         "why": ["target search", "data center", "hardware support"],
         "url": "https://jobs.careers.microsoft.com/global/en/search?" + urlencode({"q": "Data Center Technician", "lc": "United Arab Emirates"}),
         "source": "Microsoft Careers Search",
+        "description": "Direct Microsoft Careers search for Data Center Technician roles in UAE.",
     },
     {
         "title": "Microsoft Careers Search: IT Support Technician - UAE",
@@ -65,6 +84,7 @@ STATIC_FALLBACKS = [
         "why": ["target search", "IT support", "technical support"],
         "url": "https://jobs.careers.microsoft.com/global/en/search?" + urlencode({"q": "IT Support Technician", "lc": "United Arab Emirates"}),
         "source": "Microsoft Careers Search",
+        "description": "Direct Microsoft Careers search for IT Support Technician roles in UAE.",
     },
     {
         "title": "Microsoft Careers Search: Technical Support Specialist - UAE",
@@ -74,6 +94,7 @@ STATIC_FALLBACKS = [
         "why": ["target search", "support role"],
         "url": "https://jobs.careers.microsoft.com/global/en/search?" + urlencode({"q": "Technical Support Specialist", "lc": "United Arab Emirates"}),
         "source": "Microsoft Careers Search",
+        "description": "Direct Microsoft Careers search for Technical Support Specialist roles in UAE.",
     },
 ]
 
@@ -136,19 +157,8 @@ def score_job(title: str, desc: str, loc: str) -> tuple[int, list[str]]:
 
 def microsoft_api_search(keyword: str, location: str) -> dict:
     base = "https://gcsservices.careers.microsoft.com/search/api/v1/search"
-    params = {
-        "q": keyword,
-        "lc": location,
-        "l": "en_us",
-        "pg": "1",
-        "pgSz": "20",
-        "o": "Relevance",
-        "flt": "true",
-    }
-    req = Request(base + "?" + urlencode(params), headers={
-        "User-Agent": "UniversalDragon-MicrosoftJobHunter/1.0",
-        "Accept": "application/json",
-    })
+    params = {"q": keyword, "lc": location, "l": "en_us", "pg": "1", "pgSz": "20", "o": "Relevance", "flt": "true"}
+    req = Request(base + "?" + urlencode(params), headers={"User-Agent": "UniversalDragon-MicrosoftJobHunter/1.1", "Accept": "application/json"})
     with urlopen(req, timeout=30) as response:
         return json.loads(response.read().decode("utf-8", errors="replace"))
 
@@ -158,6 +168,53 @@ def job_url(job: dict, keyword: str, location: str) -> str:
     if job_id:
         return "https://jobs.careers.microsoft.com/global/en/job/" + quote_plus(job_id)
     return "https://jobs.careers.microsoft.com/global/en/search?" + urlencode({"q": keyword, "lc": location})
+
+
+def groq_analyze(job: dict) -> str:
+    if not GROQ_API_KEY:
+        return "AI analysis unavailable: GROQ_API_KEY is not set."
+
+    prompt = f"""
+Analyze this job for Aslam. Give a short decision: APPLY, MAYBE, or SKIP.
+Then give 2 practical reasons and one suggested cover-letter sentence.
+Keep it short and honest.
+
+Aslam profile:
+{ASLAM_PROFILE}
+
+Job:
+Title: {job.get('title')}
+Company: {job.get('company')}
+Location: {job.get('location')}
+Why/rules: {', '.join(job.get('why', []))}
+Description: {job.get('description', '')[:1200]}
+""".strip()
+
+    payload = {
+        "model": GROQ_MODEL,
+        "messages": [
+            {"role": "system", "content": "You are a careful career assistant. Do not exaggerate experience. Do not auto-apply."},
+            {"role": "user", "content": prompt},
+        ],
+        "temperature": 0.2,
+        "max_tokens": 280,
+    }
+    data = json.dumps(payload).encode("utf-8")
+    req = Request(
+        "https://api.groq.com/openai/v1/chat/completions",
+        data=data,
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + GROQ_API_KEY,
+        },
+        method="POST",
+    )
+    try:
+        with urlopen(req, timeout=45) as response:
+            result = json.loads(response.read().decode("utf-8", errors="replace"))
+        return clean(result["choices"][0]["message"]["content"])
+    except Exception as exc:  # noqa: BLE001
+        return "AI analysis failed: " + clean(exc)
 
 
 def collect_jobs() -> tuple[list[dict], list[str]]:
@@ -174,42 +231,39 @@ def collect_jobs() -> tuple[list[dict], list[str]]:
             notes.append(f"{keyword} / {location}: API failed: {exc}")
             continue
 
-        for job in jobs:
-            title = clean(job.get("title") or job.get("jobTitle") or job.get("name"))
-            desc = clean(job.get("description") or job.get("summary") or job.get("jobDescription"))
-            loc_text = clean(job.get("location") or job.get("primaryLocation") or job.get("jobLocation") or location)
-            company = clean(job.get("company") or "Microsoft")
-            url = job_url(job, keyword, location)
-
+        for raw in jobs:
+            title = clean(raw.get("title") or raw.get("jobTitle") or raw.get("name"))
+            desc = clean(raw.get("description") or raw.get("summary") or raw.get("jobDescription"))
+            loc_text = clean(raw.get("location") or raw.get("primaryLocation") or raw.get("jobLocation") or location)
+            company = clean(raw.get("company") or "Microsoft")
+            url = job_url(raw, keyword, location)
             key = (title.lower(), loc_text.lower(), url)
             if not title or key in seen:
                 continue
             seen.add(key)
-
             score, reasons = score_job(title, desc, loc_text)
             if score >= 3:
-                matches.append({
-                    "title": title,
-                    "company": company,
-                    "location": loc_text,
-                    "score": score,
-                    "why": reasons,
-                    "url": url,
-                    "source": "Microsoft Careers",
-                })
+                matches.append({"title": title, "company": company, "location": loc_text, "score": score, "why": reasons, "url": url, "source": "Microsoft Careers", "description": desc})
 
     if not matches:
         notes.append("No direct API matches. Using safe Microsoft Careers search links.")
         matches = STATIC_FALLBACKS.copy()
 
     matches.sort(key=lambda item: item["score"], reverse=True)
+    for job in matches[:8]:
+        job["ai"] = groq_analyze(job)
+    for job in matches[8:]:
+        job["ai"] = "AI analysis skipped to reduce API usage. Open the role and review manually."
+
+    notes.append("Groq model: " + GROQ_MODEL)
+    notes.append("Groq status: enabled" if GROQ_API_KEY else "Groq status: secret not set")
     return matches, notes
 
 
 def write_cover_letter() -> None:
     cover = f"""Dear Hiring Team,
 
-My name is Aslam and I am based in Abu Dhabi, UAE. I am interested in Microsoft opportunities related to Data Center Technician, IT Support, Technical Support, Hardware Support, Field Support, and Cloud/Infrastructure Operations.
+My name is Aslam and I am based in Abu Dhabi, UAE. I am interested in opportunities related to Data Center Technician, IT Support, Technical Support, Hardware Support, Field Support, and Cloud/Infrastructure Operations.
 
 I have hands-on experience through real personal projects using Raspberry Pi, Linux command line, GitHub, 3D printing, electronics components, camera modules, motor drivers, and robotics prototype building. I also have practical office support and installation experience, which helped me build strong troubleshooting, coordination, and problem-solving skills.
 
@@ -240,6 +294,7 @@ def render_page(matches: list[dict], notes: list[str]) -> str:
           <p><b>Location:</b> {html.escape(job['location'])}</p>
           <p><b>Score:</b> {job['score']}</p>
           <p><b>Why:</b> {html.escape(', '.join(job['why']))}</p>
+          <div class="ai"><b>Groq AI:</b><br>{html.escape(job.get('ai', ''))}</div>
           <a class="button" href="{html.escape(job['url'])}" target="_blank" rel="noopener">Open job / search</a>
         </article>
         """)
@@ -252,7 +307,7 @@ def render_page(matches: list[dict], notes: list[str]) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Microsoft Job Hunter | Universal Dragon</title>
   <style>
-    :root {{ --bg:#050505; --panel:#0b1110; --line:#00ffd0; --text:#eafff7; --muted:#99b8b0; --gold:#f5b642; }}
+    :root {{ --bg:#050505; --line:#00ffd0; --text:#eafff7; --muted:#99b8b0; --gold:#f5b642; }}
     * {{ box-sizing:border-box; }}
     body {{ margin:0; background:radial-gradient(circle at top,#13221e,#050505 55%); color:var(--text); font-family:Arial, sans-serif; line-height:1.55; }}
     .wrap {{ max-width:1100px; margin:0 auto; padding:22px; }}
@@ -262,6 +317,7 @@ def render_page(matches: list[dict], notes: list[str]) -> str:
     .grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }}
     .card {{ margin:0; }}
     .meta {{ color:var(--gold); font-size:12px; letter-spacing:1px; text-transform:uppercase; }}
+    .ai {{ border:1px solid rgba(245,182,66,.4); border-radius:14px; padding:12px; margin:12px 0; color:#fff7dd; background:rgba(245,182,66,.08); }}
     a {{ color:#8fd7ff; }}
     .button,button {{ display:inline-block; border:1px solid var(--line); color:var(--line); padding:10px 14px; border-radius:12px; text-decoration:none; background:rgba(0,255,208,.08); font-weight:700; }}
     textarea {{ width:100%; min-height:260px; border:1px solid rgba(0,255,208,.35); border-radius:14px; background:#020404; color:var(--text); padding:14px; }}
@@ -274,7 +330,8 @@ def render_page(matches: list[dict], notes: list[str]) -> str:
     <section class="hero">
       <h1>🐉 Microsoft Job Hunter Bot</h1>
       <p class="sub">Generated: {html.escape(generated)}</p>
-      <p>This page searches/prepares Microsoft and big-tech style roles for Aslam: <b>Data Center Technician, IT Support, Technical Support, Hardware Support, Field Support, Cloud/Infrastructure Operations</b>.</p>
+      <p><b>AI model:</b> {html.escape(GROQ_MODEL)}</p>
+      <p>This page prepares Microsoft and big-tech style roles for Aslam: <b>Data Center Technician, IT Support, Technical Support, Hardware Support, Field Support, Cloud/Infrastructure Operations</b>.</p>
       <p><b>Portfolio:</b> <a href="{PROFILE_URL}" target="_blank" rel="noopener">{PROFILE_URL}</a></p>
       <p><b>GitHub:</b> <a href="{GITHUB_URL}" target="_blank" rel="noopener">{GITHUB_URL}</a></p>
       <p><b>UDOS:</b> <a href="{UDOS_URL}" target="_blank" rel="noopener">{UDOS_URL}</a></p>
@@ -284,7 +341,7 @@ def render_page(matches: list[dict], notes: list[str]) -> str:
 
     <section class="note">
       <h2>Apply Message / Cover Letter</h2>
-      <p>Copy this when a Microsoft/Data Center/IT Support application asks for cover letter or why this role.</p>
+      <p>Copy this when an application asks for cover letter or why this role.</p>
       <textarea id="cover">{html.escape(cover_preview)}</textarea><br><br>
       <button onclick="navigator.clipboard.writeText(document.getElementById('cover').value)">Copy cover letter</button>
     </section>
