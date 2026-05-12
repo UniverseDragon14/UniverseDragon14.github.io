@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Microsoft Careers Search: Data Center Technician - UAE",
+    "company": "Microsoft",
+    "location": "United Arab Emirates / Abu Dhabi / Dubai",
+    "score": 5,
+    "why": ["target search", "data center", "hardware support"],
+    "url": "https://jobs.careers.microsoft.com/global/en/search?q=Data+Center+Technician&lc=United+Arab+Emirates",
+    "source": "Microsoft Careers Search"
+  },
+  {
+    "title": "Microsoft Careers Search: IT Support Technician - UAE",
+    "company": "Microsoft",
+    "location": "United Arab Emirates",
+    "score": 5,
+    "why": ["target search", "IT support", "technical support"],
+    "url": "https://jobs.careers.microsoft.com/global/en/search?q=IT+Support+Technician&lc=United+Arab+Emirates",
+    "source": "Microsoft Careers Search"
+  },
+  {
+    "title": "Microsoft Careers Search: Technical Support Specialist - UAE",
+    "company": "Microsoft",
+    "location": "United Arab Emirates",
+    "score": 4,
+    "why": ["target search", "support role"],
+    "url": "https://jobs.careers.microsoft.com/global/en/search?q=Technical+Support+Specialist&lc=United+Arab+Emirates",
+    "source": "Microsoft Careers Search"
+  }
+]
