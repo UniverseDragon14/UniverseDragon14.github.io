@@ -11,6 +11,8 @@ permissions:
 jobs:
   update-microsoft-jobs:
     runs-on: ubuntu-latest
+    env:
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
