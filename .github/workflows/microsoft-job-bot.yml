@@ -1,0 +1,36 @@
+name: Microsoft Job Hunter
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 4 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-microsoft-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Microsoft job bot
+        run: python scripts/microsoft_job_bot.py
+
+      - name: Commit updated job results
+        run: |
+          git config user.name "Universal Dragon Bot"
+          git config user.email "univercialdragon@gmail.com"
+          git add microsoft-jobs.html microsoft-jobs.json microsoft-cover-letter.txt
+          if git diff --cached --quiet; then
+            echo "No job result changes"
+          else
+            git commit -m "Update Microsoft job hunter results"
+            git push
+          fi
