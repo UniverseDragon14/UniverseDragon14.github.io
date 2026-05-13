@@ -1,0 +1,17 @@
+Dear Hiring Team,
+
+My name is Aslam and I am based in Abu Dhabi, UAE. I am interested in opportunities related to Data Center Technician, IT Support, Technical Support, Hardware Support, Field Support, and Cloud/Infrastructure Operations.
+
+I have hands-on experience through real personal projects using Raspberry Pi, Linux command line, GitHub, 3D printing, electronics components, camera modules, motor drivers, and robotics prototype building. I also have practical office support and installation experience, which helped me build strong troubleshooting, coordination, and problem-solving skills.
+
+My project work includes Universal Dragon / EVE / NOVA / UDOS, where I am building practical AI assistant systems, robotics concepts, 3D world experiments, safe automation, and real hardware/software workflows.
+
+Portfolio: https://universaldragon.com/career.html
+GitHub: https://github.com/UniverseDragon14
+UDOS Modules: https://udos.universaldragon.com/#modules
+LinkedIn: https://www.linkedin.com/in/aam-aslam-51777017b
+
+I am a fast learner, practical worker, and ready to grow in a technical support or data center environment.
+
+Kind regards,
+Aslam

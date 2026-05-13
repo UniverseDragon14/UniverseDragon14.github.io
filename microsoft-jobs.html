@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Microsoft Job Hunter | Universal Dragon</title>
-<style>
-:root{--bg:#050505;--panel:#0b1110;--line:#00ffd0;--text:#eafff7;--muted:#9fb8b1;--gold:#f5b642}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#102520,#050505 55%);color:var(--text);font-family:Arial,sans-serif;line-height:1.55}.wrap{max-width:1100px;margin:0 auto;padding:22px}.hero,.card,.note{border:1px solid rgba(0,255,208,.45);border-radius:20px;padding:20px;margin:16px 0;background:rgba(0,0,0,.55);box-shadow:0 0 24px rgba(0,255,208,.08)}h1,h2{color:var(--line);margin-top:0}.sub{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.card{margin:0}.meta{color:var(--gold);font-size:12px;letter-spacing:1px;text-transform:uppercase}a{color:#8fd7ff}.button{display:inline-block;border:1px solid var(--line);color:var(--line);padding:10px 14px;border-radius:12px;text-decoration:none;background:rgba(0,255,208,.08);font-weight:700}textarea{width:100%;min-height:300px;border:1px solid rgba(0,255,208,.35);border-radius:14px;background:#020404;color:var(--text);padding:14px}.danger{color:#ffb4b4}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Microsoft Job Hunter | Universal Dragon</title>
+  <style>
+    :root { --bg:#050505; --line:#00ffd0; --text:#eafff7; --muted:#99b8b0; --gold:#f5b642; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:radial-gradient(circle at top,#13221e,#050505 55%); color:var(--text); font-family:Arial, sans-serif; line-height:1.55; }
+    .wrap { max-width:1100px; margin:0 auto; padding:22px; }
+    .hero,.card,.note { border:1px solid rgba(0,255,208,.45); border-radius:20px; padding:20px; margin:16px 0; background:rgba(0,0,0,.55); box-shadow:0 0 24px rgba(0,255,208,.08); }
+    h1,h2 { color:var(--line); margin-top:0; }
+    .sub { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+    .card { margin:0; }
+    .meta { color:var(--gold); font-size:12px; letter-spacing:1px; text-transform:uppercase; }
+    .ai { border:1px solid rgba(245,182,66,.4); border-radius:14px; padding:12px; margin:12px 0; color:#fff7dd; background:rgba(245,182,66,.08); }
+    a { color:#8fd7ff; }
+    .button,button { display:inline-block; border:1px solid var(--line); color:var(--line); padding:10px 14px; border-radius:12px; text-decoration:none; background:rgba(0,255,208,.08); font-weight:700; }
+    textarea { width:100%; min-height:260px; border:1px solid rgba(0,255,208,.35); border-radius:14px; background:#020404; color:var(--text); padding:14px; }
+    pre { white-space:pre-wrap; color:var(--muted); }
+    .danger { color:#ffb4b4; }
+  </style>
 </head>
 <body>
-<main class="wrap">
-<section class="hero">
-<h1>🐉 Microsoft Job Hunter Bot</h1>
-<p class="sub">Universal Dragon career search page for Aslam.</p>
-<p>This page targets roles such as <b>Data Center Technician, IT Support Technician, Technical Support Specialist, Hardware Support, Field Support, Cloud/Infrastructure Operations</b>.</p>
-<p><b>Portfolio:</b> <a href="https://universaldragon.com/career.html" target="_blank">https://universaldragon.com/career.html</a></p>
-<p><b>GitHub:</b> <a href="https://github.com/UniverseDragon14" target="_blank">https://github.com/UniverseDragon14</a></p>
-<p><b>UDOS:</b> <a href="https://udos.universaldragon.com/#modules" target="_blank">https://udos.universaldragon.com/#modules</a></p>
-<p><b>EVE private assistant:</b> <a href="https://eve.universaldragon.com" target="_blank">https://eve.universaldragon.com</a></p>
-<p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/aam-aslam-51777017b" target="_blank">https://www.linkedin.com/in/aam-aslam-51777017b</a></p>
-<p class="danger"><b>Safe mode:</b> This bot does not auto-apply. It finds roles and prepares text. Aslam must review and submit manually.</p>
-</section>
-<section class="note">
-<h2>EVE / NOVA Work Helper</h2>
-<p>EVE / NOVA can help Aslam prepare job answers, company questions, cover letters, interview notes, and role-fit summaries using the private Groq API setup.</p>
-<p>Public pages do not expose the API key. Live chat must run through a private backend such as EVE on the Pi, Cloudflare Worker, or GitHub Actions result generation.</p>
-<p><b>Company answer:</b> I build real practical systems using Raspberry Pi, Linux, GitHub, 3D printing, electronics, robotics prototypes, web pages, and AI assistant workflows. This gives me hands-on troubleshooting, documentation, testing, and support skills for IT Support, Technical Support, and Data Center Technician roles.</p>
-</section>
-<section class="note">
-<h2>Apply Message</h2>
-<textarea id="cover">Dear Hiring Team,
+  <main class="wrap">
+    <section class="hero">
+      <h1>🐉 Microsoft Job Hunter Bot</h1>
+      <p class="sub">Generated: 2026-05-13 07:36 UTC</p>
+      <p><b>AI model:</b> openai/gpt-oss-120b</p>
+      <p>This page prepares Microsoft and big-tech style roles for Aslam: <b>Data Center Technician, IT Support, Technical Support, Hardware Support, Field Support, Cloud/Infrastructure Operations</b>.</p>
+      <p><b>Portfolio:</b> <a href="https://universaldragon.com/career.html" target="_blank" rel="noopener">https://universaldragon.com/career.html</a></p>
+      <p><b>GitHub:</b> <a href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">https://github.com/UniverseDragon14</a></p>
+      <p><b>UDOS:</b> <a href="https://udos.universaldragon.com/#modules" target="_blank" rel="noopener">https://udos.universaldragon.com/#modules</a></p>
+      <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/aam-aslam-51777017b" target="_blank" rel="noopener">https://www.linkedin.com/in/aam-aslam-51777017b</a></p>
+      <p class="danger"><b>Safe mode:</b> This bot does not auto-apply. It finds roles and prepares text. Aslam must review and submit manually.</p>
+    </section>
 
-My name is Aslam and I am based in Abu Dhabi, UAE. I am interested in roles related to Data Center Technician, IT Support, Technical Support, Hardware Support, Field Support, and Cloud or Infrastructure Operations.
+    <section class="note">
+      <h2>Apply Message / Cover Letter</h2>
+      <p>Copy this when an application asks for cover letter or why this role.</p>
+      <textarea id="cover">Dear Hiring Team,
+
+My name is Aslam and I am based in Abu Dhabi, UAE. I am interested in opportunities related to Data Center Technician, IT Support, Technical Support, Hardware Support, Field Support, and Cloud/Infrastructure Operations.
 
 I have hands-on experience through real personal projects using Raspberry Pi, Linux command line, GitHub, 3D printing, electronics components, camera modules, motor drivers, and robotics prototype building. I also have practical office support and installation experience, which helped me build strong troubleshooting, coordination, and problem-solving skills.
 
@@ -41,23 +51,71 @@ My project work includes Universal Dragon / EVE / NOVA / UDOS, where I am buildi
 Portfolio: https://universaldragon.com/career.html
 GitHub: https://github.com/UniverseDragon14
 UDOS Modules: https://udos.universaldragon.com/#modules
-EVE private assistant: https://eve.universaldragon.com
 LinkedIn: https://www.linkedin.com/in/aam-aslam-51777017b
 
 I am a fast learner, practical worker, and ready to grow in a technical support or data center environment.
 
 Kind regards,
-Aslam</textarea>
-</section>
-<section>
-<h2>Microsoft Search Links</h2>
-<div class="grid">
-<article class="card"><div class="meta">Microsoft Careers</div><h2>Data Center Technician - UAE</h2><p><b>Location:</b> UAE / Abu Dhabi / Dubai</p><p><b>Why:</b> hardware, Linux, troubleshooting, data center path</p><a class="button" href="https://jobs.careers.microsoft.com/global/en/search?q=Data+Center+Technician&lc=United+Arab+Emirates" target="_blank">Open search</a></article>
-<article class="card"><div class="meta">Microsoft Careers</div><h2>IT Support Technician - UAE</h2><p><b>Location:</b> UAE</p><p><b>Why:</b> support, troubleshooting, systems</p><a class="button" href="https://jobs.careers.microsoft.com/global/en/search?q=IT+Support+Technician&lc=United+Arab+Emirates" target="_blank">Open search</a></article>
-<article class="card"><div class="meta">Microsoft Careers</div><h2>Technical Support Specialist - UAE</h2><p><b>Location:</b> UAE</p><p><b>Why:</b> customer support + technical support path</p><a class="button" href="https://jobs.careers.microsoft.com/global/en/search?q=Technical+Support+Specialist&lc=United+Arab+Emirates" target="_blank">Open search</a></article>
-<article class="card"><div class="meta">Microsoft Careers</div><h2>Cloud Support / Infrastructure - UAE</h2><p><b>Location:</b> UAE</p><p><b>Why:</b> future Azure support path</p><a class="button" href="https://jobs.careers.microsoft.com/global/en/search?q=Cloud+Support&lc=United+Arab+Emirates" target="_blank">Open search</a></article>
-</div>
-</section>
-</main>
+Aslam
+</textarea><br><br>
+      <button onclick="navigator.clipboard.writeText(document.getElementById('cover').value)">Copy cover letter</button>
+    </section>
+
+    <section>
+      <h2>Matches / Search Links</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="meta">Microsoft Careers Search</div>
+          <h2>Microsoft Careers Search: Data Center Technician - UAE</h2>
+          <p><b>Company:</b> Microsoft</p>
+          <p><b>Location:</b> United Arab Emirates / Abu Dhabi / Dubai</p>
+          <p><b>Score:</b> 5</p>
+          <p><b>Why:</b> target search, data center, hardware support</p>
+          <div class="ai"><b>Groq AI:</b><br>AI analysis failed: HTTP Error 403: Forbidden</div>
+          <a class="button" href="https://jobs.careers.microsoft.com/global/en/search?q=Data+Center+Technician&amp;lc=United+Arab+Emirates" target="_blank" rel="noopener">Open job / search</a>
+        </article>
+        
+        <article class="card">
+          <div class="meta">Microsoft Careers Search</div>
+          <h2>Microsoft Careers Search: IT Support Technician - UAE</h2>
+          <p><b>Company:</b> Microsoft</p>
+          <p><b>Location:</b> United Arab Emirates</p>
+          <p><b>Score:</b> 5</p>
+          <p><b>Why:</b> target search, IT support, technical support</p>
+          <div class="ai"><b>Groq AI:</b><br>AI analysis failed: HTTP Error 403: Forbidden</div>
+          <a class="button" href="https://jobs.careers.microsoft.com/global/en/search?q=IT+Support+Technician&amp;lc=United+Arab+Emirates" target="_blank" rel="noopener">Open job / search</a>
+        </article>
+        
+        <article class="card">
+          <div class="meta">Microsoft Careers Search</div>
+          <h2>Microsoft Careers Search: Technical Support Specialist - UAE</h2>
+          <p><b>Company:</b> Microsoft</p>
+          <p><b>Location:</b> United Arab Emirates</p>
+          <p><b>Score:</b> 4</p>
+          <p><b>Why:</b> target search, support role</p>
+          <div class="ai"><b>Groq AI:</b><br>AI analysis failed: HTTP Error 403: Forbidden</div>
+          <a class="button" href="https://jobs.careers.microsoft.com/global/en/search?q=Technical+Support+Specialist&amp;lc=United+Arab+Emirates" target="_blank" rel="noopener">Open job / search</a>
+        </article>
+        </div>
+    </section>
+
+    <section class="note">
+      <h2>Bot Notes</h2>
+      <pre>Data Center Technician / United Arab Emirates: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+Data Center Technician / Abu Dhabi: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+Data Center Technician / Dubai: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+Datacenter Technician / United Arab Emirates: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+IT Support Technician / United Arab Emirates: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+Technical Support Specialist / United Arab Emirates: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+Hardware Support Technician / United Arab Emirates: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+Field Support Technician / United Arab Emirates: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+Support Engineer / United Arab Emirates: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+Cloud Support / United Arab Emirates: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+Infrastructure Technician / United Arab Emirates: API failed: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for &#x27;gcsservices.careers.microsoft.com&#x27;. (_ssl.c:1016)&gt;
+No direct API matches. Using safe Microsoft Careers search links.
+Groq model: openai/gpt-oss-120b
+Groq status: enabled</pre>
+    </section>
+  </main>
 </body>
 </html>
