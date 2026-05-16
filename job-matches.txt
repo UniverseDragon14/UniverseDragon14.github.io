@@ -1,6 +1,6 @@
-EVE Job Hunter Results - 2026-05-10 01:13
+EVE Job Hunter Results - 2026-05-16 08:00
 ==================================================
-Total matches: 2
+Total matches: 1
 
 Apply message:
 Hi, my name is Aslam. I am based in Abu Dhabi and looking for a Technical Support / Web Assistant, Office Support, Admin Assistant, Installation Coordinator, or Remote Web Support role.
@@ -16,13 +16,4 @@ Type: full_time
 Score: 7
 Why: technical support, customer support, support title
 Apply/source link: https://remotive.com/remote-jobs/customer-service/customer-support-representative-2088655
-Source: Remotive
-
-2. Online Data Analyst United States
-Company: TELUS Digital
-Location: USA
-Type: part_time
-Score: 4
-Why: website, remote/worldwide
-Apply/source link: https://remotive.com/remote-jobs/all-others/online-data-analyst-united-states-2088710
 Source: Remotive
