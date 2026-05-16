@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Universal Dragon Projects | Aslam Developer Architecture</title>
+  <meta name="description" content="Universal Dragon Aslam public projects and developer architecture. A public portfolio of AI, NOVA Core, EVE, robotics, Raspberry Pi, automation, web systems, 3D experiments, and GitHub repositories by Aslam." />
+  <meta name="keywords" content="Universal Dragon Projects, Universal Dragon Aslam Projects, Aslam Developer Architecture, Developer Architecture UAE, Universal Dragon Developer, NOVA Core Architecture, EVE System Architecture, Universal Dragon GitHub, UAE AI Developer Projects, Public AI Projects" />
+  <meta name="author" content="Aslam" />
+  <link rel="canonical" href="https://universedragon14.github.io/projects/" />
+
+  <meta property="og:title" content="Universal Dragon Projects | Aslam Developer Architecture" />
+  <meta property="og:description" content="Public Universal Dragon projects and developer architecture by Aslam: AI, robotics, Raspberry Pi, automation, web systems, NOVA Core, EVE, and GitHub repositories." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://universedragon14.github.io/projects/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Universal Dragon Projects and Developer Architecture",
+    "url": "https://universedragon14.github.io/projects/",
+    "about": [
+      "Universal Dragon Aslam",
+      "Aslam Developer Architecture",
+      "NOVA Core Architecture",
+      "EVE System Architecture",
+      "UAE AI Developer Projects",
+      "Public GitHub Projects"
+    ],
+    "creator": {
+      "@type": "Person",
+      "name": "Aslam",
+      "alternateName": "Universal Dragon Aslam",
+      "url": "https://universedragon14.github.io/uae-ai-developer/"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Universal Dragon",
+      "url": "https://universedragon14.github.io/"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #050203;
+      --panel: rgba(22, 9, 7, 0.88);
+      --panel2: rgba(255, 106, 26, 0.09);
+      --line: rgba(255, 128, 45, 0.30);
+      --fire: #ff6a1a;
+      --gold: #ffd166;
+      --red: #ff2e63;
+      --cyan: #00ffd0;
+      --text: #fff4e9;
+      --muted: #c8aa96;
+      --shadow: 0 0 42px rgba(255, 96, 20, 0.21);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% 10%, rgba(255, 106, 26, 0.24), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(255, 46, 99, 0.16), transparent 32%),
+        radial-gradient(circle at 50% 100%, rgba(0, 255, 208, 0.08), transparent 36%),
+        linear-gradient(135deg, #050203 0%, #090403 54%, #160706 100%);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--text); }
+    .wrap { width: min(1160px, calc(100% - 30px)); margin: 0 auto; padding: 34px 0 58px; }
+    .hero, .card, .repo, .panel {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel), rgba(8, 3, 3, 0.78));
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: clamp(24px, 5vw, 44px); }
+    .badge { display: inline-flex; gap: 8px; align-items: center; padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel2); color: var(--gold); margin-bottom: 16px; font-size: 0.92rem; }
+    h1 { font-size: clamp(2.1rem, 7vw, 5rem); line-height: 0.98; letter-spacing: -0.07em; margin-bottom: 18px; }
+    h1 span { display: block; color: var(--fire); text-shadow: 0 0 24px rgba(255, 106, 26, 0.34); }
+    h2 { color: var(--gold); font-size: clamp(1.35rem, 3vw, 2rem); margin-bottom: 12px; }
+    h3 { color: var(--fire); margin-bottom: 8px; }
+    p { color: var(--muted); font-size: 1.04rem; }
+    .lead { color: var(--text); max-width: 880px; font-size: clamp(1.04rem, 2vw, 1.25rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel2); color: var(--text); font-weight: 700; }
+    .btn.primary { border: 0; background: linear-gradient(135deg, var(--fire), var(--red)); color: #fff; }
+    .section { margin-top: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .card, .panel { padding: 22px; }
+    .repos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .repo { padding: 18px; box-shadow: none; }
+    .repo small { display: block; color: rgba(255,244,233,0.58); margin-top: 4px; word-break: break-word; }
+    .repo a { color: var(--gold); font-weight: 800; }
+    .tagbox { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .tag { border: 1px solid var(--line); background: var(--panel2); color: #ffe3c8; border-radius: 999px; padding: 8px 12px; font-size: 0.92rem; }
+    .note { margin-top: 14px; font-size: 0.95rem; color: rgba(255,244,233,0.68); }
+    footer { text-align: center; padding: 30px 0 0; color: rgba(255,244,233,0.62); }
+
+    @media (max-width: 880px) {
+      .grid, .repos { grid-template-columns: 1fr; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="badge">🐉 Universal Dragon • Public Projects • Developer Architecture</div>
+      <h1>Universal Dragon <span>Developer Architecture</span></h1>
+      <p class="lead">
+        <strong>Universal Dragon Aslam</strong> is the public project identity for Aslam’s developer architecture:
+        AI systems, NOVA Core, EVE System, robotics, Raspberry Pi, automation, web systems, 3D experiments,
+        public GitHub projects, and real engineering workflows built step by step.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">Open GitHub Projects</a>
+        <a class="btn" href="/">Universal Dragon Home</a>
+        <a class="btn" href="/uae-ai-developer/">Universal Dragon Aslam Profile</a>
+      </div>
+    </section>
+
+    <section class="section grid" aria-label="Developer architecture layers">
+      <article class="card">
+        <h2>Brain Layer</h2>
+        <p>NOVA Core, EVE System, memory, approval, rollback, safe command layers, local intelligence, and assistant-first workflows.</p>
+      </article>
+      <article class="card">
+        <h2>Build Layer</h2>
+        <p>Python, Linux, web development, dashboards, automation tools, GitHub workflows, deployment practice, and real system architecture.</p>
+      </article>
+      <article class="card">
+        <h2>Physical Layer</h2>
+        <p>Raspberry Pi, robotics, electronics, 3D printing, sensors, local servers, edge AI, and future hardware integration.</p>
+      </article>
+    </section>
+
+    <section class="section panel">
+      <h2>Search identity</h2>
+      <p>
+        This page is built so Google can understand the relationship between <strong>Universal Dragon</strong>,
+        <strong>Universal Dragon Aslam</strong>, <strong>Developer Architecture</strong>, <strong>UAE AI Developer Projects</strong>,
+        <strong>NOVA Core Architecture</strong>, and <strong>EVE System Architecture</strong>.
+      </p>
+      <div class="tagbox">
+        <span class="tag">Universal Dragon</span>
+        <span class="tag">Universal Dragon Aslam</span>
+        <span class="tag">Aslam Developer Architecture</span>
+        <span class="tag">Developer Architecture UAE</span>
+        <span class="tag">NOVA Core Architecture</span>
+        <span class="tag">EVE System Architecture</span>
+        <span class="tag">Public GitHub Projects</span>
+        <span class="tag">UAE AI Developer Projects</span>
+        <span class="tag">Robotics Projects</span>
+        <span class="tag">Raspberry Pi Projects</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Public GitHub project index</h2>
+      <p class="note">Only public repositories are listed here. Private/internal projects are intentionally not shown.</p>
+      <div class="repos">
+        <article class="repo"><a href="https://github.com/UniverseDragon14/Universal-Dragon-Core" target="_blank" rel="noopener">Universal-Dragon-Core</a><small>Core Universal Dragon repository and architecture base.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/Universal-dragon" target="_blank" rel="noopener">Universal-dragon</a><small>Universal Dragon project repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/Univercial-Dragon" target="_blank" rel="noopener">Univercial-Dragon</a><small>Public Universal Dragon identity repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/universaldragon" target="_blank" rel="noopener">universaldragon</a><small>Universal Dragon public project namespace.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/universal-dragon-eye" target="_blank" rel="noopener">universal-dragon-eye</a><small>Universal Dragon Eye public project repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/nova-intelligence-core" target="_blank" rel="noopener">nova-intelligence-core</a><small>NOVA intelligence core public repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/nova-agi-core-backend" target="_blank" rel="noopener">nova-agi-core-backend</a><small>NOVA backend architecture practice repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/eve-app-builder" target="_blank" rel="noopener">eve-app-builder</a><small>EVE app builder and assistant-based app creation direction.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/universal-dragon-nova-contact-lab" target="_blank" rel="noopener">universal-dragon-nova-contact-lab</a><small>NOVA contact lab and Universal Dragon experiment repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/universal-dragon-site" target="_blank" rel="noopener">universal-dragon-site</a><small>Universal Dragon public site work.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/UniverseDragon14.github.io" target="_blank" rel="noopener">UniverseDragon14.github.io</a><small>Official GitHub Pages portfolio and public SEO website.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/udos-site" target="_blank" rel="noopener">udos-site</a><small>Universal Dragon OS / UDOS public site direction.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/studio-site" target="_blank" rel="noopener">studio-site</a><small>Studio and web presentation project.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/universal-dragon-singularity" target="_blank" rel="noopener">universal-dragon-singularity</a><small>Universal Dragon advanced concept and experiment repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/terminal" target="_blank" rel="noopener">terminal</a><small>Terminal interface and developer workflow project.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/earth-globe-threejs" target="_blank" rel="noopener">earth-globe-threejs</a><small>Three.js earth/globe visual experiment.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/three.js" target="_blank" rel="noopener">three.js</a><small>Three.js public repository used for 3D learning/reference.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/v86" target="_blank" rel="noopener">v86</a><small>Virtual machine / emulator technology reference repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/angular" target="_blank" rel="noopener">angular</a><small>Angular web development learning/reference repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/clerk-docs" target="_blank" rel="noopener">clerk-docs</a><small>Documentation and authentication learning/reference repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/intellij-sdk-docs" target="_blank" rel="noopener">intellij-sdk-docs</a><small>Developer tooling documentation/reference repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/upload-artifact" target="_blank" rel="noopener">upload-artifact</a><small>GitHub workflow and artifact handling reference repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/Magisk" target="_blank" rel="noopener">Magisk</a><small>Android system research/reference repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/com.tachibana.downloader-1.2" target="_blank" rel="noopener">com.tachibana.downloader-1.2</a><small>Android package/reference repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/forgot-app" target="_blank" rel="noopener">forgot-app</a><small>Small app experiment repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/cuddly-goggles" target="_blank" rel="noopener">cuddly-goggles</a><small>Public experiment repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/symmetrical-memory" target="_blank" rel="noopener">symmetrical-memory</a><small>Public experiment repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/Antigravity" target="_blank" rel="noopener">Antigravity</a><small>Public experiment repository.</small></article>
+        <article class="repo"><a href="https://github.com/UniverseDragon14/new-acode-repo" target="_blank" rel="noopener">new-acode-repo</a><small>Acode/mobile development practice repository.</small></article>
+      </div>
+    </section>
+
+    <footer>
+      Universal Dragon • Universal Dragon Aslam • Developer Architecture • Public Projects • NOVA Core • EVE System
+    </footer>
+  </main>
+</body>
+</html>
