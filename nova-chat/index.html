@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOVA AI Chat | Universal Dragon Aslam</title>
+  <meta name="description" content="NOVA AI Chat by Universal Dragon Aslam. A public-safe AI chat interface for NOVA Core, EVE System, developer architecture, AI, robotics, Raspberry Pi, automation, and system design." />
+  <meta name="keywords" content="NOVA AI Chat, Universal Dragon Chat, Universal Dragon Aslam, NOVA Core Chat, EVE System, UAE AI Developer, Developer Architecture, AI Chat UAE" />
+  <meta name="author" content="Aslam" />
+  <link rel="canonical" href="https://universedragon14.github.io/nova-chat/" />
+  <meta property="og:title" content="NOVA AI Chat | Universal Dragon Aslam" />
+  <meta property="og:description" content="Public NOVA AI Chat interface for Universal Dragon by Aslam." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://universedragon14.github.io/nova-chat/" />
+  <style>
+    :root{--bg:#050203;--panel:rgba(20,8,7,.88);--line:rgba(255,128,45,.32);--fire:#ff6a1a;--gold:#ffd166;--cyan:#00ffd0;--text:#fff4e9;--muted:#c8aa96;--shadow:0 0 42px rgba(255,96,20,.21)}
+    *{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:radial-gradient(circle at 12% 10%,rgba(255,106,26,.24),transparent 30%),radial-gradient(circle at 82% 20%,rgba(0,255,208,.10),transparent 32%),linear-gradient(135deg,#050203,#100604);line-height:1.65}.wrap{width:min(980px,calc(100% - 28px));margin:0 auto;padding:32px 0 52px}.panel{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),rgba(8,3,3,.78));border-radius:24px;box-shadow:var(--shadow);padding:20px;margin-bottom:16px}.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:rgba(255,106,26,.09);color:var(--gold);border-radius:999px;padding:8px 12px;margin-bottom:14px}h1{font-size:clamp(2rem,7vw,4.6rem);line-height:1;letter-spacing:-.07em;margin-bottom:12px}h1 span{display:block;color:var(--fire)}p{color:var(--muted)}strong{color:var(--text)}.chat{min-height:310px;max-height:58vh;overflow:auto;background:rgba(0,0,0,.36);border:1px solid rgba(255,128,45,.18);border-radius:18px;padding:14px}.bubble{padding:12px 14px;border-radius:16px;margin:0 0 10px;white-space:pre-wrap;word-break:break-word}.bot{background:rgba(0,255,208,.07);border:1px solid rgba(0,255,208,.18)}.user{background:rgba(255,106,26,.10);border:1px solid rgba(255,128,45,.22)}.err{background:rgba(255,46,99,.10);border:1px solid rgba(255,46,99,.25)}.form{display:grid;grid-template-columns:1fr auto;gap:10px}input{min-height:52px;border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.34);color:var(--text);padding:0 14px;font:inherit}button,.btn{min-height:52px;border:1px solid var(--line);border-radius:16px;background:rgba(255,106,26,.12);color:var(--text);font-weight:800;padding:0 16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.btns{display:flex;flex-wrap:wrap;gap:10px}.note{font-size:.94rem;color:rgba(255,244,233,.66)}@media(max-width:680px){.form{grid-template-columns:1fr}button,.btn{width:100%}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="panel">
+      <div class="badge">🧠 Universal Dragon • NOVA Core • Public AI Chat</div>
+      <h1>NOVA <span>AI Chat</span></h1>
+      <p><strong>NOVA AI Chat</strong> is the public-safe chat interface for <strong>Universal Dragon Aslam</strong>. It explains NOVA Core, EVE System, developer architecture, AI, robotics, Raspberry Pi, automation, and real system design.</p>
+    </section>
+    <section class="panel">
+      <div id="chat" class="chat"><div class="bubble bot">NOVA online ✅ Ask about Universal Dragon, Aslam, NOVA Core, EVE, AI, robotics, Raspberry Pi, or developer architecture.</div></div>
+    </section>
+    <section class="panel">
+      <form id="form" class="form">
+        <input id="input" placeholder="Ask NOVA something..." autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+      <p class="note">Safe mode: tries backend if available, otherwise gives local public fallback reply. No API key in browser.</p>
+    </section>
+    <section class="panel btns">
+      <a class="btn" href="/">Home</a>
+      <a class="btn" href="/eve-chat/">Open EVE Chat</a>
+      <a class="btn" href="/projects/">Projects</a>
+      <a class="btn" href="/nova-ai-image.html">NOVA AI Image Lab</a>
+    </section>
+  </main>
+  <script>
+    const BACKEND_URL = "https://nova.universaldragon.com/api/chat";
+    const chat = document.getElementById("chat");
+    const form = document.getElementById("form");
+    const input = document.getElementById("input");
+    function bubble(text,type="bot"){const d=document.createElement("div");d.className="bubble "+type;d.textContent=text;chat.appendChild(d);chat.scrollTop=chat.scrollHeight;}
+    function localReply(q){const s=q.toLowerCase();if(s.includes("universal dragon"))return "Universal Dragon is Aslam's long-term real system project: AI, robotics, Raspberry Pi, automation, NOVA Core, EVE System, and developer architecture.";if(s.includes("aslam"))return "Aslam is the founder and builder of Universal Dragon, focused on UAE and global AI systems, robotics, automation, and practical engineering.";if(s.includes("eve"))return "EVE is the assistant-first companion/control layer direction inside Universal Dragon: safe, useful, approval-based, and practical.";if(s.includes("nova"))return "NOVA Core is the stable brain direction: memory, approval, rollback, safe tools, reasoning, and structured workflows.";if(s.includes("architecture")||s.includes("developer"))return "Developer architecture means the layers of Universal Dragon: brain layer, build layer, physical layer, safety layer, and public project layer.";return "NOVA safe reply: I can explain Universal Dragon, Aslam, NOVA Core, EVE, AI, robotics, Raspberry Pi, automation, and developer architecture.";}
+    form.addEventListener("submit",async e=>{e.preventDefault();const q=input.value.trim();if(!q)return;bubble(q,"user");input.value="";bubble("NOVA thinking...","bot");const thinking=chat.lastElementChild;try{const r=await fetch(BACKEND_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:q,mode:"nova"})});const data=await r.json();thinking.remove();bubble(data.reply||data.response||localReply(q),"bot");}catch(err){thinking.remove();bubble(localReply(q),"bot");}});
+  </script>
+</body>
+</html>
