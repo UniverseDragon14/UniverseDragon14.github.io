@@ -3,1271 +3,276 @@
 <head>
   <meta name="google-site-verification" content="TMFpGZ7-Dq2tnTR8BN0hlBN6hTC50ApM-IMl3eYMqYE" />
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-  />
-  <meta
-    name="description"
-    content="Universal Dragon Aslam official public website. NOVA Core AI, Raspberry Pi, robotics, automation, and real system research by Aslam."
-  />
-  <meta
-    name="keywords"
-    content="Universal Dragon, NOVA, Aslam, Raspberry Pi, AI, Robotics, Ollama"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Universal Dragon Aslam | UAE AI Developer & NOVA Core Builder</title>
+  <meta name="description" content="Universal Dragon Aslam official website. Aslam is a UAE-based AI developer and system builder from Abu Dhabi focused on NOVA Core, EVE, robotics, Raspberry Pi, automation, web development, ethical security, and real-world system design." />
+  <meta name="keywords" content="Universal Dragon Aslam, Aslam UAE AI Developer, UAE IT Developer, AI Developer Abu Dhabi, Universal Dragon UAE, NOVA Core, EVE System, Raspberry Pi Developer UAE, Robotics Developer UAE, Automation Developer UAE, Ethical Security UAE" />
   <meta name="author" content="Aslam" />
-  <meta property="og:title" content="Universal Dragon | Aslam" />
-  <meta
-    property="og:description"
-    content="Public website for Universal Dragon, NOVA Core, AI systems, and robotics."
-  />
+  <link rel="canonical" href="https://universedragon14.github.io/" />
+
+  <meta property="og:title" content="Universal Dragon Aslam | UAE AI Developer" />
+  <meta property="og:description" content="Official public profile for Universal Dragon by Aslam — AI, robotics, Raspberry Pi, automation, NOVA Core, EVE, and real system design from Abu Dhabi, UAE." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://universedragon14.github.io/" />
-  <title>Universal Dragon Aslam | NOVA Core AI Robotics</title>
+  <meta property="og:image" content="https://github.com/UniverseDragon14.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aslam",
+    "alternateName": "Universal Dragon Aslam",
+    "url": "https://universedragon14.github.io/",
+    "image": "https://github.com/UniverseDragon14.png",
+    "email": "mailto:univercialdragon@gmail.com",
+    "homeLocation": {
+      "@type": "Place",
+      "name": "Abu Dhabi, United Arab Emirates"
+    },
+    "knowsAbout": [
+      "Artificial Intelligence",
+      "Robotics",
+      "Raspberry Pi",
+      "Automation",
+      "System Design",
+      "Web Development",
+      "Ethical Security",
+      "Linux",
+      "Python"
+    ],
+    "brand": {
+      "@type": "Brand",
+      "name": "Universal Dragon"
+    },
+    "sameAs": [
+      "https://github.com/UniverseDragon14",
+      "https://universedragon14.github.io/uae-ai-developer/"
+    ]
+  }
+  </script>
 
   <style>
     :root {
-      --bg: #030505;
-      --panel: rgba(8, 18, 18, 0.78);
-      --panel-2: rgba(0, 255, 204, 0.06);
-      --line: rgba(0, 255, 204, 0.22);
+      --bg: #050203;
+      --panel: rgba(20, 8, 7, 0.86);
+      --panel2: rgba(255, 106, 26, 0.08);
+      --line: rgba(255, 128, 45, 0.28);
+      --fire: #ff6a1a;
+      --gold: #ffd166;
+      --red: #ff2e63;
       --cyan: #00ffd0;
-      --cyan-soft: rgba(0, 255, 208, 0.18);
-      --purple: #d84cff;
-      --text: #d9fff7;
-      --muted: #89a7a1;
-      --danger: #ff4d73;
-      --ok: #57ff84;
-      --shadow: 0 0 24px rgba(0, 255, 204, 0.18);
-      --radius: 22px;
-      --radius-sm: 14px;
+      --text: #fff4e9;
+      --muted: #c9aa96;
+      --shadow: 0 0 42px rgba(255, 96, 20, 0.2);
       --max: 1160px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Courier New", monospace;
-      background: var(--bg);
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    .bg {
-      position: fixed;
-      inset: 0;
-      z-index: -3;
       background:
-        radial-gradient(circle at 50% 12%, rgba(0, 255, 208, 0.08), transparent 26%),
-        radial-gradient(circle at 85% 10%, rgba(216, 76, 255, 0.07), transparent 18%),
-        radial-gradient(circle at 15% 20%, rgba(0, 255, 208, 0.05), transparent 18%),
-        linear-gradient(180deg, #020404 0%, #000000 100%);
+        radial-gradient(circle at 12% 10%, rgba(255, 106, 26, 0.22), transparent 28%),
+        radial-gradient(circle at 82% 22%, rgba(255, 46, 99, 0.16), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(0, 255, 208, 0.08), transparent 32%),
+        linear-gradient(135deg, #050203 0%, #090403 52%, #150706 100%);
+      line-height: 1.65;
     }
+    a { color: inherit; text-decoration: none; }
+    strong { color: var(--text); }
 
-    .grid {
-      position: fixed;
-      left: -10%;
-      right: -10%;
-      bottom: -10%;
-      height: 70vh;
-      z-index: -2;
-      transform: perspective(900px) rotateX(76deg);
-      transform-origin: bottom;
-      background-image:
-        linear-gradient(rgba(0, 255, 208, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 208, 0.08) 1px, transparent 1px);
-      background-size: 52px 52px;
-      animation: gridMove 18s linear infinite;
-      opacity: 0.75;
-      mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1));
-      -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1));
-    }
-
-    @keyframes gridMove {
-      from {
-        background-position: 0 0, 0 0;
-      }
-      to {
-        background-position: 0 52px, 52px 0;
-      }
-    }
-
-    .scanline {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.02) 0%,
-        rgba(255,255,255,0.00) 8%,
-        rgba(255,255,255,0.02) 16%
-      );
-      background-size: 100% 7px;
-      opacity: 0.08;
-    }
-
-    .container {
-      width: min(100% - 24px, var(--max));
-      margin: 0 auto;
-    }
-
+    .wrap { width: min(100% - 28px, var(--max)); margin: 0 auto; }
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.55);
-      border-bottom: 1px solid rgba(0, 255, 208, 0.12);
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 2, 3, 0.78);
+      backdrop-filter: blur(14px);
     }
-
     .topbar-inner {
-      width: min(100% - 24px, var(--max));
-      margin: 0 auto;
-      min-height: 68px;
+      min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .brand-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(0, 255, 208, 0.08);
-      border: 1px solid rgba(0, 255, 208, 0.25);
-      box-shadow: var(--shadow);
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-
-    .brand-text {
-      min-width: 0;
-    }
-
-    .brand-title {
-      color: var(--cyan);
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-shadow: 0 0 14px rgba(0, 255, 208, 0.25);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .brand-sub {
-      font-size: 0.8rem;
-      color: var(--muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .nav {
-      display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+    .brand-icon { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: var(--panel2); box-shadow: var(--shadow); }
+    .nav { display: flex; flex-wrap: wrap; gap: 10px; }
+    .nav a { padding: 9px 12px; border: 1px solid transparent; border-radius: 999px; color: var(--muted); font-size: 0.92rem; }
+    .nav a:hover { color: var(--gold); border-color: var(--line); background: var(--panel2); }
 
-    .nav a {
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      color: var(--muted);
-      transition: 0.2s ease;
-      font-size: 0.9rem;
-    }
-
-    .nav a:hover {
-      color: var(--cyan);
-      border-color: rgba(0, 255, 208, 0.25);
-      background: rgba(0, 255, 208, 0.05);
-    }
-
-    .hero {
-      padding: 72px 0 42px;
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, rgba(8, 18, 18, 0.86), rgba(2, 6, 6, 0.78));
+    .hero { padding: 64px 0 26px; }
+    .hero-card, .card, .terminal, .connect-box {
       border: 1px solid var(--line);
-      box-shadow: var(--shadow);
       border-radius: 28px;
-      padding: 30px;
-      position: relative;
+      background: linear-gradient(180deg, var(--panel), rgba(8, 3, 3, 0.78));
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
+    .hero-card { padding: clamp(22px, 5vw, 42px); }
+    .hero-grid { display: grid; grid-template-columns: 210px 1fr; gap: 30px; align-items: center; }
+    .profile-ring { width: 196px; height: 196px; border-radius: 50%; padding: 5px; background: linear-gradient(135deg, var(--fire), var(--gold), var(--red)); box-shadow: 0 0 42px rgba(255, 106, 26, 0.28); }
+    .profile-ring img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; background: #110604; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 13px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold); background: var(--panel2); margin-bottom: 18px; font-size: 0.9rem; }
+    h1 { font-size: clamp(2.35rem, 7vw, 5.6rem); line-height: 0.98; letter-spacing: -0.07em; margin-bottom: 18px; }
+    h1 span { display: block; color: var(--fire); text-shadow: 0 0 24px rgba(255, 106, 26, 0.34); }
+    .subtitle { color: var(--gold); font-size: clamp(1.04rem, 2vw, 1.32rem); margin-bottom: 14px; font-weight: 700; }
+    .desc { color: var(--muted); max-width: 760px; font-size: 1.05rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line); color: var(--text); background: var(--panel2); font-weight: 700; }
+    .btn.primary { border: 0; background: linear-gradient(135deg, var(--fire), var(--red)); color: white; }
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: auto -10% 0 -10%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,255,208,0.45), transparent);
+    .section { padding: 28px 0 0; }
+    .section-title { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .section-title h2 { color: var(--gold); font-size: clamp(1.45rem, 3vw, 2.2rem); }
+    .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .card { padding: 22px; box-shadow: none; }
+    .card h3 { color: var(--fire); margin-bottom: 8px; font-size: 1.2rem; }
+    .card p, .terminal p, .connect-box p { color: var(--muted); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel2); color: #ffe6ce; }
+    .terminal { padding: 22px; }
+    .terminal pre { white-space: pre-wrap; color: #ffeeda; font-size: 0.98rem; }
+    .green { color: var(--cyan); }
+    .purple { color: #ff8cf2; }
+    .connect-box { padding: 26px; text-align: center; }
+    .connect-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+    footer { text-align: center; color: rgba(255,244,233,0.62); padding: 34px 0 52px; }
+
+    @media (max-width: 820px) {
+      .hero-grid, .cards { grid-template-columns: 1fr; }
+      .profile-ring { margin: 0 auto; width: 162px; height: 162px; }
+      .topbar-inner, .nav { justify-content: center; }
+      .hero { padding-top: 38px; }
+      .btn { width: 100%; }
     }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .profile-wrap {
-      display: flex;
-      justify-content: center;
-    }
-
-    .profile-ring {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      padding: 5px;
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      box-shadow:
-        0 0 34px rgba(0, 255, 208, 0.25),
-        0 0 56px rgba(216, 76, 255, 0.12);
-    }
-
-    .profile-img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      border-radius: 50%;
-      background: #071010;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(0, 255, 208, 0.08);
-      border: 1px solid rgba(0, 255, 208, 0.18);
-      color: var(--cyan);
-      font-size: 0.86rem;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 4.1rem);
-      line-height: 1.05;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      color: transparent;
-      background: linear-gradient(90deg, var(--cyan), #8effee 42%, var(--purple));
-      -webkit-background-clip: text;
-      background-clip: text;
-      text-shadow: 0 0 24px rgba(0, 255, 208, 0.12);
-    }
-
-    .hero .subtitle {
-      color: #b8d6cf;
-      font-size: 1.06rem;
-      margin-bottom: 18px;
-    }
-
-    .hero .desc {
-      color: var(--muted);
-      max-width: 700px;
-      margin-bottom: 24px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(0, 255, 208, 0.22);
-      background: rgba(0, 255, 208, 0.08);
-      color: var(--cyan);
-      transition: 0.2s ease;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(0, 255, 208, 0.12);
-      background: rgba(0, 255, 208, 0.12);
-    }
-
-    .btn.primary {
-      background: linear-gradient(90deg, rgba(0,255,208,0.18), rgba(0,255,208,0.08));
-      color: #ecfffb;
-    }
-
-    .status-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .pill {
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #c8e7df;
-      font-size: 0.9rem;
-    }
-
-    .pill.live {
-      border-color: rgba(87,255,132,0.26);
-      color: #dfffe7;
-      background: rgba(87,255,132,0.08);
-    }
-
-    .section {
-      padding: 34px 0 22px;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-
-    .section-head .icon {
-      font-size: 1.6rem;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.45rem, 3vw, 2.35rem);
-      letter-spacing: 5px;
-      color: var(--cyan);
-      text-transform: uppercase;
-      text-shadow: 0 0 16px rgba(0, 255, 208, 0.18);
-    }
-
-    .section-line {
-      height: 1px;
-      flex: 1;
-      background: linear-gradient(90deg, rgba(0,255,208,0.4), transparent);
-    }
-
-    .terminal {
-      background: rgba(3, 8, 8, 0.86);
-      border: 1px solid rgba(0, 255, 208, 0.22);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .terminal-top {
-      background: rgba(0,255,208,0.08);
-      border-bottom: 1px solid rgba(0,255,208,0.12);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--muted);
-    }
-
-    .lights {
-      display: flex;
-      gap: 8px;
-      margin-right: 8px;
-    }
-
-    .light {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-    }
-
-    .red { background: #ff5f56; }
-    .yellow { background: #ffbd2f; }
-    .green { background: #28c840; }
-
-    .terminal-body {
-      padding: 20px;
-      font-size: 0.97rem;
-      color: #d8fff7;
-    }
-
-    .cmd {
-      color: var(--purple);
-      margin: 8px 0 4px;
-      word-break: break-word;
-    }
-
-    .out {
-      color: #c7f7ed;
-      margin-bottom: 10px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(8, 16, 16, 0.82), rgba(3, 8, 8, 0.82));
-      border: 1px solid rgba(0,255,208,0.16);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-      transition: 0.22s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(0,255,208,0.35);
-    }
-
-    .card .emoji {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      color: var(--cyan);
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .chip {
-      padding: 14px 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,255,208,0.22);
-      background: rgba(0,255,208,0.07);
-      color: #dffdf7;
-      transition: 0.2s ease;
-    }
-
-    .chip:hover {
-      transform: translateY(-2px) scale(1.02);
-      background: rgba(0,255,208,0.11);
-    }
-
-    .chat-wrap {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 18px;
-    }
-
-    .panel {
-      background: linear-gradient(180deg, rgba(8, 16, 16, 0.82), rgba(3, 8, 8, 0.82));
-      border: 1px solid rgba(0,255,208,0.16);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .panel h3 {
-      color: var(--cyan);
-      margin-bottom: 10px;
-      font-size: 1.15rem;
-    }
-
-    .panel p,
-    .panel li {
-      color: var(--muted);
-    }
-
-    .panel ul {
-      padding-left: 18px;
-      margin-top: 10px;
-    }
-
-    .chat-box {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .chat-log {
-      min-height: 260px;
-      max-height: 420px;
-      overflow: auto;
-      border-radius: 18px;
-      padding: 16px;
-      background: rgba(0, 0, 0, 0.34);
-      border: 1px solid rgba(0,255,208,0.12);
-    }
-
-    .bubble {
-      padding: 12px 14px;
-      border-radius: 16px;
-      margin-bottom: 10px;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-
-    .bubble.user {
-      background: rgba(0,255,208,0.10);
-      border: 1px solid rgba(0,255,208,0.18);
-      color: #edfffb;
-    }
-
-    .bubble.bot {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #d4e9e3;
-    }
-
-    .bubble.error {
-      background: rgba(255,77,115,0.09);
-      border: 1px solid rgba(255,77,115,0.22);
-      color: #ffdbe4;
-    }
-
-    .chat-form {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
-    }
-
-    .chat-input {
-      min-height: 52px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,255,208,0.18);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      padding: 14px 16px;
-      outline: none;
-    }
-
-    .chat-input::placeholder {
-      color: #73918b;
-    }
-
-    .muted-note {
-      color: #7da199;
-      font-size: 0.88rem;
-      margin-top: 8px;
-    }
-
-    .connect-box {
-      background: rgba(0,255,208,0.06);
-      border: 1px solid rgba(0,255,208,0.14);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    .connect-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-      margin-top: 18px;
-    }
-
-    .connect-links a {
-      min-width: 150px;
-    }
-
-    footer {
-      padding: 36px 0 54px;
-      color: #76918b;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    footer .power {
-      margin-top: 8px;
-      color: var(--cyan);
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: 0.6s ease;
-    }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 920px) {
-      .hero-grid,
-      .chat-wrap,
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 42px;
-      }
-
-      .hero-card {
-        padding: 22px;
-      }
-
-      .hero h1 {
-        letter-spacing: 4px;
-      }
-
-      .section-head h2 {
-        letter-spacing: 3px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .topbar-inner {
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        padding: 10px 0;
-      }
-
-      .brand {
-        justify-content: center;
-      }
-
-      .nav {
-        justify-content: center;
-      }
-
-      .hero-grid {
-        gap: 20px;
-      }
-
-      .profile-ring {
-        width: 160px;
-        height: 160px;
-      }
-
-      .hero h1 {
-        font-size: 2.1rem;
-        letter-spacing: 3px;
-        text-align: center;
-      }
-
-      .hero .subtitle,
-      .hero .desc,
-      .status-row,
-      .hero-actions {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .chat-form {
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .connect-links a {
-        width: 100%;
-      }
-    }
-  
-  .nova-tools{
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap:10px;
-    margin:14px 0;
-  }
-  .nova-tool-btn{
-    border:1px solid rgba(0,255,208,.35);
-    background:rgba(0,255,208,.08);
-    color:#dff;
-    padding:12px 8px;
-    border-radius:16px;
-    font-family:inherit;
-    font-size:13px;
-    cursor:pointer;
-    box-shadow:0 0 18px rgba(0,255,208,.12);
-  }
-  .nova-tool-btn:active{
-    transform:scale(.97);
-  }
-  @media(max-width:520px){
-    .nova-tools{ grid-template-columns: repeat(2, 1fr); }
-  }
-
-
-  .nova-tools, .nova-tool-btn{
-    position:relative;
-    z-index:9999;
-    pointer-events:auto !important;
-    touch-action:manipulation;
-    -webkit-tap-highlight-color: rgba(0,255,208,.25);
-  }
-
-  a.nova-tool-btn{display:flex;align-items:center;justify-content:center;text-decoration:none;}
-</style>
+  </style>
 </head>
 <body>
-  <div class="bg"></div>
-  <div class="grid"></div>
-  <div class="scanline"></div>
-
   <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <div class="brand-icon">⚡</div>
-        <div class="brand-text">
-          <div class="brand-title">Universal Dragon</div>
-          <div class="brand-sub">NOVA Core • AI • Robotics • Systems</div>
-        </div>
-      </div>
-
-      <nav class="nav">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#home" aria-label="Universal Dragon home">
+        <span class="brand-icon">🐉</span>
+        <span>Universal Dragon</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
         <a href="#home">Home</a>
-        <a href="#terminal">NOVA</a>
+        <a href="/uae-ai-developer/">UAE AI Developer</a>
         <a href="#projects">Projects</a>
         <a href="#expertise">Expertise</a>
-        <a href="#live">Live</a>
         <a href="#connect">Connect</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main class="wrap">
     <section class="hero" id="home">
-      <div class="hero-card fade-up">
+      <div class="hero-card">
         <div class="hero-grid">
-          <div class="profile-wrap">
-            <div class="profile-ring">
-              <img
-                class="profile-img"
-                src="https://github.com/UniverseDragon14.png"
-                alt="Aslam"
-              />
-            </div>
+          <div class="profile-ring">
+            <img src="https://github.com/UniverseDragon14.png" alt="Aslam - Universal Dragon founder" />
           </div>
-
           <div>
-            <div class="eyebrow">🟢 Public Site Online</div>
-            <h1>Aslam</h1>
-            <div class="subtitle">Universal Dragon Aslam • Founder & Builder of NOVA Core</div>
+            <div class="badge">🇦🇪 Abu Dhabi, UAE • AI • Robotics • Systems</div>
+            <h1>Universal Dragon <span>Aslam</span></h1>
+            <div class="subtitle">UAE AI Developer • NOVA Core Builder • Real System Designer</div>
             <p class="desc">
-              Universal Dragon Aslam is a long-term real-world system project by Aslam focused on
-              AI, automation, robotics, Raspberry Pi, and practical system design.
-              NOVA is the stable brain layer at the center of that build.
+              <strong>Universal Dragon Aslam</strong> is the public identity for Aslam’s UAE-based technology work from Abu Dhabi,
+              focused on artificial intelligence, robotics, Raspberry Pi systems, automation, web development, ethical security learning,
+              and practical system design. NOVA Core and EVE are part of the long-term Universal Dragon direction: a safe, useful,
+              approval-based AI system built step by step with real engineering.
             </p>
-
-            <div class="hero-actions">
-              <a class="btn primary" href="#live">⚡ Open NOVA Panel</a>
-              <a class="btn" href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">💻 GitHub</a>
-              <a class="btn" href="#projects">🚀 View Projects</a>
-            </div>
-
-            <div class="status-row">
-              <div class="pill live">● SYSTEM ONLINE</div>
-              <div class="pill">NOVA Core Active Concept</div>
-              <div class="pill">GitHub Pages Public Site</div>
+            <div class="actions">
+              <a class="btn primary" href="/uae-ai-developer/">Open UAE AI Developer Profile</a>
+              <a class="btn" href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">GitHub: UniverseDragon14</a>
+              <a class="btn" href="#projects">View Projects</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section fade-up" id="terminal">
-      <div class="section-head">
-        <div class="icon">🖥️</div>
-        <h2>NOVA Terminal</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <div class="terminal">
-        <div class="terminal-top">
-          <div class="lights">
-            <span class="light red"></span>
-            <span class="light yellow"></span>
-            <span class="light green"></span>
-          </div>
-          NOVA Core Console
-        </div>
-
-        <div class="terminal-body">
-          <div class="cmd">&gt; whoami</div>
-          <div class="out">Aslam — Universal Dragon founder and builder</div>
-
-          <div class="cmd">&gt; cat mission.txt</div>
-          <div class="out">
-            Building a practical AI + robotics ecosystem with NOVA as the stable brain,
-            focused on real systems, useful automation, and disciplined engineering.
-          </div>
-
-          <div class="cmd">&gt; ls modules/</div>
-          <div class="out">
-            core/ memory/ voice/ control/ vision/ console/ patches/ rollback/
-          </div>
-
-          <div class="cmd">&gt; status</div>
-          <div class="out">
-            Public website online. Live Ollama backend can be connected later.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section fade-up" id="projects">
-      <div class="section-head">
-        <div class="icon">🚀</div>
-        <h2>Projects</h2>
-        <div class="section-line"></div>
-      </div>
-
+    <section class="section" id="projects">
+      <div class="section-title"><h2>Projects</h2><div class="line"></div></div>
       <div class="cards">
         <article class="card">
-          <div class="emoji">🧠</div>
           <h3>NOVA Core</h3>
-          <p>
-            Stable brain layer for Universal Dragon. Designed around modular growth:
-            console, memory, voice, control, vision, history, approval, and rollback.
-          </p>
+          <p>Stable brain direction for Universal Dragon with memory, approval, rollback, history, console tools, and safe system workflow ideas.</p>
         </article>
-
         <article class="card">
-          <div class="emoji">🤖</div>
-          <h3>Universal Dragon</h3>
-          <p>
-            Long-term AI + hardware ecosystem combining software, robotics,
-            automation, system architecture, and practical field-ready workflows.
-          </p>
+          <h3>EVE System</h3>
+          <p>Assistant-first control layer concept for practical help, voice, mobile workflow, web UI, real automation, and safe human approval.</p>
         </article>
-
         <article class="card">
-          <div class="emoji">🍓</div>
-          <h3>Raspberry Pi Systems</h3>
-          <p>
-            Real Raspberry Pi based builds for local intelligence, automation,
-            robotics, dashboard control, voice integration, and lightweight edge AI.
-          </p>
+          <h3>Raspberry Pi & Robotics</h3>
+          <p>Raspberry Pi 5, local servers, 3D printing, electronics, robotics body concepts, sensors, and physical computing experiments.</p>
         </article>
-
         <article class="card">
-          <div class="emoji">⚙️</div>
-          <h3>NOVA2 Lab</h3>
-          <p>
-            Experimental lab branch used for testing new modules, ideas, UI flows,
-            voice behavior, and future system capabilities before stable promotion.
-          </p>
+          <h3>Web & Automation</h3>
+          <p>Public websites, system dashboards, automation scripts, Linux workflows, Python tools, and useful real-world tech builds.</p>
         </article>
       </div>
     </section>
 
-    <section class="section fade-up" id="expertise">
-      <div class="section-head">
-        <div class="icon">⚙️</div>
-        <h2>Expertise</h2>
-        <div class="section-line"></div>
-      </div>
-
+    <section class="section" id="expertise">
+      <div class="section-title"><h2>Expertise Keywords</h2><div class="line"></div></div>
       <div class="chips">
-        <div class="chip">Python</div>
-        <div class="chip">Artificial Intelligence</div>
-        <div class="chip">Robotics</div>
-        <div class="chip">Raspberry Pi</div>
-        <div class="chip">Linux</div>
-        <div class="chip">Machine Learning</div>
-        <div class="chip">IoT</div>
-        <div class="chip">System Architecture</div>
-        <div class="chip">Automation</div>
-        <div class="chip">Voice Systems</div>
+        <span class="chip">Universal Dragon Aslam</span>
+        <span class="chip">UAE AI Developer</span>
+        <span class="chip">AI Developer Abu Dhabi</span>
+        <span class="chip">UAE IT Developer</span>
+        <span class="chip">NOVA Core</span>
+        <span class="chip">EVE System</span>
+        <span class="chip">Python</span>
+        <span class="chip">Raspberry Pi</span>
+        <span class="chip">Robotics</span>
+        <span class="chip">Automation</span>
+        <span class="chip">Linux</span>
+        <span class="chip">Ethical Security</span>
+        <span class="chip">System Architecture</span>
       </div>
     </section>
 
-    <section class="section fade-up" id="live">
-      <div class="section-head">
-        <div class="icon">📡</div>
-        <h2>Live NOVA Access</h2>
-        <div class="section-line"></div>
-      </div>
+    <section class="section">
+      <div class="section-title"><h2>NOVA Terminal Identity</h2><div class="line"></div></div>
+      <div class="terminal">
+        <pre><span class="green">&gt; whoami</span>
+Aslam — founder and builder of Universal Dragon.
 
-      <div class="chat-wrap">
-        <div class="panel">
-          <h3>NOVA Public Panel</h3>
-          <p>
-            This website can show a public NOVA chat panel. For that, you need a
-            separate backend running Ollama or another model API.
-          </p>
+<span class="green">&gt; mission</span>
+Build practical AI, robotics, automation, Raspberry Pi, and safe system tools from Abu Dhabi, UAE.
 
-          <ul>
-            <li>GitHub Pages = frontend only</li>
-            <li>Ollama must run on Raspberry Pi, PC, VPS, or secure server</li>
-            <li>Then this page can call your backend using fetch()</li>
-            <li>Do not expose raw Ollama directly to the public internet</li>
-          </ul>
+<span class="green">&gt; public_search_identity</span>
+Universal Dragon Aslam • UAE AI Developer • AI Developer Abu Dhabi • NOVA Core Builder • EVE System
 
-          <p class="muted-note">
-            In the code below, set <strong>NOVA_API_URL</strong> if your backend exists.
-          </p>
-        </div>
-
-        <div class="panel chat-box">
-          <h3>Try NOVA</h3>
-
-          <div class="chat-log" id="chatLog">
-            <div class="bubble bot">
-              NOVA Live Mode ready.
-              Connected to real NOVA backend.
-            </div>
-          </div>
-
-          <form class="chat-form" id="chatForm">
-            <input
-              id="chatInput"
-              class="chat-input"
-              type="text"
-              placeholder="Ask NOVA something..."
-              autocomplete="off"
-            />
-            <button class="btn primary" type="submit">Send</button>
-          </form>
-        <div id="novaTools" class="nova-tools">
-          <button type="button" class="nova-tool-btn" id="novaResetBtn" onclick="novaResetChat()">🧹 Reset</button>
-          <button type="button" class="nova-tool-btn" id="novaCopyBtn" onclick="novaCopyLast()">📋 Copy</button>
-          <button type="button" class="nova-tool-btn" id="novaSpeakBtn" onclick="novaSpeakLast()">🔊 Speak</button>
-          <button type="button" class="nova-tool-btn" id="novaMicBtn" onclick="novaMicForce(event)">🎙️ Mic</button>
-          <a class="nova-tool-btn" href="image-editor.html">🖼️ Edit Image</a>
-          <button type="button" class="nova-tool-btn" id="novaVoiceLangBtn" onclick="novaToggleVoiceLang(event)">🌐 Voice: தமிழ்</button>
-          
-          <a class="nova-tool-btn" id="novaAiImageBtn" href="nova-ai-image.html">✨ AI Image</a>
-
-
-        </div>
-
-
-          <div class="muted-note">
-            Live NOVA backend active on Aslam's local Pi network.
-          </div>
-        </div>
+<span class="purple">&gt; safety</span>
+Real systems, public-safe profile, ethical learning, approval-based actions, rollback-minded engineering.</pre>
       </div>
     </section>
 
-    <section class="section fade-up" id="connect">
-      <div class="section-head">
-        <div class="icon">📡</div>
-        <h2>Connect</h2>
-        <div class="section-line"></div>
-      </div>
-
+    <section class="section" id="connect">
+      <div class="section-title"><h2>Connect</h2><div class="line"></div></div>
       <div class="connect-box">
-        <p>Universal Dragon public links</p>
-
+        <p>Official public links for Universal Dragon Aslam.</p>
         <div class="connect-links">
+          <a class="btn primary" href="mailto:univercialdragon@gmail.com">Email</a>
           <a class="btn" href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="mailto:universedragon14@gmail.com">Email</a>
-          <a class="btn" href="https://universedragon14.github.io/" target="_blank" rel="noopener">Website</a>
+          <a class="btn" href="/uae-ai-developer/">UAE AI Developer Page</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div>© 2026 Universal Dragon • Created by Aslam</div>
-    <div class="power">Powered by NOVA Core</div>
+    <div>© 2026 Universal Dragon • Created by Aslam • Abu Dhabi, UAE</div>
+    <div>AI • Robotics • Raspberry Pi • Automation • NOVA Core • EVE System</div>
   </footer>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("show");
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
-
-    // Public site only. Add your backend URL here later.
-    const NOVA_API_URL = "https://nova.universaldragon.com/api/chat";
-
-    const chatForm = document.getElementById("chatForm");
-    const chatInput = document.getElementById("chatInput");
-    const chatLog = document.getElementById("chatLog");
-
-    function speakNova(text) {
-      if (!("speechSynthesis" in window)) return;
-      if (!text || text.includes("thinking")) return;
-
-      speechSynthesis.cancel();
-
-      const voice = new SpeechSynthesisUtterance(text);
-      voice.rate = 0.9;
-      voice.pitch = 1.05;
-      voice.volume = 1;
-
-      const voices = speechSynthesis.getVoices();
-      const preferred = voices.find(v =>
-        v.lang.includes("en") || v.lang.includes("hi") || v.lang.includes("ta")
-      );
-      if (preferred) voice.voice = preferred;
-
-      speechSynthesis.speak(voice);
-    }
-
-    function addBubble(text, type) {
-      const div = document.createElement("div");
-      div.className = "bubble " + type;
-      div.textContent = text;
-      chatLog.appendChild(div);
-      chatLog.scrollTop = chatLog.scrollHeight;
-
-      if (type === "bot") { window.NOVA_LAST_REPLY = text; speakNova(text); }
-    }
-
-    chatForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const message = chatInput.value.trim();
-      if (!message) return;
-
-      addBubble(message, "user");
-      chatInput.value = "";
-
-      if (!NOVA_API_URL) {
-        const lower = message.toLowerCase();
-        let demoReply = "Naan NOVA. Universal Dragon stable core. Demo mode la irukken. Real backend connect panna innum powerful ah reply pannuven.";
-
-        if (lower.includes("yaru") || lower.includes("who are you")) {
-          demoReply = "Naan NOVA. Universal Dragon-oda stable brain side. Aslam build pannura real AI system-ku calm, intelligent, structured core naan.";
-        } else if (lower.includes("aslam")) {
-          demoReply = "Aslam than Universal Dragon creator. NOVA Core, robotics, AI systems, Raspberry Pi builds — ivlo periya vision ah structure pannitu build pannitu irukkar.";
-        } else if (lower.includes("universal dragon")) {
-          demoReply = "Universal Dragon oru long-term real-world AI + robotics + automation system project. NOVA athoda stable brain layer.";
-        } else if (lower.includes("nova")) {
-          demoReply = "NOVA calm, practical, intelligent response kudukkura core assistant. Demo mode la irundhalum style maintain pannuven.";
-        } else if (lower.includes("hello") || lower.includes("hi")) {
-          demoReply = "Hi. Naan NOVA. Demo mode active. Sollu — enna thevai?";
-        } else if (lower.includes("help")) {
-          demoReply = "Sure. Demo mode la irukken. Website, NOVA, Raspberry Pi, project structure — ithula edhavadhu ketka.";
-        }
-
-        addBubble(demoReply, "bot");
-        return;
-      }
-
-      addBubble("NOVA is thinking...", "bot");
-
-      try {
-        const res = await fetch(NOVA_API_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            message: message,
-            mode: "nova"
-          })
-        });
-
-        const data = await res.json();
-        chatLog.removeChild(chatLog.lastElementChild);
-
-        const reply =
-          data.reply ||
-          data.response ||
-          data.message ||
-          "No valid reply received from backend.";
-
-        addBubble(reply, "bot");
-      } catch (err) {
-        chatLog.removeChild(chatLog.lastElementChild);
-        addBubble("Connection failed. Check backend URL, CORS, and server status.", "error");
-        console.error(err);
-      }
-    });
-
-    console.log("%cUNIVERSAL DRAGON", "color:#00ffd0;font-size:24px;font-weight:bold;");
-    console.log("%cCreated by Aslam", "color:#d84cff;font-size:14px;");
-  </script>
-
-
-<script id="nova-mic-force-v1">
-window.NOVA_VOICE_LANG = localStorage.getItem("NOVA_VOICE_LANG") || "ta";
-
-window.novaVoiceLangLabel = function(){
-  const m = window.NOVA_VOICE_LANG || "ta";
-  if(m === "ta") return "🌐 Voice: தமிழ்";
-  if(m === "en") return "🌐 Voice: English";
-  if(m === "auto") return "🌐 Voice: Auto";
-  return "🌐 Voice: தமிழ்";
-};
-
-window.novaRefreshVoiceLangBtn = function(){
-  const b = document.getElementById("novaVoiceLangBtn");
-  if(b) b.textContent = window.novaVoiceLangLabel();
-};
-
-window.novaToggleVoiceLang = function(e){
-  if(e){ e.preventDefault(); e.stopPropagation(); }
-
-  const cur = window.NOVA_VOICE_LANG || "ta";
-  const next = cur === "ta" ? "en" : (cur === "en" ? "auto" : "ta");
-  window.NOVA_VOICE_LANG = next;
-  localStorage.setItem("NOVA_VOICE_LANG", next);
-  window.novaRefreshVoiceLangBtn();
-
-  if(typeof addBubble === "function"){
-    addBubble("Voice mode: " + window.novaVoiceLangLabel().replace("🌐 Voice: ","") + " ✅", "bot");
-  }
-};
-
-window.novaMicForce = async function(e){
-  if(e){ e.preventDefault(); e.stopPropagation(); }
-
-  function show(msg, type="bot"){
-    try{
-      if(typeof addBubble === "function"){
-        addBubble(msg, type);
-        return;
-      }
-      const log = document.getElementById("chatLog");
-      if(log){
-        const d = document.createElement("div");
-        d.className = "bubble " + type;
-        d.textContent = msg;
-        log.appendChild(d);
-        log.scrollTop = log.scrollHeight;
-        return;
-      }
-      alert(msg);
-    }catch(err){
-      alert(msg);
-    }
-  }
-
-  show("Mic work aaguthu bro 🎙️ Mode: " + window.novaVoiceLangLabel().replace("🌐 Voice: ",""), "bot");
-
-  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-    show("Mic API browser-la illa bro.", "error");
-    return;
-  }
-
-  if(!window.MediaRecorder){
-    show("MediaRecorder support illa bro.", "error");
-    return;
-  }
-
-  try{
-    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
-    show("Mic ON ✅ 5 seconds pesunga...", "bot");
-
-    let mime = "";
-    if(MediaRecorder.isTypeSupported("audio/webm")) mime = "audio/webm";
-    else if(MediaRecorder.isTypeSupported("audio/mp4")) mime = "audio/mp4";
-    else if(MediaRecorder.isTypeSupported("audio/ogg")) mime = "audio/ogg";
-
-    const chunks = [];
-    const rec = mime ? new MediaRecorder(stream, {mimeType:mime}) : new MediaRecorder(stream);
-
-    rec.ondataavailable = ev => {
-      if(ev.data && ev.data.size > 0) chunks.push(ev.data);
-    };
-
-    rec.onstop = async () => {
-      stream.getTracks().forEach(t => t.stop());
-      show("Voice text-a maathuren... 🧠", "bot");
-
-      const blob = new Blob(chunks, {type: mime || "audio/webm"});
-      const reader = new FileReader();
-
-      reader.onloadend = async () => {
-        try{
-          const url = NOVA_API_URL.replace(/\/api\/chat$/, "/api/transcribe");
-          const r = await fetch(url, {
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({
-              audio:reader.result,
-              mime:(mime || blob.type || "audio/webm"),
-              voice_lang: window.NOVA_VOICE_LANG || "ta"
-            })
-          });
-
-          const data = await r.json();
-          const text = (data.text || "").trim();
-
-          if(!text){
-            show("Voice puriyala bro. Konjam clear-a sollunga 😅", "error");
-            return;
-          }
-
-          show("Heard: " + text, "bot");
-          const input = document.getElementById("chatInput");
-          const form = document.getElementById("chatForm");
-          input.value = text;
-          setTimeout(() => form.requestSubmit(), 300);
-        }catch(err){
-          show("Transcribe error: " + err.message, "error");
-        }
-      };
-
-      reader.readAsDataURL(blob);
-    };
-
-    rec.onerror = () => show("Recorder error bro.", "error");
-
-    rec.start();
-    setTimeout(() => {
-      if(rec.state === "recording") rec.stop();
-    }, 5000);
-
-  }catch(err){
-    show("Mic permission/error: " + err.message, "error");
-  }
-};
-
-window.addEventListener("load", window.novaRefreshVoiceLangBtn);
-</script>
-
-
 </body>
 </html>
