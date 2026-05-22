@@ -1,6 +1,6 @@
-EVE Job Hunter Results - 2026-05-16 08:00
+EVE Job Hunter Results - 2026-05-22 08:00
 ==================================================
-Total matches: 1
+Total matches: 0
 
 Apply message:
 Hi, my name is Aslam. I am based in Abu Dhabi and looking for a Technical Support / Web Assistant, Office Support, Admin Assistant, Installation Coordinator, or Remote Web Support role.
@@ -8,12 +8,3 @@ Portfolio: https://universedragon14.github.io/career.html
 LinkedIn: https://www.linkedin.com/in/aam-aslam-51777017b
 
 ==================================================
-
-1. Customer Support Representative
-Company: AutoHDR
-Location: USA
-Type: full_time
-Score: 7
-Why: technical support, customer support, support title
-Apply/source link: https://remotive.com/remote-jobs/customer-service/customer-support-representative-2088655
-Source: Remotive
