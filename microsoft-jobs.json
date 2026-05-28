@@ -12,7 +12,7 @@
     "url": "https://jobs.careers.microsoft.com/global/en/search?q=Data+Center+Technician&lc=United+Arab+Emirates",
     "source": "Microsoft Careers Search",
     "description": "Direct Microsoft Careers search for Data Center Technician roles in UAE.",
-    "ai": "AI analysis failed: HTTP Error 403: Forbidden"
+    "ai": "AI analysis unavailable: GROQ_API_KEY is not set."
   },
   {
     "title": "Microsoft Careers Search: IT Support Technician - UAE",
@@ -27,7 +27,7 @@
     "url": "https://jobs.careers.microsoft.com/global/en/search?q=IT+Support+Technician&lc=United+Arab+Emirates",
     "source": "Microsoft Careers Search",
     "description": "Direct Microsoft Careers search for IT Support Technician roles in UAE.",
-    "ai": "AI analysis failed: HTTP Error 403: Forbidden"
+    "ai": "AI analysis unavailable: GROQ_API_KEY is not set."
   },
   {
     "title": "Microsoft Careers Search: Technical Support Specialist - UAE",
@@ -41,6 +41,6 @@
     "url": "https://jobs.careers.microsoft.com/global/en/search?q=Technical+Support+Specialist&lc=United+Arab+Emirates",
     "source": "Microsoft Careers Search",
     "description": "Direct Microsoft Careers search for Technical Support Specialist roles in UAE.",
-    "ai": "AI analysis failed: HTTP Error 403: Forbidden"
+    "ai": "AI analysis unavailable: GROQ_API_KEY is not set."
   }
 ]
