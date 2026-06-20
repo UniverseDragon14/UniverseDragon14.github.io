@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#ff5a00" />
-  <title>NOVA/QBIT WhatsApp Adapter v1 Proof</title>
+  <title>NOVA/QBIT Language v1 Proof</title>
   <style>
     :root{--bg:#090302;--card:#160805;--line:#6d2b13;--text:#fff4e8;--muted:#d8ad8d;--fire:#ff6a00;--gold:#ffb000;--green:#39ff88}
     *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#3b1206,#120604 52%,#050201);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}header{padding:28px 18px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,#210904,#5a1a07,#210904);box-shadow:0 10px 35px #0008}.wrap{max-width:980px;margin:auto;padding:18px}.hero h1{margin:0;font-size:34px;line-height:1.1}.hero p{color:var(--muted);font-size:17px}.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid #9a421d;background:#250d07;border-radius:999px;padding:7px 12px;color:#ffd6ba;font-weight:700;font-size:13px;margin:4px 4px 4px 0}.card{background:linear-gradient(180deg,#1b0b06,#100503);border:1px solid var(--line);border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 12px 32px #0009}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}h2{margin:0 0 10px;color:#ffe7d5}h3{margin:14px 0 8px;color:#ffd3b4}.muted{color:var(--muted)}code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}pre{white-space:pre-wrap;background:#060201;border:1px solid #4a1b0d;border-radius:16px;padding:14px;overflow:auto;color:#fff9f2}.ok{color:var(--green);font-weight:800}.warn{color:#ffd37a}.btn{display:inline-block;text-decoration:none;color:#180703;background:linear-gradient(135deg,var(--gold),var(--fire));font-weight:900;border-radius:14px;padding:12px 16px;margin:6px 8px 6px 0}.btn.secondary{background:#25100a;color:var(--text);border:1px solid #7d3518}.list{padding-left:20px}.footer{text-align:center;color:#b98f76;padding:28px 14px;font-size:13px}@media(max-width:720px){.grid{grid-template-columns:1fr}.hero h1{font-size:28px}.wrap{padding:12px}}
@@ -13,47 +13,70 @@
 <body>
 <header class="hero">
   <div class="wrap">
-    <h1>🔥 NOVA/QBIT WhatsApp Adapter v1 Proof</h1>
-    <p>Universal Dragon proof page for NOVA/QBIT language producing machine-readable NODE_ACTION outputs that a Node.js WhatsApp bridge can obey.</p>
+    <h1>🔥 NOVA/QBIT Language v1 Proof</h1>
+    <p>Universal Dragon proof page for the NOVA/QBIT language: a real custom language layer using qbit, simulate, observe, guard, patch, and NODE_ACTION outputs.</p>
     <span class="badge">Creator: Aslam / Universal Dragon</span>
+    <span class="badge">Language: NOVA/QBIT</span>
+    <span class="badge">Use case: WhatsApp adapter</span>
     <span class="badge">Tag: nova-qbit-whatsapp-adapter-v1</span>
     <span class="badge">Status: Proof v1</span>
   </div>
 </header>
 <main class="wrap">
   <section class="card">
-    <h2>Milestone</h2>
+    <h2>Main Milestone</h2>
+    <p>NOVA/QBIT is the main language proof. WhatsApp is only one real-world adapter use case.</p>
+    <pre>qbit → simulate → observe → guard → NODE_ACTION</pre>
+    <p class="muted">The important proof is not “WhatsApp”. The important proof is that NOVA/QBIT can produce controlled machine-readable decisions that another execution body can obey. Yes, we named the thing correctly now, before paperwork goblins arrive.</p>
+  </section>
+
+  <section class="card">
+    <h2>Verified Decision Output</h2>
     <p>NOVA/QBIT language produces a machine-readable decision output:</p>
     <pre>NODE_ACTION:CALL_SAFE_REPLY</pre>
-    <p class="muted">Node.js does not decide the WhatsApp safety action by itself. Node.js only executes the action returned by NOVA/QBIT. Amazing, the JavaScript creature is finally wearing a leash.</p>
+    <p class="muted">Node.js does not decide the safety action by itself. Node.js only executes the action returned by NOVA/QBIT.</p>
   </section>
 
   <section class="grid">
     <div class="card">
-      <h2>Architecture</h2>
+      <h2>NOVA/QBIT Language Parts</h2>
       <ul class="list">
-        <li><b>NOVA/QBIT</b> = decision brain</li>
-        <li><b>Node.js</b> = execution body</li>
-        <li><b>WhatsApp bridge</b> = messenger interface</li>
-        <li><b>Owner approval</b> = required for live call/voice actions</li>
+        <li><b>brain</b> = project/runtime identity</li>
+        <li><b>intent</b> = task purpose lock</li>
+        <li><b>qbit</b> = decision register</li>
+        <li><b>simulate</b> = possible action mapping</li>
+        <li><b>observe</b> = choose measured state</li>
+        <li><b>guard</b> = safety-controlled output</li>
+        <li><b>patch</b> = safe project file update syntax</li>
       </ul>
     </div>
     <div class="card">
-      <h2>Safety Rule</h2>
-      <p class="ok">Allowed</p>
+      <h2>Architecture</h2>
       <ul class="list">
-        <li>Safe WhatsApp text reply</li>
-        <li>Owner notification</li>
-        <li>Voice note preparation</li>
-        <li>Owner approval flow</li>
-      </ul>
-      <p class="warn">Blocked in v1</p>
-      <ul class="list">
-        <li>Automatic live WhatsApp call answering</li>
-        <li>Automatic call without owner approval</li>
-        <li>Raw terminal access through WhatsApp</li>
+        <li><b>NOVA/QBIT</b> = decision language / brain</li>
+        <li><b>Node.js</b> = execution body</li>
+        <li><b>WhatsApp bridge</b> = adapter proof</li>
+        <li><b>Owner approval</b> = required for live call/voice actions</li>
       </ul>
     </div>
+  </section>
+
+  <section class="card">
+    <h2>WhatsApp Adapter Use Case</h2>
+    <p>This proof uses WhatsApp only to demonstrate that NOVA/QBIT decisions can control a real external adapter safely.</p>
+    <p class="ok">Allowed</p>
+    <ul class="list">
+      <li>Safe WhatsApp text reply</li>
+      <li>Owner notification</li>
+      <li>Voice note preparation</li>
+      <li>Owner approval flow</li>
+    </ul>
+    <p class="warn">Blocked in v1</p>
+    <ul class="list">
+      <li>Automatic live WhatsApp call answering</li>
+      <li>Automatic call without owner approval</li>
+      <li>Raw terminal access through WhatsApp</li>
+    </ul>
   </section>
 
   <section class="card">
@@ -90,6 +113,6 @@
     </ol>
   </section>
 </main>
-<div class="footer">Universal Dragon Aslam continues · NOVA/QBIT proof v1</div>
+<div class="footer">Universal Dragon Aslam continues · NOVA/QBIT Language proof v1</div>
 </body>
 </html>
