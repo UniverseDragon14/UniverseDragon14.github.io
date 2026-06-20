@@ -8,14 +8,15 @@
   <link rel="manifest" href="manifest.json" />
   <style>
     :root{--bg:#110806;--card:#1b0d09;--line:#3c1a10;--text:#fff7ef;--muted:#d7b59f;--fire:#ff6a00;--fire2:#ffb000;--ok:#34d399;--bad:#fb7185;--ink:#0b0503}
-    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top,#311007,#110806 55%,#080302);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    *{box-sizing:border-box} body{margin:0;padding-bottom:96px;background:radial-gradient(circle at top,#311007,#110806 55%,#080302);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     header{position:sticky;top:0;z-index:2;background:linear-gradient(90deg,#210b05,#4d1808,#210b05);border-bottom:1px solid #713014;padding:14px 16px;box-shadow:0 8px 24px #0008}
     h1{margin:0;font-size:22px;letter-spacing:.3px}.sub{color:var(--muted);font-size:13px;margin-top:3px}.wrap{max-width:980px;margin:0 auto;padding:14px}.grid{display:grid;gap:12px}.card{background:linear-gradient(180deg,#21100b,#160905);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 10px 30px #0008}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-    label{display:block;color:var(--muted);font-size:12px;margin:0 0 5px}input,textarea,select{width:100%;background:#090403;border:1px solid #5b2715;color:var(--text);border-radius:13px;padding:12px 11px;font-size:16px;outline:none}textarea{min-height:70px;resize:vertical}input:focus,textarea:focus{border-color:var(--fire);box-shadow:0 0 0 3px #ff6a0022}.btns{display:flex;flex-wrap:wrap;gap:10px}.btn{border:0;border-radius:14px;padding:12px 14px;font-weight:800;font-size:15px;color:#1b0903;background:linear-gradient(135deg,var(--fire2),var(--fire));box-shadow:0 6px 18px #ff6a0028}.btn.secondary{background:#2a150e;color:var(--text);border:1px solid #6a2e18}.btn.good{background:linear-gradient(135deg,#86efac,#22c55e)}.btn.bad{background:linear-gradient(135deg,#fecdd3,#fb7185)}.btn:active{transform:translateY(1px)}.status{color:var(--muted);font-size:13px;white-space:pre-wrap}.pill{display:inline-block;border:1px solid #74351d;background:#2b120b;border-radius:999px;padding:6px 10px;color:#ffd9be;font-size:12px}.tableWrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:920px;background:#0d0503}th,td{border:1px solid #3d1a10;padding:8px;text-align:left;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:#371409;color:#ffd8b8}td{color:#fff4ea}.preview{max-width:100%;border-radius:14px;border:1px solid var(--line);margin-top:10px}.small{font-size:12px;color:var(--muted)}.danger{color:#fecdd3}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.footer{padding:30px 14px;color:#b98f76;text-align:center;font-size:12px}@media(max-width:720px){.row,.row3{grid-template-columns:1fr}header{padding:12px}.wrap{padding:10px}.btn{width:100%}}
+    label{display:block;color:var(--muted);font-size:12px;margin:0 0 5px}input,textarea,select{width:100%;background:#090403;border:1px solid #5b2715;color:var(--text);border-radius:13px;padding:12px 11px;font-size:16px;outline:none}textarea{min-height:70px;resize:vertical}input:focus,textarea:focus{border-color:var(--fire);box-shadow:0 0 0 3px #ff6a0022}.btns{display:flex;flex-wrap:wrap;gap:10px}.btn{border:0;border-radius:14px;padding:12px 14px;font-weight:800;font-size:15px;color:#1b0903;background:linear-gradient(135deg,var(--fire2),var(--fire));box-shadow:0 6px 18px #ff6a0028}.btn.secondary{background:#2a150e;color:var(--text);border:1px solid #6a2e18}.btn.good{background:linear-gradient(135deg,#86efac,#22c55e)}.btn.bad{background:linear-gradient(135deg,#fecdd3,#fb7185)}.btn:active{transform:translateY(1px)}.status{color:var(--muted);font-size:13px;white-space:pre-wrap}.pill{display:inline-block;border:1px solid #74351d;background:#2b120b;border-radius:999px;padding:6px 10px;color:#ffd9be;font-size:12px}.tableWrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:920px;background:#0d0503}th,td{border:1px solid #3d1a10;padding:8px;text-align:left;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:#371409;color:#ffd8b8}td{color:#fff4ea}.preview{max-width:100%;border-radius:14px;border:1px solid var(--line);margin-top:10px}.small{font-size:12px;color:var(--muted)}.danger{color:#fecdd3}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.footer{padding:30px 14px;color:#b98f76;text-align:center;font-size:12px}.quickbar{position:fixed;left:10px;right:10px;bottom:10px;z-index:9;display:grid;grid-template-columns:1fr 1fr 1fr 56px;gap:8px;padding:10px;border:1px solid #7a341b;border-radius:22px;background:linear-gradient(180deg,#2a1008ee,#120604f4);box-shadow:0 -8px 30px #000b;backdrop-filter:blur(10px)}.quickbar .btn{padding:13px 8px;font-size:13px}.topMini{border-radius:16px;background:#2a150e;color:#fff7ef;border:1px solid #6a2e18}
+    @media(max-width:720px){.row,.row3{grid-template-columns:1fr}header{padding:12px}.wrap{padding:10px}.btn{width:100%}.quickbar .btn{width:auto}.sub{font-size:12px}h1{font-size:20px}}
   </style>
 </head>
 <body>
-<header>
+<header id="pageTop">
   <h1>🔥 Askutty Work Assistant</h1>
   <div class="sub">Mobile mic + image scan + Excel row builder. Laptop keyboard can go cry in a drawer.</div>
 </header>
@@ -78,7 +79,13 @@
     <div class="tableWrap"><table id="rowsTable"><thead></thead><tbody></tbody></table></div>
   </section>
 </main>
-<div class="footer">Askutty Work Assistant v0.1 · Universal Dragon · local browser storage only</div>
+<nav class="quickbar" aria-label="Quick actions">
+  <button class="btn" id="bottomMicBtn">🎙️ Voice</button>
+  <button class="btn good" id="bottomSaveBtn">✅ Save</button>
+  <button class="btn secondary" id="bottomCopyBtn">📋 Copy</button>
+  <button class="btn topMini" id="bottomTopBtn">↑</button>
+</nav>
+<div class="footer">Askutty Work Assistant v0.2 · Universal Dragon · local browser storage only</div>
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 <script>
 const fields = [
@@ -93,6 +100,7 @@ function normalizeNumber(x){ return String(x||'').replace(/[^0-9]/g,''); }
 function currentRow(){ const r={}; fields.forEach(([id,label])=>r[id]=val(id)); return r; }
 function clearForm(){ fields.forEach(([id])=>$(id).value=''); }
 function saveRows(){ localStorage.setItem('askuttyRows', JSON.stringify(rows)); renderRows(); }
+function saveCurrentRow(){ rows.push(currentRow()); saveRows(); clearForm(); status('Saved row locally.'); }
 function toTSV(list){ return list.map(r => fields.map(([id]) => String(r[id]||'').replace(/\t/g,' ').replace(/\n/g,' ')).join('\t')).join('\n'); }
 function toCSV(list){ return fields.map(x=>`"${x[1]}"`).join(',')+'\n'+list.map(r=>fields.map(([id])=>`"${String(r[id]||'').replace(/"/g,'""')}"`).join(',')).join('\n'); }
 async function copyText(t){ await navigator.clipboard.writeText(t); status('Copied. Paste directly into Excel. The keyboard demon has been bypassed.'); }
@@ -120,7 +128,7 @@ function parseText(text){
 }
 function startVoice(){
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if(!SR){ status('Speech recognition not supported in this browser. Use Chrome/Android. Humanity made standards and then ignored them.'); return; }
+  if(!SR){ status('Speech recognition not supported in this browser. Use Chrome/Android. On iPhone, use keyboard mic inside fields for now.'); return; }
   const rec = new SR(); window.askuttyRec = rec; rec.lang = 'en-IN'; rec.continuous = true; rec.interimResults = false;
   rec.onstart = ()=>status('Listening... Speak like: TR 560331155, order 21840074850, DFC 63118, name Advait, contact 056...');
   rec.onerror = e=>status('Voice error: '+e.error);
@@ -129,12 +137,16 @@ function startVoice(){
 }
 $('micBtn').onclick = startVoice;
 $('stopMicBtn').onclick = ()=>{ try{ window.askuttyRec && window.askuttyRec.stop(); status('Voice stopped.'); }catch{} };
-$('saveBtn').onclick = ()=>{ rows.push(currentRow()); saveRows(); clearForm(); status('Saved row locally.'); };
+$('saveBtn').onclick = saveCurrentRow;
 $('copyBtn').onclick = ()=>copyText(toTSV([currentRow()]));
 $('copyAllBtn').onclick = ()=>copyText(toTSV(rows));
 $('csvBtn').onclick = ()=>{ const blob = new Blob([toCSV(rows.length?rows:[currentRow()])], {type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='askutty-work-assistant.csv'; a.click(); URL.revokeObjectURL(a.href); };
 $('clearBtn').onclick = clearForm;
 $('deleteAllBtn').onclick = ()=>{ if(confirm('Delete all saved rows?')){ rows=[]; saveRows(); } };
+$('bottomMicBtn').onclick = startVoice;
+$('bottomSaveBtn').onclick = saveCurrentRow;
+$('bottomCopyBtn').onclick = ()=>copyText(toTSV([currentRow()]));
+$('bottomTopBtn').onclick = ()=>window.scrollTo({top:0,behavior:'smooth'});
 $('imageInput').onchange = e=>{ const f=e.target.files[0]; if(!f)return; const url=URL.createObjectURL(f); $('preview').src=url; $('preview').style.display='block'; status('Image loaded. Press Read Image Text.'); };
 $('ocrBtn').onclick = async()=>{
   const f=$('imageInput').files[0]; if(!f){status('Select/capture an image first.');return;}
