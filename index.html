@@ -3,317 +3,50 @@
 <head>
   <meta name="google-site-verification" content="TMFpGZ7-Dq2tnTR8BN0hlBN6hTC50ApM-IMl3eYMqYE" />
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
-  <!-- SEO Meta Tags for Universal Dragon Aslam -->
-  <title>Universal Dragon Aslam | NOVA Guardian Core • Studio • Dragon Eye • UDOS</title>
-  <meta name="description" content="Universal Dragon Aslam is the public project identity for Aslam's AI, robotics, Raspberry Pi, automation, NOVA Guardian Core, Universal Dragon Studio, Dragon Eye, and UDOS work from Abu Dhabi, UAE." />
-  <meta name="keywords" content="Universal Dragon Aslam, Aslam Universal Dragon, NOVA Guardian Core, Universal Dragon Studio, Dragon Eye, UDOS, AI developer Abu Dhabi, UAE AI developer, Raspberry Pi AI developer UAE, robotics, automation, ethical security, UniverseDragon14" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Universal Dragon Aslam | NOVA/QBIT Language • AI Systems UAE</title>
+  <meta name="description" content="Universal Dragon Aslam portfolio for NOVA/QBIT Language, NOVA Guardian Core, AI systems, robotics, Raspberry Pi, automation, web apps, Dragon Eye and UDOS from Abu Dhabi, UAE." />
+  <meta name="keywords" content="Universal Dragon Aslam, NOVA QBIT Language, NOVA Guardian Core, Dragon Eye, UDOS, AI developer Abu Dhabi, Raspberry Pi, robotics, automation, UniverseDragon14" />
   <meta name="author" content="Aslam (UniverseDragon14)" />
   <link rel="canonical" href="https://universedragon14.github.io/" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Aslam | Universal Dragon AI & Robotics UAE" />
-  <meta property="og:description" content="Official public portal for Universal Dragon, NOVA Guardian Core, Universal Dragon Studio, Dragon Eye, and UDOS by Aslam." />
-  <meta property="og:url" content="https://universedragon14.github.io/" />
+  <meta property="og:title" content="Universal Dragon Aslam | NOVA/QBIT Language & AI Systems" />
+  <meta property="og:description" content="Official portfolio for Universal Dragon, NOVA/QBIT Language, NOVA Guardian Core, Dragon Eye and practical AI systems by Aslam." />
   <meta property="og:image" content="https://github.com/UniverseDragon14.png" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Aslam",
-    "alternateName": "Universal Dragon Aslam",
-    "url": "https://universedragon14.github.io/",
-    "image": "https://github.com/UniverseDragon14.png",
-    "email": "mailto:univercialdragon@gmail.com",
-    "homeLocation": {
-      "@type": "Place",
-      "name": "Abu Dhabi, United Arab Emirates"
-    },
-    "knowsAbout": [
-      "Artificial Intelligence",
-      "Robotics",
-      "Raspberry Pi",
-      "Automation",
-      "System Design",
-      "Web Development",
-      "Ethical Security",
-      "Linux",
-      "Python",
-      "NOVA Guardian Core",
-      "Universal Dragon Studio",
-      "Dragon Eye",
-      "UDOS"
-    ],
-    "brand": {
-      "@type": "Brand",
-      "name": "Universal Dragon"
-    },
-    "sameAs": [
-      "https://github.com/UniverseDragon14",
-      "https://universedragon14.github.io/uae-ai-developer/"
-    ]
-  }
-  </script>
-
   <style>
-    :root {
-      --bg: #050203;
-      --panel: rgba(20, 8, 7, 0.86);
-      --panel2: rgba(255, 106, 26, 0.08);
-      --line: rgba(255, 128, 45, 0.28);
-      --fire: #ff6a1a;
-      --gold: #ffd166;
-      --red: #ff2e63;
-      --cyan: #00ffd0;
-      --text: #fff4e9;
-      --muted: #c9aa96;
-      --shadow: 0 0 42px rgba(255, 96, 20, 0.2);
-      --max: 1160px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 12% 10%, rgba(255, 106, 26, 0.22), transparent 28%),
-        radial-gradient(circle at 82% 22%, rgba(255, 46, 99, 0.16), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(0, 255, 208, 0.08), transparent 32%),
-        linear-gradient(135deg, #050203 0%, #090403 52%, #150706 100%);
-      line-height: 1.65;
-    }
-    a { color: inherit; text-decoration: none; }
-    strong { color: var(--text); }
-
-    .wrap { width: min(100% - 28px, var(--max)); margin: 0 auto; }
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid var(--line);
-      background: rgba(5, 2, 3, 0.78);
-      backdrop-filter: blur(14px);
-    }
-    .topbar-inner {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
-    .brand-icon { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: var(--panel2); box-shadow: var(--shadow); }
-    .nav { display: flex; flex-wrap: wrap; gap: 10px; }
-    .nav a { padding: 9px 12px; border: 1px solid transparent; border-radius: 999px; color: var(--muted); font-size: 0.92rem; }
-    .nav a:hover { color: var(--gold); border-color: var(--line); background: var(--panel2); }
-
-    .hero { padding: 64px 0 26px; }
-    .hero-card, .card, .terminal, .connect-box {
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: linear-gradient(180deg, var(--panel), rgba(8, 3, 3, 0.78));
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .hero-card { padding: clamp(22px, 5vw, 42px); }
-    .hero-grid { display: grid; grid-template-columns: 210px 1fr; gap: 30px; align-items: center; }
-    .profile-ring { width: 196px; height: 196px; border-radius: 50%; padding: 5px; background: linear-gradient(135deg, var(--fire), var(--gold), var(--red)); box-shadow: 0 0 42px rgba(255, 106, 26, 0.28); }
-    .profile-ring img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; background: #110604; }
-    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 13px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold); background: var(--panel2); margin-bottom: 18px; font-size: 0.9rem; }
-    h1 { font-size: clamp(2.35rem, 7vw, 5.6rem); line-height: 0.98; letter-spacing: -0.07em; margin-bottom: 18px; }
-    h1 span { display: block; color: var(--fire); text-shadow: 0 0 24px rgba(255, 106, 26, 0.34); }
-    .subtitle { color: var(--gold); font-size: clamp(1.04rem, 2vw, 1.32rem); margin-bottom: 14px; font-weight: 700; }
-    .desc { color: var(--muted); max-width: 760px; font-size: 1.05rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-    .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line); color: var(--text); background: var(--panel2); font-weight: 700; }
-    .btn.primary { border: 0; background: linear-gradient(135deg, var(--fire), var(--red)); color: white; }
-
-    .section { padding: 28px 0 0; }
-    .section-title { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-    .section-title h2 { color: var(--gold); font-size: clamp(1.45rem, 3vw, 2.2rem); }
-    .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
-    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-    .card { padding: 22px; box-shadow: none; }
-    .card h3 { color: var(--fire); margin-bottom: 8px; font-size: 1.2rem; }
-    .card p, .terminal p, .connect-box p { color: var(--muted); }
-    .project-tag { color: var(--cyan); font-weight: 800; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; display: block; }
-    .card ul { color: var(--muted); margin: 12px 0 0 18px; }
-    .card li { margin: 4px 0; }
-
-    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
-    .chip { padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel2); color: #ffe6ce; }
-    .terminal { padding: 22px; }
-    .terminal pre { white-space: pre-wrap; color: #ffeeda; font-size: 0.98rem; }
-    .green { color: var(--cyan); }
-    .purple { color: #ff8cf2; }
-    .connect-box { padding: 26px; text-align: center; }
-    .connect-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
-    footer { text-align: center; color: rgba(255,244,233,0.62); padding: 34px 0 52px; }
-
-    @media (max-width: 820px) {
-      .hero-grid, .cards { grid-template-columns: 1fr; }
-      .profile-ring { margin: 0 auto; width: 162px; height: 162px; }
-      .topbar-inner, .nav { justify-content: center; }
-      .hero { padding-top: 38px; }
-      .btn { width: 100%; }
-    }
+    :root{--bg:#050203;--panel:rgba(20,8,7,.88);--panel2:rgba(255,106,26,.08);--line:rgba(255,128,45,.30);--fire:#ff6a1a;--gold:#ffd166;--red:#ff2e63;--cyan:#00ffd0;--text:#fff4e9;--muted:#c9aa96;--shadow:0 0 42px rgba(255,96,20,.2);--max:1160px}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:radial-gradient(circle at 12% 10%,rgba(255,106,26,.22),transparent 28%),radial-gradient(circle at 82% 22%,rgba(255,46,99,.16),transparent 30%),linear-gradient(135deg,#050203 0%,#090403 52%,#150706 100%);line-height:1.65}a{color:inherit;text-decoration:none}.wrap{width:min(100% - 28px,var(--max));margin:0 auto}.topbar{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);background:rgba(5,2,3,.78);backdrop-filter:blur(14px)}.topbar-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}.brand-icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:var(--panel2);box-shadow:var(--shadow)}.nav{display:flex;flex-wrap:wrap;gap:10px}.nav a{padding:9px 12px;border:1px solid transparent;border-radius:999px;color:var(--muted);font-size:.92rem}.nav a:hover{color:var(--gold);border-color:var(--line);background:var(--panel2)}.hero{padding:64px 0 26px}.hero-card,.card,.terminal,.connect-box{border:1px solid var(--line);border-radius:28px;background:linear-gradient(180deg,var(--panel),rgba(8,3,3,.78));box-shadow:var(--shadow);overflow:hidden}.hero-card{padding:clamp(22px,5vw,42px)}.hero-grid{display:grid;grid-template-columns:210px 1fr;gap:30px;align-items:center}.profile-ring{width:196px;height:196px;border-radius:50%;padding:5px;background:linear-gradient(135deg,var(--fire),var(--gold),var(--red));box-shadow:0 0 42px rgba(255,106,26,.28)}.profile-ring img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;background:#110604}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;border:1px solid var(--line);color:var(--gold);background:var(--panel2);margin-bottom:18px;font-size:.9rem}h1{font-size:clamp(2.35rem,7vw,5.6rem);line-height:.98;letter-spacing:-.07em;margin-bottom:18px}h1 span{display:block;color:var(--fire);text-shadow:0 0 24px rgba(255,106,26,.34)}.subtitle{color:var(--gold);font-size:clamp(1.04rem,2vw,1.32rem);margin-bottom:14px;font-weight:700}.desc{color:var(--muted);max-width:780px;font-size:1.05rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;padding:0 18px;border-radius:999px;border:1px solid var(--line);color:var(--text);background:var(--panel2);font-weight:700}.btn.primary{border:0;background:linear-gradient(135deg,var(--fire),var(--red));color:white}.section{padding:28px 0 0}.section-title{display:flex;align-items:center;gap:14px;margin-bottom:16px}.section-title h2{color:var(--gold);font-size:clamp(1.45rem,3vw,2.2rem)}.line{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{padding:22px;box-shadow:none}.card h3{color:var(--fire);margin-bottom:8px;font-size:1.2rem}.card p,.terminal p,.connect-box p{color:var(--muted)}.project-tag{color:var(--cyan);font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;display:block}.card ul{color:var(--muted);margin:12px 0 0 18px}.card li{margin:4px 0}.project-link{display:inline-flex;margin-top:14px;color:var(--gold);font-weight:800;border-bottom:1px solid rgba(255,209,102,.45)}.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:#ffe6ce}.terminal{padding:22px}.terminal pre{white-space:pre-wrap;color:#ffeeda;font-size:.98rem}.green{color:var(--cyan)}.purple{color:#ff8cf2}.connect-box{padding:26px;text-align:center}.connect-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:18px}footer{text-align:center;color:rgba(255,244,233,.62);padding:34px 0 52px}@media(max-width:820px){.hero-grid,.cards{grid-template-columns:1fr}.profile-ring{margin:0 auto;width:162px;height:162px}.topbar-inner,.nav{justify-content:center}.hero{padding-top:38px}.btn{width:100%}}
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="#home" aria-label="Universal Dragon home">
-        <span class="brand-icon">🐉</span>
-        <span>Universal Dragon</span>
-      </a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="/uae-ai-developer/">UAE AI Developer</a>
-        <a href="#projects">Projects</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#connect">Connect</a>
-      </nav>
-    </div>
-  </header>
-
+  <header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="#home"><span class="brand-icon">🐉</span><span>Universal Dragon</span></a><nav class="nav"><a href="#home">Home</a><a href="/uae-ai-developer/">UAE AI Developer</a><a href="#projects">Projects</a><a href="#proofs">Proofs</a><a href="#expertise">Expertise</a><a href="#connect">Connect</a></nav></div></header>
   <main class="wrap">
-    <section class="hero" id="home">
-      <div class="hero-card">
-        <div class="hero-grid">
-          <div class="profile-ring">
-            <img src="https://github.com/UniverseDragon14.png" alt="Aslam - Universal Dragon founder" />
-          </div>
-          <div>
-            <div class="badge">🇦🇪 Abu Dhabi, UAE • AI • Robotics • Systems</div>
-            <h1>Universal Dragon <span>Aslam</span></h1>
-            <div class="subtitle">NOVA Guardian Core • Universal Dragon Studio • Dragon Eye • UDOS</div>
-            <p class="desc">
-              <strong>Universal Dragon Aslam</strong> is the public identity for Aslam’s UAE-based technology work from Abu Dhabi,
-              focused on practical artificial intelligence, robotics, Raspberry Pi systems, automation, web development, ethical security learning,
-              and real system design. The direction is brain-first: NOVA and EVE as safe approval-based systems, Studio as creator tooling,
-              Dragon Eye as future vision, and UDOS as an assistant-based control layer.
-            </p>
-            <div class="actions">
-              <a class="btn primary" href="/uae-ai-developer/">Open UAE AI Developer Profile</a>
-              <a class="btn" href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">GitHub: UniverseDragon14</a>
-              <a class="btn" href="#projects">View Projects</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="projects">
-      <div class="section-title"><h2>Project Roadmap</h2><div class="line"></div></div>
-      <div class="cards">
-        <article class="card">
-          <span class="project-tag">Project One</span>
-          <h3>NOVA Guardian Core 🧠</h3>
-          <p>The stable Universal Dragon brain base: a safe AI + human approval system that can propose code, create backups, validate changes, apply only after approval, rollback on crash, and learn from failures.</p>
-          <ul>
-            <li>Approval-first repair workflow</li>
-            <li>Backup, validation, rollback, and logs</li>
-            <li>Groq API + OpenAI gpt-oss-120b model layer</li>
-          </ul>
-        </article>
-        <article class="card">
-          <span class="project-tag">Project Two</span>
-          <h3>Universal Dragon Studio 🎬</h3>
-          <p>A CapCut-style creator studio direction for video editing, photo editing, thumbnails, captions, long-video workflows, web/app creation support, and safe export queues.</p>
-          <ul>
-            <li>Creator dashboard and timeline UI</li>
-            <li>FFmpeg-based video pipeline later</li>
-            <li>AI planning for titles, descriptions, shorts, and thumbnails</li>
-          </ul>
-        </article>
-        <article class="card">
-          <span class="project-tag">Project Three</span>
-          <h3>Dragon Eye 👁️</h3>
-          <p>The future vision and camera layer for Universal Dragon: image understanding, camera feeds, OpenCV experiments, safety monitoring, and hardware-aware perception modules.</p>
-          <ul>
-            <li>Camera/OpenCV path</li>
-            <li>Vision memory and event logs</li>
-            <li>Robot/physical system support later</li>
-          </ul>
-        </article>
-        <article class="card">
-          <span class="project-tag">System Layer</span>
-          <h3>UDOS — Assistant-Based Control Layer ⚙️</h3>
-          <p>Universal Dragon OS is the long-term control-layer concept: not a normal app-based system, but an assistant-first interface where EVE/NOVA coordinates tools, memory, files, actions, and approvals.</p>
-          <ul>
-            <li>Phone is assistant-based, not app-first</li>
-            <li>Safe control layer above tools and services</li>
-            <li>Brain first, robot body later</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="expertise">
-      <div class="section-title"><h2>Expertise Keywords</h2><div class="line"></div></div>
-      <div class="chips">
-        <span class="chip">Universal Dragon Aslam</span>
-        <span class="chip">NOVA Guardian Core</span>
-        <span class="chip">Universal Dragon Studio</span>
-        <span class="chip">Dragon Eye</span>
-        <span class="chip">UDOS</span>
-        <span class="chip">UAE AI Developer</span>
-        <span class="chip">AI Developer Abu Dhabi</span>
-        <span class="chip">Python</span>
-        <span class="chip">Raspberry Pi</span>
-        <span class="chip">Robotics</span>
-        <span class="chip">Automation</span>
-        <span class="chip">Linux</span>
-        <span class="chip">Ethical Security</span>
-        <span class="chip">System Architecture</span>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-title"><h2>NOVA Terminal Identity</h2><div class="line"></div></div>
-      <div class="terminal">
-        <pre><span class="green">&gt; whoami</span>
+    <section class="hero" id="home"><div class="hero-card"><div class="hero-grid"><div class="profile-ring"><img src="https://github.com/UniverseDragon14.png" alt="Aslam - Universal Dragon founder" /></div><div><div class="badge">🇦🇪 Abu Dhabi, UAE • AI • Robotics • Systems</div><h1>Universal Dragon <span>Aslam</span></h1><div class="subtitle">NOVA/QBIT Language • NOVA Guardian Core • Universal Dragon Studio • Dragon Eye • UDOS</div><p class="desc"><strong>Universal Dragon Aslam</strong> is the public identity for Aslam’s UAE-based technology work from Abu Dhabi, focused on practical artificial intelligence, NOVA/QBIT language experiments, robotics, Raspberry Pi systems, automation, web development, and real system design.</p><div class="actions"><a class="btn primary" href="/nova-qbit-proof/">Open NOVA/QBIT Language Proof</a><a class="btn" href="/uae-ai-developer/">Open UAE AI Developer Profile</a><a class="btn" href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">GitHub: UniverseDragon14</a><a class="btn" href="#projects">View Projects</a></div></div></div></div></section>
+    <section class="section" id="projects"><div class="section-title"><h2>Project Roadmap</h2><div class="line"></div></div><div class="cards">
+      <article class="card"><span class="project-tag">Language Proof</span><h3>NOVA/QBIT Language 🔥</h3><p>A custom Universal Dragon language layer with brain, intent, qbit, simulate, observe, guard, patch, and NODE_ACTION output. WhatsApp adapter is one real-world proof that Node.js can obey NOVA/QBIT decisions.</p><ul><li>qbit decision register and state observation</li><li>guard-based safety outputs</li><li>NODE_ACTION bridge for external adapters</li></ul><a class="project-link" href="/nova-qbit-proof/">View NOVA/QBIT proof →</a></article>
+      <article class="card"><span class="project-tag">Project One</span><h3>NOVA Guardian Core 🧠</h3><p>The stable Universal Dragon brain base: a safe AI + human approval system that can propose code, create backups, validate changes, apply only after approval, rollback on crash, and learn from failures.</p><ul><li>Approval-first repair workflow</li><li>Backup, validation, rollback, and logs</li><li>Groq API + model layer</li></ul></article>
+      <article class="card"><span class="project-tag">Project Two</span><h3>Universal Dragon Studio 🎬</h3><p>A creator studio direction for video editing, photo editing, thumbnails, captions, long-video workflows, web/app creation support, and safe export queues.</p><ul><li>Creator dashboard and timeline UI</li><li>Video pipeline later</li><li>Planning for titles, descriptions, shorts, and thumbnails</li></ul></article>
+      <article class="card"><span class="project-tag">Work Assistant</span><h3>Askutty Work Assistant 📱</h3><p>A mobile-first work entry assistant for curtain/DFC invoice data: voice input, image scan/OCR, Excel-ready copy, CSV export, and mobile-friendly field entry.</p><ul><li>Voice-to-field entry</li><li>Invoice image scan/OCR</li><li>Excel row copy and CSV export</li></ul><a class="project-link" href="/askutty-work-assistant/">Open Askutty Work Assistant →</a></article>
+      <article class="card"><span class="project-tag">Project Three</span><h3>Dragon Eye 👁️</h3><p>The future vision and camera layer for Universal Dragon: image understanding, camera feeds, OpenCV experiments, safety monitoring, and hardware-aware perception modules.</p><ul><li>Camera/OpenCV path</li><li>Vision memory and event logs</li><li>Robot/physical system support later</li></ul></article>
+      <article class="card"><span class="project-tag">System Layer</span><h3>UDOS — Assistant-Based Control Layer ⚙️</h3><p>Universal Dragon OS is the long-term control-layer concept: not a normal app-based system, but an assistant-first interface where EVE/NOVA coordinates tools, memory, files, actions, and approvals.</p><ul><li>Phone is assistant-based, not app-first</li><li>Safe layer above tools and services</li><li>Brain first, robot body later</li></ul></article>
+    </div></section>
+    <section class="section" id="proofs"><div class="section-title"><h2>Proofs & Live Apps</h2><div class="line"></div></div><div class="cards"><article class="card"><span class="project-tag">Public Proof</span><h3>NOVA/QBIT Language v1 Proof</h3><p>Public proof page showing the NOVA/QBIT language milestone, NODE_ACTION output, safety rules, GitHub tag, and verification roadmap.</p><a class="project-link" href="/nova-qbit-proof/">Open proof page →</a></article><article class="card"><span class="project-tag">Live Tool</span><h3>Askutty Work Assistant</h3><p>Mobile mic + image scan + Excel row builder for real work data entry.</p><a class="project-link" href="/askutty-work-assistant/">Open app →</a></article></div></section>
+    <section class="section" id="expertise"><div class="section-title"><h2>Expertise Keywords</h2><div class="line"></div></div><div class="chips"><span class="chip">Universal Dragon Aslam</span><span class="chip">NOVA/QBIT Language</span><span class="chip">QBIT Decision System</span><span class="chip">NOVA Guardian Core</span><span class="chip">Universal Dragon Studio</span><span class="chip">Dragon Eye</span><span class="chip">UDOS</span><span class="chip">UAE AI Developer</span><span class="chip">AI Developer Abu Dhabi</span><span class="chip">Raspberry Pi</span><span class="chip">Robotics</span><span class="chip">Automation</span><span class="chip">Linux</span><span class="chip">System Architecture</span></div></section>
+    <section class="section"><div class="section-title"><h2>NOVA Terminal Identity</h2><div class="line"></div></div><div class="terminal"><pre><span class="green">&gt; whoami</span>
 Aslam — founder and builder of Universal Dragon.
 
-<span class="green">&gt; project_one</span>
-NOVA Guardian Core — stable brain, approval, backup, validate, rollback, learn.
+<span class="green">&gt; nova_qbit_language</span>
+Custom language proof: qbit, simulate, observe, guard, patch, and NODE_ACTION adapter output.
 
-<span class="green">&gt; project_two</span>
-Universal Dragon Studio — creator tools for video, photo, web, apps, and safe AI workflows.
-
-<span class="green">&gt; project_three</span>
-Dragon Eye — future vision, camera, OpenCV, and hardware perception layer.
+<span class="green">&gt; nova_guardian_core</span>
+Stable brain, approval, backup, validate, rollback, learn.
 
 <span class="green">&gt; udos</span>
 Assistant-based control layer: EVE/NOVA above tools, apps, devices, and memory.
 
 <span class="purple">&gt; safety</span>
-Real systems, public-safe profile, ethical learning, approval-based actions, rollback-minded engineering.</pre>
-      </div>
-    </section>
-
-    <section class="section" id="connect">
-      <div class="section-title"><h2>Connect</h2><div class="line"></div></div>
-      <div class="connect-box">
-        <p>Official public links for Universal Dragon Aslam.</p>
-        <div class="connect-links">
-          <a class="btn primary" href="mailto:univercialdragon@gmail.com">Email</a>
-          <a class="btn" href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="/uae-ai-developer/">UAE AI Developer Page</a>
-        </div>
-      </div>
-    </section>
+Real systems, public-safe profile, approval-based actions, rollback-minded engineering.</pre></div></section>
+    <section class="section" id="connect"><div class="section-title"><h2>Connect</h2><div class="line"></div></div><div class="connect-box"><p>Official public links for Universal Dragon Aslam.</p><div class="connect-links"><a class="btn primary" href="mailto:univercialdragon@gmail.com">Email</a><a class="btn" href="https://github.com/UniverseDragon14" target="_blank" rel="noopener">GitHub</a><a class="btn" href="/nova-qbit-proof/">NOVA/QBIT Proof</a><a class="btn" href="/uae-ai-developer/">UAE AI Developer Page</a></div></div></section>
   </main>
-
-  <footer>
-    <div>© 2026 Universal Dragon • Created by Aslam • Abu Dhabi, UAE</div>
-    <div>NOVA Guardian Core • Universal Dragon Studio • Dragon Eye • UDOS • AI • Robotics • Raspberry Pi</div>
-  </footer>
+  <footer><div>© 2026 Universal Dragon • Created by Aslam • Abu Dhabi, UAE</div><div>NOVA/QBIT Language • NOVA Guardian Core • Universal Dragon Studio • Dragon Eye • UDOS • AI • Robotics • Raspberry Pi</div></footer>
 </body>
 </html>
