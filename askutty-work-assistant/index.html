@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ff5a00" />
+  <title>Askutty Work Assistant</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    :root{--bg:#110806;--card:#1b0d09;--line:#3c1a10;--text:#fff7ef;--muted:#d7b59f;--fire:#ff6a00;--fire2:#ffb000;--ok:#34d399;--bad:#fb7185;--ink:#0b0503}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top,#311007,#110806 55%,#080302);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    header{position:sticky;top:0;z-index:2;background:linear-gradient(90deg,#210b05,#4d1808,#210b05);border-bottom:1px solid #713014;padding:14px 16px;box-shadow:0 8px 24px #0008}
+    h1{margin:0;font-size:22px;letter-spacing:.3px}.sub{color:var(--muted);font-size:13px;margin-top:3px}.wrap{max-width:980px;margin:0 auto;padding:14px}.grid{display:grid;gap:12px}.card{background:linear-gradient(180deg,#21100b,#160905);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 10px 30px #0008}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    label{display:block;color:var(--muted);font-size:12px;margin:0 0 5px}input,textarea,select{width:100%;background:#090403;border:1px solid #5b2715;color:var(--text);border-radius:13px;padding:12px 11px;font-size:16px;outline:none}textarea{min-height:70px;resize:vertical}input:focus,textarea:focus{border-color:var(--fire);box-shadow:0 0 0 3px #ff6a0022}.btns{display:flex;flex-wrap:wrap;gap:10px}.btn{border:0;border-radius:14px;padding:12px 14px;font-weight:800;font-size:15px;color:#1b0903;background:linear-gradient(135deg,var(--fire2),var(--fire));box-shadow:0 6px 18px #ff6a0028}.btn.secondary{background:#2a150e;color:var(--text);border:1px solid #6a2e18}.btn.good{background:linear-gradient(135deg,#86efac,#22c55e)}.btn.bad{background:linear-gradient(135deg,#fecdd3,#fb7185)}.btn:active{transform:translateY(1px)}.status{color:var(--muted);font-size:13px;white-space:pre-wrap}.pill{display:inline-block;border:1px solid #74351d;background:#2b120b;border-radius:999px;padding:6px 10px;color:#ffd9be;font-size:12px}.tableWrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:920px;background:#0d0503}th,td{border:1px solid #3d1a10;padding:8px;text-align:left;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:#371409;color:#ffd8b8}td{color:#fff4ea}.preview{max-width:100%;border-radius:14px;border:1px solid var(--line);margin-top:10px}.small{font-size:12px;color:var(--muted)}.danger{color:#fecdd3}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.footer{padding:30px 14px;color:#b98f76;text-align:center;font-size:12px}@media(max-width:720px){.row,.row3{grid-template-columns:1fr}header{padding:12px}.wrap{padding:10px}.btn{width:100%}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>🔥 Askutty Work Assistant</h1>
+  <div class="sub">Mobile mic + image scan + Excel row builder. Laptop keyboard can go cry in a drawer.</div>
+</header>
+<main class="wrap grid">
+  <section class="card grid">
+    <div class="btns">
+      <button class="btn" id="micBtn">🎙️ Start Voice</button>
+      <button class="btn secondary" id="stopMicBtn">⏹ Stop</button>
+      <button class="btn good" id="saveBtn">✅ Save Row</button>
+      <button class="btn secondary" id="copyBtn">📋 Copy Excel Row</button>
+      <button class="btn secondary" id="csvBtn">⬇️ Export CSV</button>
+      <button class="btn bad" id="clearBtn">🧹 Clear Form</button>
+    </div>
+    <div class="status" id="status">Ready. Voice examples: “TR 560331155, order 21840074850, DFC 63118, name Advait Phatak, contact 0565048723”.</div>
+    <div><span class="pill">Stage 1: voice + manual save</span> <span class="pill">Stage 2: image OCR</span> <span class="pill">Stage 3: OneDrive Graph later</span></div>
+  </section>
+
+  <section class="card grid">
+    <h2 style="margin:0">Entry Form</h2>
+    <div class="row3">
+      <div><label>S/No</label><input id="sno" inputmode="numeric" placeholder="16" /></div>
+      <div><label>TR Number</label><input id="tr" inputmode="numeric" placeholder="560331155" /></div>
+      <div><label>Order No</label><input id="order" inputmode="numeric" placeholder="21840074850" /></div>
+    </div>
+    <div class="row3">
+      <div><label>DFC No</label><input id="dfc" inputmode="numeric" placeholder="63118" /></div>
+      <div><label>Customer Name</label><input id="name" placeholder="Advait Phatak" /></div>
+      <div><label>Customer Contact</label><input id="contact" inputmode="tel" placeholder="0565048723" /></div>
+    </div>
+    <div class="row3">
+      <div><label>No. of Packets</label><input id="packets" inputmode="numeric" /></div>
+      <div><label>Joining</label><input id="joining" placeholder="Yes / No" /></div>
+      <div><label>Express</label><input id="express" placeholder="Yes / No" /></div>
+    </div>
+    <div class="row3">
+      <div><label>Alteration Height Reduction</label><input id="alterH" /></div>
+      <div><label>Alteration Height Extension</label><input id="alterHExt" /></div>
+      <div><label>Stitching</label><input id="stitching" /></div>
+    </div>
+    <div class="row3">
+      <div><label>Tie Back</label><input id="tieback" /></div>
+      <div><label>B-Out</label><input id="bout" /></div>
+      <div><label>Eyelets</label><input id="eyelets" /></div>
+    </div>
+    <div><label>Remarks</label><textarea id="remarks" placeholder="Extra details"></textarea></div>
+  </section>
+
+  <section class="card grid">
+    <h2 style="margin:0">📸 Image Scan</h2>
+    <input id="imageInput" type="file" accept="image/*" capture="environment" />
+    <div class="btns"><button class="btn secondary" id="ocrBtn">🔍 Read Image Text</button><button class="btn secondary" id="useOcrBtn">✨ Try Fill From OCR</button></div>
+    <div class="small">OCR uses browser-side Tesseract if internet is available. No secret API key, because leaking keys is apparently still a popular human hobby.</div>
+    <img id="preview" class="preview" style="display:none" />
+    <textarea id="ocrText" placeholder="OCR text will appear here"></textarea>
+  </section>
+
+  <section class="card grid">
+    <h2 style="margin:0">Saved Rows</h2>
+    <div class="btns"><button class="btn secondary" id="copyAllBtn">📋 Copy All Rows</button><button class="btn bad" id="deleteAllBtn">Delete All</button></div>
+    <div class="tableWrap"><table id="rowsTable"><thead></thead><tbody></tbody></table></div>
+  </section>
+</main>
+<div class="footer">Askutty Work Assistant v0.1 · Universal Dragon · local browser storage only</div>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script>
+const fields = [
+  ['sno','S/No'],['tr','TR Number'],['order','Order No'],['dfc','DFC No'],['name','Customer Name'],['contact','Customer Contact'],['packets','No. Packets'],['joining','Joining'],['alterH','Alt Height Reduction'],['alterHExt','Alt Height Extension'],['stitching','Stitching'],['express','Express'],['tieback','Tie Back'],['bout','B-Out'],['eyelets','Eyelets'],['remarks','Remarks']
+];
+const $ = id => document.getElementById(id);
+const status = m => $('status').textContent = m;
+const val = id => ($(id)?.value || '').trim();
+const set = (id,v) => { if($(id) && v !== undefined && v !== null && String(v).trim()) $(id).value = String(v).trim(); };
+let rows = JSON.parse(localStorage.getItem('askuttyRows') || '[]');
+function normalizeNumber(x){ return String(x||'').replace(/[^0-9]/g,''); }
+function currentRow(){ const r={}; fields.forEach(([id,label])=>r[id]=val(id)); return r; }
+function clearForm(){ fields.forEach(([id])=>$(id).value=''); }
+function saveRows(){ localStorage.setItem('askuttyRows', JSON.stringify(rows)); renderRows(); }
+function toTSV(list){ return list.map(r => fields.map(([id]) => String(r[id]||'').replace(/\t/g,' ').replace(/\n/g,' ')).join('\t')).join('\n'); }
+function toCSV(list){ return fields.map(x=>`"${x[1]}"`).join(',')+'\n'+list.map(r=>fields.map(([id])=>`"${String(r[id]||'').replace(/"/g,'""')}"`).join(',')).join('\n'); }
+async function copyText(t){ await navigator.clipboard.writeText(t); status('Copied. Paste directly into Excel. The keyboard demon has been bypassed.'); }
+function renderRows(){
+  $('rowsTable').querySelector('thead').innerHTML = '<tr>'+fields.map(f=>'<th>'+f[1]+'</th>').join('')+'</tr>';
+  $('rowsTable').querySelector('tbody').innerHTML = rows.map(r=>'<tr>'+fields.map(([id])=>'<td>'+escapeHtml(r[id]||'')+'</td>').join('')+'</tr>').join('');
+}
+function escapeHtml(s){ return String(s).replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function parseText(text){
+  const raw = String(text||''); const low = raw.toLowerCase();
+  const numAfter = (keys) => { for(const k of keys){ const m = low.match(new RegExp(k+'\\s*[:#-]?\\s*([0-9]{3,})','i')); if(m) return normalizeNumber(m[1]); } };
+  set('tr', numAfter(['tr','t r','transaction']));
+  set('order', numAfter(['order','order no','order number']));
+  set('dfc', numAfter(['dfc','d f c']));
+  set('contact', numAfter(['contact','phone','mobile','number','customer contact']));
+  set('packets', numAfter(['packet','packets','no of packet','no of packets']));
+  const nameMatch = raw.match(/(?:name|customer|customer name)\s*[:#-]?\s*([a-zA-Z][a-zA-Z .]{2,40})/i);
+  if(nameMatch) set('name', nameMatch[1].replace(/\b(contact|phone|order|dfc|tr)\b.*$/i,'').trim());
+  if(/express|urgent/i.test(raw)) set('express','Yes');
+  if(/joining/i.test(raw)) set('joining','Yes');
+  if(/tie\s*back/i.test(raw)) set('tieback','Yes');
+  if(/eyelet/i.test(raw)) set('eyelets','Yes');
+  if(/blackout|b out|b-out/i.test(raw)) set('bout','Yes');
+  status('Parsed voice/OCR text. Check fields before Save Row, because machines also confidently make nonsense sometimes.');
+}
+function startVoice(){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR){ status('Speech recognition not supported in this browser. Use Chrome/Android. Humanity made standards and then ignored them.'); return; }
+  const rec = new SR(); window.askuttyRec = rec; rec.lang = 'en-IN'; rec.continuous = true; rec.interimResults = false;
+  rec.onstart = ()=>status('Listening... Speak like: TR 560331155, order 21840074850, DFC 63118, name Advait, contact 056...');
+  rec.onerror = e=>status('Voice error: '+e.error);
+  rec.onresult = e=>{ const text = Array.from(e.results).slice(e.resultIndex).map(r=>r[0].transcript).join(' '); status('Heard: '+text); parseText(text); };
+  rec.start();
+}
+$('micBtn').onclick = startVoice;
+$('stopMicBtn').onclick = ()=>{ try{ window.askuttyRec && window.askuttyRec.stop(); status('Voice stopped.'); }catch{} };
+$('saveBtn').onclick = ()=>{ rows.push(currentRow()); saveRows(); clearForm(); status('Saved row locally.'); };
+$('copyBtn').onclick = ()=>copyText(toTSV([currentRow()]));
+$('copyAllBtn').onclick = ()=>copyText(toTSV(rows));
+$('csvBtn').onclick = ()=>{ const blob = new Blob([toCSV(rows.length?rows:[currentRow()])], {type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='askutty-work-assistant.csv'; a.click(); URL.revokeObjectURL(a.href); };
+$('clearBtn').onclick = clearForm;
+$('deleteAllBtn').onclick = ()=>{ if(confirm('Delete all saved rows?')){ rows=[]; saveRows(); } };
+$('imageInput').onchange = e=>{ const f=e.target.files[0]; if(!f)return; const url=URL.createObjectURL(f); $('preview').src=url; $('preview').style.display='block'; status('Image loaded. Press Read Image Text.'); };
+$('ocrBtn').onclick = async()=>{
+  const f=$('imageInput').files[0]; if(!f){status('Select/capture an image first.');return;}
+  if(!window.Tesseract){status('OCR library not loaded. Internet needed for this static version.');return;}
+  status('OCR reading... wait. OCR is useful, not magic.');
+  const res = await Tesseract.recognize(f, 'eng', { logger:m=>{ if(m.status) status('OCR: '+m.status+' '+Math.round((m.progress||0)*100)+'%'); }});
+  $('ocrText').value = res.data.text || '';
+  status('OCR done. Check text, then Try Fill From OCR.');
+};
+$('useOcrBtn').onclick = ()=>parseText($('ocrText').value);
+renderRows();
+</script>
+</body>
+</html>
