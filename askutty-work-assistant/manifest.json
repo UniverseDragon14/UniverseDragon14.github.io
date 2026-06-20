@@ -1,0 +1,10 @@
+{
+  "name": "Askutty Work Assistant",
+  "short_name": "Askutty Work",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#110806",
+  "theme_color": "#ff5a00",
+  "description": "Mobile voice, scan and Excel row assistant for Askutty work entries.",
+  "icons": []
+}
