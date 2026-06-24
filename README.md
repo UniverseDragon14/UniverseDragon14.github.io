@@ -11,6 +11,22 @@ Official public portfolio and GitHub Pages site for **Universal Dragon Aslam**.
 
 ---
 
+## Repo Roles
+
+Universal Dragon uses two important repositories. They should not be mixed.
+
+| Repository | Role |
+|---|---|
+| `UniverseDragon14.github.io` | Public website, portfolio, SEO files, proof pages, GitHub Pages |
+| `Universal-Dragon-Core` | QBIT NOVA engine, `.ud` source, CLI, tests, CI/CD, Termux/Windows launchers |
+
+Simple rule:
+
+**Website repo = show to world.**  
+**Core repo = build the brain.**
+
+---
+
 ## About
 
 Universal Dragon is Aslam's long-term technology project for practical AI systems, assistant-first control layers, robotics experiments, web tools, automation, and the QBIT NOVA language direction.
@@ -38,7 +54,7 @@ The deeper engine and language work continues in the Universal Dragon Core repos
 ## Live Pages
 
 - Home portfolio: `https://universedragon14.github.io/`
-- QBIT NOVA / NOVA QBIT proof page: `/nova-qbit-proof/`
+- QBIT NOVA proof page: `/nova-qbit-proof/`
 - UAE AI Developer page: `/uae-ai-developer/`
 - Askutty Work Assistant: `/askutty-work-assistant/`
 - Projects page: `/projects/`
@@ -53,7 +69,7 @@ The deeper engine and language work continues in the Universal Dragon Core repos
 - Google site verification
 - `robots.txt`
 - `sitemap.xml`
-- QBIT NOVA / NOVA QBIT proof links
+- QBIT NOVA proof links
 - Universal Dragon Aslam public identity
 
 ---
@@ -74,7 +90,7 @@ Askutty is the team identity around the Universal Dragon build path.
 
 ### Universal Dragon Core
 
-The core repository contains the working QBIT/NOVA language experiments, tests, CI workflows, Termux/Windows launchers, and engine work.
+The core repository contains the working QBIT NOVA language experiments, tests, CI workflows, Termux/Windows launchers, and engine work.
 
 ### Askutty Work Assistant
 
