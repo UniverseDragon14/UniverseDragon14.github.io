@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glow Beauty Salon & Spa | Abu Dhabi — Demo</title>
+  <meta name="description" content="Demo salon website by Universal Dragon Studio. Services, price list, WhatsApp booking." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{--bg:#fdf6f9;--ink:#3d2438;--rose:#c26a8d;--deep:#8e3b60;--gold:#c9a24b;--soft:#f7e3ec;--line:#ecd2de}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(175deg,#fdf6f9,#fbeef4 55%,#f7e3ec);color:var(--ink);line-height:1.65;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(100% - 24px,940px);margin:0 auto}
+    header{padding:14px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(253,246,249,.94);backdrop-filter:blur(10px);z-index:5}
+    .top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .logo{font-size:1.35rem;color:var(--deep);font-weight:300;letter-spacing:.28em;text-transform:uppercase}
+    .logo b{font-weight:700}
+    nav{display:flex;gap:16px;font-size:.9rem;color:var(--rose)}
+    nav a:hover{color:var(--deep)}
+    .hero{text-align:center;padding:60px 0 36px}
+    .hero .mark{font-size:3rem}
+    h1{font-size:clamp(1.9rem,5.5vw,3.2rem);font-weight:300;letter-spacing:.04em;margin:10px 0}
+    h1 b{color:var(--deep);font-weight:700}
+    .tag{color:#7c5a71;max-width:520px;margin:0 auto;font-size:1rem}
+    .cta{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:#25d366;color:#06301a;font-weight:700;padding:14px 26px;border-radius:999px}
+    .section{padding:30px 0 0}
+    h2{color:var(--deep);text-align:center;font-weight:300;letter-spacing:.24em;text-transform:uppercase;font-size:1.05rem;margin-bottom:18px}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .svc{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;text-align:center;box-shadow:0 8px 26px rgba(194,106,141,.10)}
+    .svc .ico{font-size:2.4rem}
+    .svc h3{font-weight:600;margin:8px 0 4px;color:var(--deep);font-size:1.02rem}
+    .svc p{color:#8b6a80;font-size:.88rem}
+    .svc .price{color:var(--gold);font-weight:700;margin-top:8px}
+    .strip{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:14px;text-align:center;color:#7c5a71;font-size:.92rem}
+    .strip b{display:block;color:var(--deep)}
+    footer{margin-top:38px;border-top:1px solid var(--line);padding:18px 0 28px;text-align:center;color:#a07d93;font-size:.85rem}
+    footer a{color:var(--deep);font-weight:700}
+    .demo-band{background:var(--deep);color:#fff;text-align:center;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:6px}
+    @media(max-width:740px){.services{grid-template-columns:1fr}.top,nav{justify-content:center}}
+  </style>
+</head>
+<body>
+  <div class="demo-band">Demo website — your salon can look like this in 3 days</div>
+  <header>
+    <div class="wrap top">
+      <div class="logo"><b>Glow</b> Salon</div>
+      <nav><a href="#services">Services</a><a href="#visit">Visit</a><a href="#book">Book</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div class="mark">✨</div>
+      <h1>You Deserve to <b>Glow</b></h1>
+      <p class="tag">Ladies beauty salon &amp; spa in Abu Dhabi. Hair, skin, nails and bridal styling — by certified specialists.</p>
+      <a class="cta" id="book" href="https://wa.me/971566383652?text=Demo%20booking%20test%20%E2%80%94%20Glow%20Salon" target="_blank" rel="noopener">💬 Book on WhatsApp</a>
+    </section>
+    <section class="section" id="services">
+      <h2>Services</h2>
+      <div class="services">
+        <div class="svc"><div class="ico">💇‍♀️</div><h3>Hair Studio</h3><p>Cut, color, keratin &amp; treatments.</p><div class="price">from AED 80</div></div>
+        <div class="svc"><div class="ico">💅</div><h3>Nails &amp; Spa</h3><p>Manicure, pedicure, gel art, relaxing spa.</p><div class="price">from AED 60</div></div>
+        <div class="svc"><div class="ico">👰</div><h3>Bridal Package</h3><p>Full bridal styling, makeup &amp; henna.</p><div class="price">from AED 450</div></div>
+      </div>
+      <div class="strip" id="visit">
+        <div><b>⏰ Open Daily</b>10am – 10pm</div>
+        <div><b>📍 Khalifa City</b>Abu Dhabi</div>
+        <div><b>⭐ 4.9 Rating</b>320+ happy clients</div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">Demo website by <a href="/hire.html">Universal Dragon Studio</a> — get yours from AED 90 🐉</div>
+  </footer>
+</body>
+</html>

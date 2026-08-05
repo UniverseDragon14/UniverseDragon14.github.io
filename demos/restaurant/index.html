@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spice Route Restaurant | Authentic Indian & Arabic Cuisine — Demo</title>
+  <meta name="description" content="Demo restaurant website by Universal Dragon Studio. Menu, WhatsApp ordering, location and hours." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{--bg:#140b06;--panel:#1f1109;--line:rgba(240,165,0,.28);--saff:#f0a500;--chili:#d62828;--cream:#fff3e0;--muted:#cfa97f}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Georgia,'Times New Roman',serif;background:radial-gradient(circle at 80% 0%,rgba(214,40,40,.18),transparent 40%),linear-gradient(170deg,#140b06,#1c0d05 60%,#241005);color:var(--cream);line-height:1.65;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(100% - 24px,980px);margin:0 auto}
+    header{padding:14px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(20,11,6,.92);backdrop-filter:blur(10px);z-index:5}
+    .top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .logo{font-size:1.3rem;letter-spacing:.12em;color:var(--saff);font-weight:700}
+    .logo small{display:block;font-size:.6rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase}
+    nav{display:flex;gap:14px;font-size:.9rem;color:var(--muted)}
+    nav a:hover{color:var(--saff)}
+    .hero{text-align:center;padding:64px 0 40px}
+    .hero .mark{font-size:3.4rem}
+    h1{font-size:clamp(2rem,6vw,3.6rem);letter-spacing:.06em;margin:8px 0 10px}
+    h1 em{color:var(--saff);font-style:normal}
+    .tag{color:var(--muted);font-size:1.05rem;max-width:560px;margin:0 auto}
+    .cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:#25d366;color:#06301a;font-family:Arial,sans-serif;font-weight:700;padding:14px 26px;border-radius:999px;font-size:1rem}
+    .cta.alt{background:transparent;border:1px solid var(--line);color:var(--saff)}
+    .section{padding:34px 0 0}
+    h2{color:var(--saff);letter-spacing:.14em;text-transform:uppercase;font-size:1.1rem;text-align:center;margin-bottom:18px}
+    .dishes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .dish{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center}
+    .dish .ico{font-size:2.6rem}
+    .dish h3{font-size:1.05rem;margin:8px 0 4px;color:var(--cream)}
+    .dish p{color:var(--muted);font-size:.9rem}
+    .dish .price{color:var(--saff);font-family:Arial,sans-serif;font-weight:700;margin-top:8px}
+    .info{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:0}
+    .box{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center;font-size:.95rem;color:var(--muted)}
+    .box b{color:var(--cream);display:block;margin-bottom:6px;letter-spacing:.08em}
+    footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 30px;text-align:center;color:var(--muted);font-size:.85rem;font-family:Arial,sans-serif}
+    footer a{color:var(--saff);font-weight:700}
+    .demo-band{background:var(--chili);color:#fff;text-align:center;font-family:Arial,sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:6px}
+    @media(max-width:760px){.dishes{grid-template-columns:1fr}.info{grid-template-columns:1fr}.top,nav{justify-content:center}}
+  </style>
+</head>
+<body>
+  <div class="demo-band">Demo website — your restaurant can look like this in 3 days</div>
+  <header>
+    <div class="wrap top">
+      <div class="logo">SPICE ROUTE<small>Restaurant &amp; Grill</small></div>
+      <nav><a href="#menu">Menu</a><a href="#visit">Visit</a><a href="#order">Order</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div class="mark">🍛</div>
+      <h1>Taste the <em>Spice Route</em></h1>
+      <p class="tag">Authentic Indian &amp; Arabic cuisine in the heart of Abu Dhabi. Fresh tandoor, slow-cooked curries, family recipes since 1998.</p>
+      <a class="cta" id="order" href="https://wa.me/971566383652?text=Demo%20order%20test%20%E2%80%94%20Spice%20Route%20Restaurant" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+    </section>
+    <section class="section" id="menu">
+      <h2>Signature Dishes</h2>
+      <div class="dishes">
+        <div class="dish"><div class="ico">🍗</div><h3>Tandoori Platter</h3><p>Charcoal-grilled chicken, smoky &amp; juicy, mint chutney.</p><div class="price">AED 38</div></div>
+        <div class="dish"><div class="ico">🍲</div><h3>Butter Chicken</h3><p>Slow-simmered tomato gravy, cream, fresh naan.</p><div class="price">AED 32</div></div>
+        <div class="dish"><div class="ico">🍚</div><h3>Royal Biryani</h3><p>Basmati, saffron, secret family masala. Friday special.</p><div class="price">AED 28</div></div>
+      </div>
+    </section>
+    <section class="section" id="visit">
+      <h2>Visit Us</h2>
+      <div class="info">
+        <div class="box"><b>⏰ Hours</b>Sat–Thu: 11am – 11pm<br/>Friday: 1pm – 12am</div>
+        <div class="box"><b>📍 Location</b>Electra Street, Abu Dhabi<br/><a href="#" style="color:var(--saff)">Open in Google Maps →</a></div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">Demo website by <a href="/hire.html">Universal Dragon Studio</a> — get yours from AED 90 🐉</div>
+  </footer>
+</body>
+</html>

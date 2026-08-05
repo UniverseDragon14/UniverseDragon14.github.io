@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desert Auto Garage | Car Service & Repair Abu Dhabi — Demo</title>
+  <meta name="description" content="Demo garage website by Universal Dragon Studio. Services, quick quote via WhatsApp, trust badges." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{--bg:#0d0f12;--panel:#171a1f;--line:rgba(255,196,0,.25);--amber:#ffc400;--steel:#9fb0c3;--ink:#eef3f8}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(165deg,#0d0f12,#12151a 60%,#171207);color:var(--ink);line-height:1.6;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(100% - 24px,980px);margin:0 auto}
+    header{padding:12px 0;border-bottom:2px solid var(--amber);position:sticky;top:0;background:rgba(13,15,18,.94);backdrop-filter:blur(10px);z-index:5}
+    .top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .logo{font-weight:800;font-size:1.2rem;letter-spacing:.06em;text-transform:uppercase}
+    .logo span{color:var(--amber)}
+    nav{display:flex;gap:14px;font-size:.9rem;color:var(--steel)}
+    nav a:hover{color:var(--amber)}
+    .hero{padding:56px 0 36px;text-align:center}
+    .hero .mark{font-size:3.2rem}
+    h1{font-size:clamp(1.9rem,6vw,3.4rem);font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin:8px 0 10px}
+    h1 span{color:var(--amber)}
+    .tag{color:var(--steel);max-width:560px;margin:0 auto;font-size:1rem}
+    .cta{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:#25d366;color:#06301a;font-weight:800;padding:14px 26px;border-radius:8px;font-size:1rem}
+    .cta.alt{background:var(--amber);color:#1a1200}
+    .ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .section{padding:30px 0 0}
+    h2{color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:1.05rem;text-align:center;margin-bottom:16px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .svc{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:12px;padding:18px}
+    .svc .ico{font-size:2.2rem}
+    .svc h3{margin:6px 0 4px;font-size:1rem;text-transform:uppercase;letter-spacing:.05em}
+    .svc p{color:var(--steel);font-size:.88rem}
+    .svc .price{color:var(--amber);font-weight:800;margin-top:8px;font-size:.95rem}
+    .badges{margin-top:26px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center;font-size:.9rem;color:var(--steel)}
+    .badges b{display:block;color:var(--ink);font-size:1.05rem}
+    footer{margin-top:36px;border-top:1px solid var(--line);padding:18px 0 28px;text-align:center;color:var(--steel);font-size:.85rem}
+    footer a{color:var(--amber);font-weight:700}
+    .demo-band{background:var(--amber);color:#1a1200;text-align:center;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:6px;font-weight:700}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}.top,nav{justify-content:center}}
+  </style>
+</head>
+<body>
+  <div class="demo-band">Demo website — your workshop can look like this in 3 days</div>
+  <header>
+    <div class="wrap top">
+      <div class="logo">Desert <span>Auto</span> Garage</div>
+      <nav><a href="#services">Services</a><a href="#why">Why Us</a><a href="#quote">Quote</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div class="mark">🔧</div>
+      <h1>Fast. Honest. <span>Fixed Right.</span></h1>
+      <p class="tag">Complete car service &amp; repair in Mussafah, Abu Dhabi. Free computer diagnosis with every service — send a photo, get a quote in minutes.</p>
+      <div class="ctas">
+        <a class="cta" id="quote" href="https://wa.me/971566383652?text=Demo%20quote%20test%20%E2%80%94%20Desert%20Auto%20Garage" target="_blank" rel="noopener">💬 Get Quick Quote</a>
+        <a class="cta alt" href="tel:+971566383652">📞 Call Now</a>
+      </div>
+    </section>
+    <section class="section" id="services">
+      <h2>Services</h2>
+      <div class="grid">
+        <div class="svc"><div class="ico">🛢️</div><h3>Full Service</h3><p>Oil, filters, fluids, 30-point check.</p><div class="price">from AED 149</div></div>
+        <div class="svc"><div class="ico">🖥️</div><h3>Diagnostics</h3><p>Computer scan, error codes, honest report.</p><div class="price">FREE with service</div></div>
+        <div class="svc"><div class="ico">❄️</div><h3>AC Repair</h3><p>Gas refill, compressor, cooling check.</p><div class="price">from AED 120</div></div>
+      </div>
+      <div class="badges" id="why">
+        <div><b>12+ yrs</b>Experience</div>
+        <div><b>Same Day</b>Most repairs</div>
+        <div><b>Warranty</b>On all work</div>
+        <div><b>Pickup</b>Available</div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">Demo website by <a href="/hire.html">Universal Dragon Studio</a> — get yours from AED 90 🐉</div>
+  </footer>
+</body>
+</html>
