@@ -1,0 +1,74 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://universaldragon.com/identity/#aslam",
+      "name": "Aslam",
+      "alternateName": [
+        "Universal Dragon Aslam",
+        "UniverseDragon14"
+      ],
+      "url": "https://universaldragon.com/identity/",
+      "image": "https://github.com/UniverseDragon14.png",
+      "sameAs": [
+        "https://github.com/UniverseDragon14",
+        "https://www.linkedin.com/in/aam-aslam-51777017b"
+      ],
+      "knowsAbout": [
+        "Artificial intelligence systems",
+        "Native programming language runtimes",
+        "Raspberry Pi",
+        "Robotics",
+        "Automation",
+        "Web development"
+      ],
+      "dateModified": "2026-09-04"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://universaldragon.com/#website",
+      "name": "Universal Dragon Aslam",
+      "alternateName": "Universal Dragon",
+      "url": "https://universaldragon.com/",
+      "creator": {
+        "@id": "https://universaldragon.com/identity/#aslam"
+      },
+      "description": "Official public engineering portfolio for Aslam's Universal Dragon technology project and its evidence-backed software work.",
+      "dateModified": "2026-09-04"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://universaldragon.com/#universal-dragon-project",
+      "name": "Universal Dragon",
+      "alternateName": "Universal Dragon Aslam",
+      "url": "https://universaldragon.com/",
+      "creator": {
+        "@id": "https://universaldragon.com/identity/#aslam"
+      },
+      "about": [
+        "Artificial intelligence systems",
+        "QBIT NOVA Native",
+        "Raspberry Pi",
+        "Robotics",
+        "Automation",
+        "Web software"
+      ],
+      "dateModified": "2026-09-04"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://universaldragon.com/nova-qbit-proof/#qbit-nova-native",
+      "name": "QBIT NOVA Native",
+      "alternateName": "QBIT NOVA",
+      "url": "https://universaldragon.com/nova-qbit-proof/",
+      "codeRepository": "https://github.com/UniverseDragon14/qbit-nova-native",
+      "programmingLanguage": "C",
+      "creator": {
+        "@id": "https://universaldragon.com/identity/#aslam"
+      },
+      "description": "Native C17 programming language and deterministic QBC/QVM runtime research preview using a software virtual QCPU and approval-first execution security.",
+      "dateModified": "2026-09-04"
+    }
+  ]
+}
