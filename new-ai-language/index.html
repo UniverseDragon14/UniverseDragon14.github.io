@@ -3,59 +3,123 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QBIT NOVA by Aslam | New Universal Dragon Language</title>
-  <meta name="description" content="QBIT NOVA is a new Universal Dragon language direction by Aslam, using .ud source, qbit state, guard logic, safe adapter output, Askutty Team and NovaKutty Brain identity." />
-  <meta name="keywords" content="QBIT NOVA, new AI language by Aslam, Universal Dragon language, NovaKutty Brain, Askutty Team, .ud language, qbit guard language" />
-  <meta property="og:title" content="QBIT NOVA | New Universal Dragon Language by Aslam" />
-  <meta property="og:description" content="A new Universal Dragon language direction using .ud source, qbit state and guard output." />
+  <meta name="theme-color" content="#ff5a00" />
+  <title>QBIT NOVA Native Programming Language | Universal Dragon Aslam</title>
+  <meta name="description" content="QBIT NOVA Native is Universal Dragon Aslam's native C17 language/runtime research project with deterministic QBC/QVM execution, .qn source examples, a software virtual QCPU and approval-first security." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+  <link rel="canonical" href="https://universaldragon.com/new-ai-language/" />
+  <meta property="og:site_name" content="Universal Dragon Aslam" />
+  <meta property="og:title" content="QBIT NOVA Native Programming Language | Universal Dragon Aslam" />
+  <meta property="og:description" content="Current overview of the QBIT NOVA Native C17 language/runtime research preview and its public evidence sources." />
   <meta property="og:image" content="https://github.com/UniverseDragon14.png" />
-  <link rel="canonical" href="https://universedragon14.github.io/new-ai-language/" />
+  <meta property="og:url" content="https://universaldragon.com/new-ai-language/" />
+  <meta property="og:type" content="article" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "@id": "https://universaldragon.com/nova-qbit-proof/#qbit-nova-native",
+    "name": "QBIT NOVA Native",
+    "alternateName": "QBIT NOVA",
+    "url": "https://universaldragon.com/new-ai-language/",
+    "codeRepository": "https://github.com/UniverseDragon14/qbit-nova-native",
+    "programmingLanguage": "C",
+    "creator": {
+      "@id": "https://universaldragon.com/identity/#aslam",
+      "@type": "Person",
+      "name": "Aslam",
+      "alternateName": "Universal Dragon Aslam"
+    },
+    "description": "Native C17 programming language and deterministic QBC/QVM runtime research preview using .qn source examples, a software virtual QCPU and approval-first execution security."
+  }
+  </script>
   <style>
-    :root{--bg:#080302;--card:#170805;--line:#74331a;--text:#fff4e9;--muted:#d7b59f;--fire:#ff6a1a;--gold:#ffd166;--cyan:#00ffd0}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#441407,#120504 58%,#050201);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}.wrap{max-width:980px;margin:auto;padding:22px}.hero{padding:38px 0}.card{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#1d0b06,#0d0403);padding:22px;margin:14px 0;box-shadow:0 12px 35px #0009}h1{font-size:clamp(2.2rem,8vw,5rem);line-height:1;margin:0 0 14px}h1 span{color:var(--fire)}h2{color:var(--gold);margin:0 0 10px}.muted{color:var(--muted)}.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:7px 12px;margin:5px 4px;background:#250d07;color:#ffd9be;font-weight:800}.btn{display:inline-flex;text-decoration:none;color:#170603;background:linear-gradient(135deg,var(--gold),var(--fire));font-weight:900;border-radius:14px;padding:12px 16px;margin:6px 8px 6px 0}pre{white-space:pre-wrap;background:#060201;border:1px solid #4b1b0d;border-radius:16px;padding:14px;overflow:auto;color:#fff9f2}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}li{margin:5px 0;color:var(--muted)}@media(max-width:720px){.grid{grid-template-columns:1fr}.wrap{padding:14px}}
+    :root{--bg:#080302;--card:#170805;--line:#74331a;--text:#fff4e9;--muted:#d7b59f;--fire:#ff6a1a;--gold:#ffd166;--cyan:#00ffd0}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#441407,#120504 58%,#050201);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}.wrap{max-width:980px;margin:auto;padding:22px}.hero{padding:38px 0}.card{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#1d0b06,#0d0403);padding:22px;margin:14px 0;box-shadow:0 12px 35px #0009}.featured{border-color:rgba(0,255,208,.45)}h1{font-size:clamp(2.2rem,8vw,5rem);line-height:1;margin:0 0 14px}h1 span{color:var(--fire)}h2{color:var(--gold);margin:0 0 10px}.muted,p,li{color:var(--muted)}.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:7px 12px;margin:5px 4px;background:#250d07;color:#ffd9be;font-weight:800}.btn{display:inline-flex;text-decoration:none;color:#170603;background:linear-gradient(135deg,var(--gold),var(--fire));font-weight:900;border-radius:14px;padding:12px 16px;margin:6px 8px 6px 0}.btn.secondary{background:#25100a;color:var(--text);border:1px solid var(--line)}pre{white-space:pre-wrap;background:#060201;border:1px solid #4b1b0d;border-radius:16px;padding:14px;overflow:auto;color:#fff9f2}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.truth{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.truth div{background:#060201;border:1px solid #4b1b0d;border-radius:14px;padding:12px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.truth strong{display:block;color:var(--cyan);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}li{margin:5px 0}@media(max-width:720px){.grid,.truth{grid-template-columns:1fr}.wrap{padding:14px}.btn{width:100%;justify-content:center}}
   </style>
 </head>
 <body>
   <main class="wrap">
     <section class="hero">
       <span class="badge">Universal Dragon Aslam</span>
-      <span class="badge">QBIT NOVA Language</span>
-      <span class="badge">Team: Askutty</span>
-      <span class="badge">Brain: NovaKutty</span>
-      <span class="badge">Source: .ud</span>
-      <h1>New Universal Dragon Language: <span>QBIT NOVA</span></h1>
-      <p class="muted">QBIT NOVA is a new Universal Dragon language direction by Aslam. It is designed as a brain-first language layer for controlled actions, safety guards, qbit state, adapter output, and real system workflows.</p>
-      <a class="btn" href="/nova-qbit-proof/">Open QBIT NOVA Proof</a>
-      <a class="btn" href="https://github.com/UniverseDragon14/Universal-Dragon-Core" target="_blank" rel="noopener">Open Universal Dragon Core</a>
+      <span class="badge">QBIT NOVA Native</span>
+      <span class="badge">Native C17</span>
+      <span class="badge">Source examples: .qn</span>
+      <span class="badge">Research Preview</span>
+      <h1>QBIT NOVA <span>Native</span></h1>
+      <p class="muted">QBIT NOVA Native is the current public language/runtime research project in the Universal Dragon ecosystem. It is implemented in native C17 and combines deterministic compilation, QBC bytecode, QVM execution, software state-vector simulation and approval-first security.</p>
+      <a class="btn" href="https://github.com/UniverseDragon14/qbit-nova-native" target="_blank" rel="noopener">Open Current Repository</a>
+      <a class="btn secondary" href="/nova-qbit-proof/">Open Evidence Page</a>
     </section>
 
-    <section class="card">
-      <h2>What makes QBIT NOVA different?</h2>
-      <p class="muted">The focus is not only normal code execution. QBIT NOVA uses qbit-style state, simulation, observation, guard output, and adapter actions before an external runtime executes anything.</p>
-      <pre>nova universal_dragon
-creator aslam
-team askutty
-brain novakutty
-
-qbit adapter_action = |0>
-simulate adapter_action {
-  when 0 => "CALL_SAFE_REPLY"
-  when 1 => "OWNER_APPROVAL_REQUIRED"
-}
-observe adapter_action
-guard adapter_action {
-  when 0 => say "NODE_ACTION:CALL_SAFE_REPLY"
-}</pre>
+    <section class="card featured">
+      <h2>What QBIT NOVA Native is</h2>
+      <p>It is a programming-language/runtime research preview. Source examples currently use the <code>.qn</code> extension. The native pipeline covers deterministic lexing and parsing, typed intermediate representation, QBC bytecode, QVM execution and security controls around sensitive actions.</p>
+      <pre>QBIT NOVA source (.qn)
+→ deterministic lexer
+→ parser
+→ typed AST / typed QIR
+→ QBC bytecode
+→ QVM
+→ capability guard
+→ authenticated approval
+→ trusted issuer
+→ replay protection
+→ bounded execution
+→ evidence receipt</pre>
     </section>
 
     <section class="grid">
-      <div class="card"><h2>Language parts</h2><ul><li>Universal Dragon source identity</li><li>Aslam creator identity</li><li>Askutty team identity</li><li>NovaKutty brain identity</li><li>qbit decision register</li><li>guard safety output</li><li>.ud source direction</li></ul></div>
-      <div class="card"><h2>Current proof</h2><ul><li>GitHub tag: qbit-nova-v1.4.0-dev-green</li><li>QBIT NOVA `.ud` run verified</li><li>CI/CD green snapshot</li><li>Public verification roadmap started</li><li>Universal Dragon Core separated from public website repo</li></ul></div>
+      <div class="card">
+        <h2>Runtime direction</h2>
+        <ul>
+          <li>Native C17 implementation</li>
+          <li>Deterministic QBC/QVM runtime</li>
+          <li>Software state-vector simulation</li>
+          <li>Reproducible execution results and receipts</li>
+          <li>No Python runtime dependency in the current truth boundary</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Security direction</h2>
+        <ul>
+          <li>Deny-by-default capability guard</li>
+          <li>OpenSSL Ed25519 signed approvals</li>
+          <li>Trusted issuer checks</li>
+          <li>Persistent replay ledger</li>
+          <li>Token and issuer revocation lookup foundation</li>
+          <li>Revocation execution wiring remains pending</li>
+        </ul>
+      </div>
     </section>
 
     <section class="card">
-      <h2>Search terms this page targets</h2>
-      <p class="muted">QBIT NOVA Language, new Universal Dragon language by Aslam, NovaKutty Brain, Askutty Team, QBIT decision language, Universal Dragon Aslam, .ud language.</p>
-      <p class="muted">Generic searches like “best new language” are extremely competitive. The realistic SEO target is the unique phrase: <b>QBIT NOVA Language</b> and <b>Universal Dragon Aslam</b>.</p>
+      <h2>Research boundary</h2>
+      <div class="truth">
+        <div><strong>physical_qpu</strong>false</div>
+        <div><strong>runtime</strong>software_virtual_qcpu</div>
+        <div><strong>python_dependency</strong>false</div>
+        <div><strong>release_class</strong>research_preview</div>
+      </div>
+      <p>QBIT NOVA Native does not claim that a Raspberry Pi, phone or ordinary classical computer becomes physical quantum hardware.</p>
+    </section>
+
+    <section class="card">
+      <h2>Evidence and branch discipline</h2>
+      <p>The public README is the current source of truth. Development-branch evidence may demonstrate later work that is not yet present on public <code>main</code>; those boundaries are kept explicit rather than merged into one oversized claim.</p>
+      <a class="btn" href="https://github.com/UniverseDragon14/qbit-nova-native/blob/main/README.md" target="_blank" rel="noopener">Read Current Truth Boundary</a>
+      <a class="btn secondary" href="https://github.com/UniverseDragon14/qbit-nova-native/blob/main/docs/proofs/PI5_GHZ3_200K_20260825.md" target="_blank" rel="noopener">Pi 5 Evidence</a>
+    </section>
+
+    <section class="card">
+      <h2>Earlier lineage</h2>
+      <p>Earlier Universal Dragon language work used the <code>.ud</code> source direction and the <strong>Universal-Dragon-Core</strong> repository. That work remains useful historical lineage, but the current public project described on this page is <strong>QBIT NOVA Native</strong> in <strong>qbit-nova-native</strong>.</p>
+      <a class="btn secondary" href="https://github.com/UniverseDragon14/Universal-Dragon-Core" target="_blank" rel="noopener">Earlier Universal Dragon Core</a>
+    </section>
+
+    <section class="card">
+      <h2>Canonical identity</h2>
+      <p>QBIT NOVA Native is part of the Universal Dragon technology project created by Aslam. The canonical entity relationship is documented on the official identity page.</p>
+      <a class="btn secondary" href="/identity/">Universal Dragon Aslam Identity</a>
     </section>
   </main>
 </body>

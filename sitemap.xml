@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://universaldragon.com/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://universaldragon.com/identity/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.99</priority>
   </url>
   <url>
     <loc>https://universaldragon.com/new-ai-language/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.99</priority>
   </url>
   <url>
     <loc>https://universaldragon.com/nova-qbit-proof/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.98</priority>
   </url>
   <url>
-    <loc>https://universaldragon.com/askutty-work-assistant/</loc>
-    <lastmod>2026-06-24</lastmod>
-    <priority>0.94</priority>
-  </url>
-  <url>
     <loc>https://universaldragon.com/uae-ai-developer/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://universaldragon.com/projects/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <priority>0.94</priority>
+  </url>
+  <url>
+    <loc>https://universaldragon.com/askutty-work-assistant/</loc>
     <lastmod>2026-06-24</lastmod>
-    <priority>0.92</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://universaldragon.com/nova-chat/</loc>
     <lastmod>2026-06-24</lastmod>
-    <priority>0.90</priority>
+    <priority>0.86</priority>
   </url>
   <url>
     <loc>https://universaldragon.com/eve-chat/</loc>
     <lastmod>2026-06-24</lastmod>
-    <priority>0.90</priority>
+    <priority>0.86</priority>
   </url>
 </urlset>
