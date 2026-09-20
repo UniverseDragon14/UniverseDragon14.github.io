@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#ff5a00" />
   <title>QBIT NOVA Native Research Proof | Universal Dragon Aslam</title>
-  <meta name="description" content="Current public proof page for QBIT NOVA Native by Universal Dragon Aslam: native C17, deterministic QBC/QVM, software virtual QCPU, approval-first security and Raspberry Pi evidence." />
+  <meta name="description" content="Current public proof page for QBIT NOVA Native by Universal Dragon Aslam: native C17, deterministic QBC/QVM, a Raspberry Pi 5 200,000-shot GHZ software-simulation proof, and separate real V3D Vulkan GPU compute evidence." />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
   <link rel="canonical" href="https://universaldragon.com/nova-qbit-proof/" />
   <meta property="og:site_name" content="Universal Dragon Aslam" />
@@ -30,7 +30,7 @@
       "name": "Aslam",
       "alternateName": "Universal Dragon Aslam"
     },
-    "description": "Native C17 programming language and deterministic QBC/QVM runtime research preview using a software virtual QCPU and approval-first execution security."
+    "description": "Native C17 programming language and deterministic QBC/QVM runtime research preview using a software virtual QCPU and approval-first execution security, with separate Raspberry Pi 5 200,000-shot GHZ CPU evidence and V3D Vulkan bounded-compute evidence."
   }
   </script>
   <style>
@@ -62,6 +62,8 @@
     <div class="truth">
       <div><strong>physical_qpu</strong>false</div>
       <div><strong>runtime</strong>software_virtual_qcpu</div>
+      <div><strong>ghz_200k_backend</strong>cpu</div>
+      <div><strong>gpu_evidence</strong>V3D Vulkan bounded compute</div>
       <div><strong>python_dependency</strong>false</div>
       <div><strong>release_class</strong>research_preview</div>
     </div>
@@ -117,8 +119,11 @@
 
   <section class="card featured">
     <h2>Raspberry Pi 5 evidence</h2>
-    <p>The public proof record documents a GHZ3 200,000-shot Raspberry Pi 5 run with exact source/QBC histogram agreement on the referenced V10 Guardian development branch. The evidence document also records the exact source identity and distinguishes that evidence branch from the public main branch.</p>
-    <a class="btn" href="https://github.com/UniverseDragon14/qbit-nova-native/blob/main/docs/proofs/PI5_GHZ3_200K_20260825.md" target="_blank" rel="noopener">Open Pi 5 GHZ3 Evidence</a>
+    <p><strong>200,000-shot GHZ proof:</strong> the recorded software virtual-QCPU run used the CPU backend. Source execution and deterministic QBC execution matched exactly: <code>|000&gt;=100198</code>, <code>|111&gt;=99802</code>, with zero invalid states.</p>
+    <p><strong>Real V3D GPU compute proof:</strong> a separate bounded compute record selected <code>V3D 7.1.7.0</code> through Vulkan, completed a 256-element <code>u32</code> vector operation on the GPU, used no CPU fallback, and matched the CPU reference result.</p>
+    <p class="warn">These are separate evidence records. The 200,000-shot GHZ simulation did not run on the GPU, and neither record is a physical-QPU or quantum-speedup claim.</p>
+    <a class="btn" href="https://github.com/UniverseDragon14/qbit-nova-native/blob/main/docs/proofs/PI5_GHZ3_200K_20260825.md" target="_blank" rel="noopener">Open 200k GHZ Proof</a>
+    <a class="btn secondary" href="https://github.com/UniverseDragon14/qbit-nova-native/blob/main/docs/proofs/PI5_V3D_GPU_COMPUTE_20260814.md" target="_blank" rel="noopener">Open V3D GPU Proof</a>
   </section>
 
   <section class="card">
